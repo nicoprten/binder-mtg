@@ -1,6 +1,7 @@
 import type { Card } from '../types'
 import { FinishBadge } from './FinishBadge'
 import { formatUsd } from '../format'
+import { StatusBadge } from './StatusBadge'
 
 interface Props {
   card: Card
@@ -19,6 +20,9 @@ export function CardTile({ card, badge, selected, onClick }: Props) {
         title={card.name}
       >
         <img src={card.image} alt={card.name} loading="lazy" />
+        <span className="card-status">
+          <StatusBadge status={card.status} size="sm" />
+        </span>
         {badge && <span className="card-badge">{badge}</span>}
       </button>
       <div className="card-slot-meta">

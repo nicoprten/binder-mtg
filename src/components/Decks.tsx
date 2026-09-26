@@ -6,6 +6,7 @@ import { CardTile } from './CardTile'
 import { FinishBadge } from './FinishBadge'
 import { ManaCost } from './ManaCost'
 import { formatUsd } from '../format'
+import { StatusBadge } from './StatusBadge'
 
 export function Decks() {
   const { decks, createDeck, updateDeck, deleteDeck, setCardQuantity } = useDecks()
@@ -152,11 +153,12 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
                     <span className="name">{card.name}</span>
                     <ManaCost cost={card.manaCost} />
                     <FinishBadge finish={card.finish} size="sm" />
+                    {card.status !== 'in-stock' && <StatusBadge status={card.status} size="sm" />}
                     {card.priceUsd !== undefined && (
                       <span className="price">{formatUsd(card.priceUsd * quantity)}</span>
                     )}
                     {over && (
-                      <span className="warn" title="You own fewer copies in the binder">
+                      <span className="warn" title="Fewer copies in the binder">
                         binder: {card.quantity}
                       </span>
                     )}

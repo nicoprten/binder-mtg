@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react'
 import { cards } from '../data'
-import type { Card, Color, Finish } from '../types'
+import type { Card, CardStatus, Color, Finish } from '../types'
 import { CardTile } from './CardTile'
 import { CardDetail } from './CardDetail'
 import { formatUsd } from '../format'
+import { STATUSES, STATUS_LABEL } from '../status'
 
 const COLORS: { key: Color; label: string }[] = [
   { key: 'W', label: 'White' },
@@ -23,6 +24,7 @@ export function Binder() {
   const [query, setQuery] = useState('')
   const [color, setColor] = useState<Color | ''>('')
   const [finish, setFinish] = useState<Finish | ''>('')
+  const [status, setStatus] = useState<CardStatus | ''>('')
   const [selectedId, setSelectedId] = useState<string | null>(cards[0]?.id ?? null)
 
   const filtered = useMemo(() => {
@@ -30,6 +32,7 @@ export function Binder() {
     return cards.filter((c) => {
       if (color && !c.colors.includes(color)) return false
       if (finish && (c.finish ?? 'nonfoil') !== finish) return false
+      if (status && c.status !== status) return false
       if (!q) return true
       return (
         c.name.toLowerCase().includes(q) ||
@@ -38,11 +41,12 @@ export function Binder() {
         c.tags?.some((t) => t.toLowerCase().includes(q))
       )
     })
-  }, [query, color, finish])
+  }, [query, color, finish, status])
 
   const selected: Card | undefined = cards.find((c) => c.id === selectedId)
-  const total = cards.reduce((n, c) => n + c.quantity, 0)
-  const value = cards.reduce((n, c) => n + (c.priceUsd ?? 0) * c.quantity, 0)
+  const owned = cards.filter((c) => c.status === 'in-stock')
+  const ownedCopies = owned.reduce((n, c) => n + c.quantity, 0)
+  const ownedValue = owned.reduce((n, c) => n + (c.priceUsd ?? 0) * c.quantity, 0)
 
   return (
     <section className="binder">
@@ -62,6 +66,14 @@ export function Binder() {
               </option>
             ))}
           </select>
+          <select value={status} onChange={(e) => setStatus(e.target.value as CardStatus | '')}>
+            <option value="">All statuses</option>
+            {STATUSES.map((st) => (
+              <option key={st} value={st}>
+                {STATUS_LABEL[st]}
+              </option>
+            ))}
+          </select>
           <select value={finish} onChange={(e) => setFinish(e.target.value as Finish | '')}>
             <option value="">All finishes</option>
             {FINISHES.map((f) => (
@@ -71,7 +83,8 @@ export function Binder() {
             ))}
           </select>
           <span className="count">
-            {filtered.length} of {cards.length} cards · {total} copies · <span className="price">{formatUsd(value)}</span>
+            {filtered.length} of {cards.length} cards · {ownedCopies} in stock ·{' '}
+            <span className="price">{formatUsd(ownedValue)}</span>
           </span>
         </div>
         {filtered.length === 0 ? (

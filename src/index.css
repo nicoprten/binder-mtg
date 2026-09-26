@@ -303,6 +303,49 @@ main {
   color: var(--muted);
 }
 
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--status);
+  background: color-mix(in srgb, var(--status) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--status) 55%, transparent);
+  white-space: nowrap;
+}
+
+.status-badge.status-sm {
+  padding: 0.05rem 0.45rem;
+  font-size: 0.65rem;
+}
+
+.status-in-stock {
+  --status: #e3b64a;
+}
+
+.status-to-pick-up {
+  --status: #5b9dff;
+}
+
+.status-wishlist {
+  --status: #b57bff;
+}
+
+.card-status {
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+}
+
+.card-status .status-badge {
+  background: color-mix(in srgb, var(--status) 22%, rgba(0, 0, 0, 0.85));
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
 /* Finish badges */
 @keyframes foil-shimmer {
   0% {
