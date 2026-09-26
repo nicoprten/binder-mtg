@@ -383,7 +383,7 @@
     "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 0.38,
+    "priceUsd": 0.5,
     "priceArs": 600,
     "tags": [
       "borderless"
@@ -408,7 +408,7 @@
     "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 0.79,
+    "priceUsd": 1,
     "priceArs": 1250,
     "tags": [
       "orcs",
@@ -463,7 +463,7 @@
     "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 0.79,
+    "priceUsd": 1,
     "priceArs": 1250,
     "tags": [
       "orcs",
@@ -491,7 +491,7 @@
     "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 0.38,
+    "priceUsd": 0.5,
     "priceArs": 600,
     "tags": [
       "goblins",
@@ -550,7 +550,7 @@
     "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 0.38,
+    "priceUsd": 0.5,
     "priceArs": 600,
     "tags": [
       "goblins",
@@ -578,7 +578,7 @@
     "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 0.38,
+    "priceUsd": 0.5,
     "priceArs": 600,
     "tags": [
       "removal",
@@ -660,7 +660,7 @@
     "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 0.79,
+    "priceUsd": 1,
     "priceArs": 1250,
     "tags": [
       "orcs",
@@ -689,7 +689,7 @@
     "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 0.38,
+    "priceUsd": 0.5,
     "priceArs": 600,
     "tags": [
       "borderless"
@@ -717,7 +717,7 @@
     "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 0.38,
+    "priceUsd": 0.5,
     "priceArs": 600,
     "tags": [
       "tokens",
