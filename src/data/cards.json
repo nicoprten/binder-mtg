@@ -155,5 +155,31 @@
       "goblins",
       "tokens"
     ]
+  },
+  {
+    "id": "m13-138",
+    "name": "Krenko, Mob Boss",
+    "set": "M13",
+    "collectorNumber": "138",
+    "manaCost": "{2}{R}{R}",
+    "cmc": 4,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Legendary Creature — Goblin Warrior",
+    "oracleText": "{T}: Put X 1/1 red Goblin creature tokens onto the battlefield, where X is the number of Goblins you control.",
+    "power": "3",
+    "toughness": "3",
+    "rarity": "rare",
+    "artist": "Karl Kopinski",
+    "image": "cards/m13-138-krenko-mob-boss.webp",
+    "quantity": 1,
+    "status": "wishlist",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
   }
 ]
