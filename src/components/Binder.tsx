@@ -59,9 +59,16 @@ export function Binder() {
 
   function toggleColor(key: ColorKey) {
     setColors((prev) => {
-      const next = new Set(prev)
-      if (next.has(key)) next.delete(key)
-      else next.add(key)
+      if (prev.has(key)) {
+        const next = new Set(prev)
+        next.delete(key)
+        return next
+      }
+      // A card cannot be colorless and colored at once, so colorless clears the colors and vice versa.
+      if (key === 'C') return new Set<ColorKey>(['C'])
+      const next = new Set<ColorKey>(prev)
+      next.delete('C')
+      next.add(key)
       return next
     })
   }
