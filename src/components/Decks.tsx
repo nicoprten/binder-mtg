@@ -5,6 +5,7 @@ import { useDecks } from '../hooks/useDecks'
 import { CardTile } from './CardTile'
 import { FinishBadge } from './FinishBadge'
 import { ManaCost } from './ManaCost'
+import { formatUsd } from '../format'
 
 export function Decks() {
   const { decks, createDeck, updateDeck, deleteDeck, setCardQuantity } = useDecks()
@@ -96,6 +97,7 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
     [deck.cards],
   )
   const total = entries.reduce((s, e) => s + e.quantity, 0)
+  const value = entries.reduce((s, e) => s + (e.card.priceUsd ?? 0) * e.quantity, 0)
   const inDeck = new Map(deck.cards.map((e) => [e.cardId, e.quantity]))
 
   const available = useMemo(() => {
@@ -116,7 +118,9 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
           value={deck.name}
           onChange={(e) => onRename(e.target.value)}
         />
-        <span className="count">{total} cards</span>
+        <span className="count">
+          {total} cards · <span className="price">{formatUsd(value)}</span>
+        </span>
         <button type="button" onClick={exportText} disabled={entries.length === 0}>
           Copy list
         </button>
@@ -148,6 +152,9 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
                     <span className="name">{card.name}</span>
                     <ManaCost cost={card.manaCost} />
                     <FinishBadge finish={card.finish} size="sm" />
+                    {card.priceUsd !== undefined && (
+                      <span className="price">{formatUsd(card.priceUsd * quantity)}</span>
+                    )}
                     {over && (
                       <span className="warn" title="You own fewer copies in the binder">
                         binder: {card.quantity}

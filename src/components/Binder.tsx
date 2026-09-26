@@ -3,6 +3,7 @@ import { cards } from '../data'
 import type { Card, Color, Finish } from '../types'
 import { CardTile } from './CardTile'
 import { CardDetail } from './CardDetail'
+import { formatUsd } from '../format'
 
 const COLORS: { key: Color; label: string }[] = [
   { key: 'W', label: 'White' },
@@ -41,6 +42,7 @@ export function Binder() {
 
   const selected: Card | undefined = cards.find((c) => c.id === selectedId)
   const total = cards.reduce((n, c) => n + c.quantity, 0)
+  const value = cards.reduce((n, c) => n + (c.priceUsd ?? 0) * c.quantity, 0)
 
   return (
     <section className="binder">
@@ -69,7 +71,7 @@ export function Binder() {
             ))}
           </select>
           <span className="count">
-            {filtered.length} of {cards.length} cards · {total} copies
+            {filtered.length} of {cards.length} cards · {total} copies · <span className="price">{formatUsd(value)}</span>
           </span>
         </div>
         {filtered.length === 0 ? (

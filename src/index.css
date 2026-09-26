@@ -154,6 +154,22 @@ main {
   width: 100%;
 }
 
+.card-slot-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 1.4rem;
+}
+
+.price {
+  color: #7fd0a0;
+  font-variant-numeric: tabular-nums;
+}
+
+.muted {
+  color: var(--muted);
+}
+
 .card-tile {
   position: relative;
   padding: 0;

@@ -18,7 +18,7 @@ npm run dev
 
 1. Save the card image in `public/cards/` as `<set>-<number>-<name>.jpg` (or `.webp`) and reference it as `cards/<file>` without a leading slash.
 2. Add an entry to `src/data/cards.json` following the `Card` type in `src/types.ts`. The `id` is `<set>-<number>` in lowercase.
-3. Set `finish` to `nonfoil`, `foil` or `surge-foil`.
+3. Set `finish` to `nonfoil`, `foil` or `surge-foil`, and `priceUsd` to the market price of one copy.
 4. If you own more than one copy, raise `quantity`.
 
 ## Scripts

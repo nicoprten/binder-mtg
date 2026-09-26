@@ -1,6 +1,7 @@
 import type { Card } from '../types'
 import { FinishBadge } from './FinishBadge'
 import { ManaCost } from './ManaCost'
+import { formatUsd } from '../format'
 
 const RARITY_LABEL: Record<Card['rarity'], string> = {
   common: 'Common',
@@ -43,8 +44,15 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
           <dd>{card.finish && card.finish !== 'nonfoil' ? <FinishBadge finish={card.finish} size="sm" /> : 'Nonfoil'}</dd>
           <dt>Artist</dt>
           <dd>{card.artist}</dd>
+          <dt>Price</dt>
+          <dd className="price">{card.priceUsd !== undefined ? formatUsd(card.priceUsd) : '—'}</dd>
           <dt>In binder</dt>
-          <dd>{card.quantity}</dd>
+          <dd>
+            {card.quantity}
+            {card.priceUsd !== undefined && card.quantity > 1 && (
+              <span className="muted"> · {formatUsd(card.priceUsd * card.quantity)} total</span>
+            )}
+          </dd>
         </dl>
         {card.tags && card.tags.length > 0 && (
           <ul className="tags">

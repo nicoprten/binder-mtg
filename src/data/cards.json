@@ -18,6 +18,7 @@
     "image": "cards/hoc-0019-orcish-bowmasters.jpg",
     "quantity": 1,
     "finish": "nonfoil",
+    "priceUsd": 81,
     "tags": [
       "orcs",
       "borderless"
@@ -43,6 +44,7 @@
     "image": "cards/hob-0201-the-great-goblin.webp",
     "quantity": 1,
     "finish": "foil",
+    "priceUsd": 10,
     "tags": [
       "goblins",
       "orcs",

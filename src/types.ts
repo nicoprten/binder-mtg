@@ -26,6 +26,8 @@ export interface Card {
   /** Number of physical copies in the binder. */
   quantity: number
   finish?: Finish
+  /** Market price of one copy, in USD. */
+  priceUsd?: number
   tags?: string[]
 }
 
