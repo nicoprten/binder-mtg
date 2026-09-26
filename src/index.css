@@ -458,6 +458,14 @@ main {
 .mana-g {
   background: #a3c9a3;
 }
+.mana-tap {
+  background: #e4e0d8;
+}
+
+.oracle .mana {
+  vertical-align: -0.1em;
+  margin: 0 0.05em;
+}
 
 /* Decks */
 .decks {

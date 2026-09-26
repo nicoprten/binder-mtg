@@ -1,6 +1,6 @@
 import type { Card } from '../types'
 import { FinishBadge } from './FinishBadge'
-import { ManaCost } from './ManaCost'
+import { ManaCost, OracleLine } from './ManaCost'
 import { formatUsd } from '../format'
 import { StatusBadge } from './StatusBadge'
 import { LANGUAGE_LABEL } from '../language'
@@ -25,7 +25,7 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
         <p className="oracle">
           {card.oracleText.split('\n').map((line, i) => (
             <span key={i}>
-              {line}
+              <OracleLine text={line} />
               <br />
             </span>
           ))}
