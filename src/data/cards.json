@@ -54,5 +54,28 @@
       "orcs",
       "borderless"
     ]
+  },
+  {
+    "id": "slc-0019",
+    "name": "Sol Ring",
+    "set": "SLC",
+    "collectorNumber": "0019",
+    "manaCost": "{1}",
+    "cmc": 1,
+    "colors": [],
+    "typeLine": "Artifact",
+    "oracleText": "{T}: Add {C}{C}.",
+    "rarity": "rare",
+    "artist": "Souther Salazar",
+    "image": "cards/slc-0019-sol-ring.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 16,
+    "tags": [
+      "ramp",
+      "borderless"
+    ]
   }
 ]
