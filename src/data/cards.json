@@ -469,5 +469,149 @@
       "orcs",
       "goblins"
     ]
+  },
+  {
+    "id": "hob-0105",
+    "name": "Misty Mountains Raider",
+    "set": "HOB",
+    "collectorNumber": "0105",
+    "manaCost": "{4}{R}",
+    "cmc": 5,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Creature — Goblin Soldier",
+    "oracleText": "Whenever you attack, amass Goblins 2. (Put two +1/+1 counters on an Army you control. It's also a Goblin. If you don't control an Army, create a 0/0 black Goblin Army creature token first.)",
+    "power": "4",
+    "toughness": "4",
+    "rarity": "uncommon",
+    "artist": "Tomas Duchek",
+    "image": "cards/hob-0105-misty-mountains-raider.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.38,
+    "priceArs": 600,
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "hob-0223",
+    "name": "Great Ugly-Looking Goblin // Clap! Snap!",
+    "set": "HOB",
+    "collectorNumber": "0223",
+    "manaCost": "{5}{B}",
+    "cmc": 6,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Creature — Goblin Soldier",
+    "oracleText": "Each creature you control with a +1/+1 counter on it has menace.\n—\nClap! Snap! {1}{B} — Sorcery — Adventure\nAmass Goblins 2.",
+    "power": "4",
+    "toughness": "4",
+    "rarity": "uncommon",
+    "artist": "Andrea Radeck",
+    "image": "cards/hob-0223-great-ugly-looking-goblin.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "foil",
+    "priceUsd": 0.5,
+    "priceArs": 800,
+    "tags": [
+      "goblins",
+      "tokens",
+      "showcase",
+      "adventure"
+    ]
+  },
+  {
+    "id": "hob-0156",
+    "name": "Fearsome Goblin Pair",
+    "set": "HOB",
+    "collectorNumber": "0156",
+    "manaCost": "{2}{B}{R}",
+    "cmc": 4,
+    "colors": [
+      "B",
+      "R"
+    ],
+    "typeLine": "Creature — Goblin Soldier",
+    "oracleText": "When this creature dies, amass Goblins 4. (Put four +1/+1 counters on an Army you control. It's also a Goblin. If you don't control an Army, create a 0/0 black Goblin Army creature token first.)",
+    "power": "1",
+    "toughness": "1",
+    "rarity": "uncommon",
+    "artist": "Michele Giorgi",
+    "image": "cards/hob-0156-fearsome-goblin-pair.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.38,
+    "priceArs": 600,
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "ltr-0422",
+    "name": "Voracious Fell Beast",
+    "set": "LTR",
+    "collectorNumber": "0422",
+    "manaCost": "{4}{B}{B}",
+    "cmc": 6,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Creature — Drake Beast",
+    "oracleText": "Flying\nWhen Voracious Fell Beast enters the battlefield, each opponent sacrifices a creature. Create a Food token for each creature sacrificed this way.",
+    "power": "4",
+    "toughness": "4",
+    "rarity": "uncommon",
+    "artist": "Tyler Jacobson",
+    "image": "cards/ltr-0422-voracious-fell-beast.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.38,
+    "priceArs": 600,
+    "tags": [
+      "removal",
+      "borderless"
+    ]
+  },
+  {
+    "id": "ltr-0235",
+    "name": "Uglúk of the White Hand",
+    "set": "LTR",
+    "collectorNumber": "0235",
+    "manaCost": "{2}{B}{R}",
+    "cmc": 4,
+    "colors": [
+      "B",
+      "R"
+    ],
+    "typeLine": "Legendary Creature — Orc Soldier",
+    "oracleText": "Whenever another creature you control dies, put a +1/+1 counter on Uglúk of the White Hand. If that creature was a Goblin or Orc, put two +1/+1 counters on Uglúk instead.",
+    "power": "3",
+    "toughness": "3",
+    "rarity": "uncommon",
+    "artist": "Bartłomiej Gaweł",
+    "image": "cards/ltr-0235-ugluk-of-the-white-hand.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5,
+    "priceArs": 800,
+    "tags": [
+      "orcs",
+      "goblins"
+    ]
   }
 ]
