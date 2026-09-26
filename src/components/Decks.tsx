@@ -25,7 +25,6 @@ export function Decks() {
   }
 
   function handleDelete(deck: Deck) {
-    if (!window.confirm(`Delete deck "${deck.name}"?`)) return
     deleteDeck(deck.id)
     if (selectedId === deck.id) setSelectedId(null)
   }
@@ -88,6 +87,7 @@ interface EditorProps {
 
 function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
   const [query, setQuery] = useState('')
+  const [confirmingDelete, setConfirmingDelete] = useState(false)
 
   const entries = useMemo(
     () =>
@@ -125,9 +125,21 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
         <button type="button" onClick={exportText} disabled={entries.length === 0}>
           Copy list
         </button>
-        <button type="button" className="danger" onClick={onDelete}>
-          Delete deck
-        </button>
+        {confirmingDelete ? (
+          <span className="confirm-delete">
+            <span>Delete this deck?</span>
+            <button type="button" className="danger" onClick={onDelete}>
+              Yes, delete
+            </button>
+            <button type="button" onClick={() => setConfirmingDelete(false)}>
+              Cancel
+            </button>
+          </span>
+        ) : (
+          <button type="button" className="danger" onClick={() => setConfirmingDelete(true)}>
+            Delete deck
+          </button>
+        )}
       </header>
 
       <div className="deck-body">

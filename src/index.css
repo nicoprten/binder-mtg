@@ -115,9 +115,7 @@ main {
 
 /* Binder */
 .binder {
-  display: grid;
-  grid-template-columns: 1fr minmax(280px, 360px);
-  gap: 1.25rem;
+  display: block;
 }
 
 .toolbar {
@@ -207,14 +205,55 @@ main {
 }
 
 .card-detail {
-  position: sticky;
-  top: 1rem;
-  align-self: start;
+  background: var(--panel);
+  border-radius: 10px;
+}
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
   max-height: calc(100vh - 2rem);
   overflow-y: auto;
-  background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 10px;
+  background: var(--panel);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  line-height: 1;
+  background: rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.confirm-delete {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .card-detail > img {
@@ -328,7 +367,7 @@ main {
 }
 
 .status-to-pick-up {
-  --status: #5b9dff;
+  --status: #ff6a3d;
 }
 
 .status-wishlist {
@@ -605,13 +644,8 @@ main {
 }
 
 @media (max-width: 900px) {
-  .binder,
   .decks,
   .deck-body {
     grid-template-columns: 1fr;
-  }
-
-  .card-detail {
-    position: static;
   }
 }

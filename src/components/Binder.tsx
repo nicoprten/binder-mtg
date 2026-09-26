@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { cards } from '../data'
 import type { Card, CardStatus, Color, Finish } from '../types'
 import { CardTile } from './CardTile'
-import { CardDetail } from './CardDetail'
+import { CardModal } from './CardModal'
 import { formatUsd } from '../format'
 import { STATUSES, STATUS_LABEL } from '../status'
 
@@ -25,7 +25,7 @@ export function Binder() {
   const [color, setColor] = useState<Color | ''>('')
   const [finish, setFinish] = useState<Finish | ''>('')
   const [status, setStatus] = useState<CardStatus | ''>('')
-  const [selectedId, setSelectedId] = useState<string | null>(cards[0]?.id ?? null)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -103,7 +103,7 @@ export function Binder() {
           </div>
         )}
       </div>
-      {selected && <CardDetail card={selected} />}
+      {selected && <CardModal card={selected} onClose={() => setSelectedId(null)} />}
     </section>
   )
 }
