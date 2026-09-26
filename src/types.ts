@@ -21,7 +21,7 @@ export interface Card {
   toughness?: string
   rarity: Rarity
   artist: string
-  /** Path relative to /public. */
+  /** Image path relative to the site root, without a leading slash (files live in /public). */
   image: string
   /** Number of physical copies in the binder. */
   quantity: number

@@ -15,7 +15,7 @@
     "toughness": "1",
     "rarity": "mythic",
     "artist": "Ron Spencer",
-    "image": "/cards/hoc-0019-orcish-bowmasters.jpg",
+    "image": "cards/hoc-0019-orcish-bowmasters.jpg",
     "quantity": 1,
     "finish": "nonfoil",
     "tags": [
@@ -40,7 +40,7 @@
     "toughness": "2",
     "rarity": "rare",
     "artist": "Ted Nasmith",
-    "image": "/cards/hob-0201-the-great-goblin.webp",
+    "image": "cards/hob-0201-the-great-goblin.webp",
     "quantity": 1,
     "finish": "foil",
     "tags": [
