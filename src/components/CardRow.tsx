@@ -1,5 +1,5 @@
 import type { Card } from '../types'
-import { formatUsd } from '../format'
+import { formatCardPrice } from '../format'
 import { FinishBadge } from './FinishBadge'
 import { ManaCost } from './ManaCost'
 import { StatusBadge } from './StatusBadge'
@@ -27,7 +27,7 @@ export function CardRow({ card, onClick }: Props) {
           <StatusBadge status={card.status} size="sm" />
         </span>
         <span className="card-row-price price">
-          {card.priceUsd !== undefined ? formatUsd(card.priceUsd) : ''}
+          {formatCardPrice(card) ?? ''}
         </span>
       </button>
     </li>

@@ -42,6 +42,8 @@ export interface Card {
   finish?: Finish
   /** Market price of one copy, in USD. */
   priceUsd?: number
+  /** Price of one copy in Argentine pesos, when it was bought or listed in ARS. */
+  priceArs?: number
   tags?: string[]
 }
 

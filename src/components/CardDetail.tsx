@@ -1,7 +1,7 @@
 import type { Card } from '../types'
 import { FinishBadge } from './FinishBadge'
 import { ManaCost, OracleLine } from './ManaCost'
-import { formatUsd } from '../format'
+import { formatArs, formatUsd } from '../format'
 import { StatusBadge } from './StatusBadge'
 import { LANGUAGE_LABEL } from '../language'
 
@@ -55,7 +55,12 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
           <dt>Artist</dt>
           <dd>{card.artist}</dd>
           <dt>Price</dt>
-          <dd className="price">{card.priceUsd !== undefined ? formatUsd(card.priceUsd) : '—'}</dd>
+          <dd className="price">
+            {card.priceUsd === undefined && card.priceArs === undefined && '—'}
+            {card.priceUsd !== undefined && formatUsd(card.priceUsd)}
+            {card.priceUsd !== undefined && card.priceArs !== undefined && ' · '}
+            {card.priceArs !== undefined && formatArs(card.priceArs)}
+          </dd>
           <dt>Copies</dt>
           <dd>
             {card.quantity}

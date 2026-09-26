@@ -1,6 +1,6 @@
 import type { Card } from '../types'
 import { FinishBadge } from './FinishBadge'
-import { formatUsd } from '../format'
+import { formatCardPrice } from '../format'
 import { StatusBadge } from './StatusBadge'
 
 interface Props {
@@ -27,7 +27,7 @@ export function CardTile({ card, badge, selected, onClick }: Props) {
       </button>
       <div className="card-slot-meta">
         <FinishBadge finish={card.finish} />
-        {card.priceUsd !== undefined && <span className="price">{formatUsd(card.priceUsd)}</span>}
+        {formatCardPrice(card) && <span className="price">{formatCardPrice(card)}</span>}
       </div>
     </div>
   )
