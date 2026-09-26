@@ -18,7 +18,7 @@ npm run dev
 
 1. Save the card image in `public/cards/` as `<set>-<number>-<name>.jpg` (or `.webp`) and reference it as `cards/<file>` without a leading slash.
 2. Add an entry to `src/data/cards.json` following the `Card` type in `src/types.ts`. The `id` is `<set>-<number>` in lowercase.
-3. Set `status` to `in-stock` (owned), `to-pick-up` (found, still to buy and collect) or `wishlist` (wanted); `purpose` to `use` (kept for playing) or `trade` (available to sell or trade); `language` to the printed language code (`en`, `es`, `ja`, …); `finish` to `nonfoil`, `foil` or `surge-foil`; and `priceUsd` to the market price of one copy.
+3. Set `status` to `in-stock` (owned), `to-pick-up` (found, still to buy and collect) or `wishlist` (wanted); `language` to the printed language code (`en`, `es`, `ja`, …); `finish` to `nonfoil`, `foil` or `surge-foil`; and `priceUsd` to the market price of one copy.
 4. If you own more than one copy, raise `quantity`.
 
 ## Scripts

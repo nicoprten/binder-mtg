@@ -7,7 +7,6 @@ import { FinishBadge } from './FinishBadge'
 import { ManaCost } from './ManaCost'
 import { formatUsd } from '../format'
 import { StatusBadge } from './StatusBadge'
-import { TradeBadge } from './TradeBadge'
 
 export function Decks() {
   const { decks, createDeck, updateDeck, deleteDeck, setCardQuantity } = useDecks()
@@ -167,7 +166,6 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
                     <ManaCost cost={card.manaCost} />
                     <FinishBadge finish={card.finish} size="sm" />
                     {card.status !== 'in-stock' && <StatusBadge status={card.status} size="sm" />}
-                    <TradeBadge purpose={card.purpose} size="sm" />
                     {card.priceUsd !== undefined && (
                       <span className="price">{formatUsd(card.priceUsd * quantity)}</span>
                     )}

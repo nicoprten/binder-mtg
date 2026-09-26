@@ -10,13 +10,6 @@ export type Rarity = 'common' | 'uncommon' | 'rare' | 'mythic'
  */
 export type CardStatus = 'in-stock' | 'to-pick-up' | 'wishlist'
 
-/**
- * What the copy is for:
- * - `use`: kept for playing and deck building.
- * - `trade`: available to sell or trade away.
- */
-export type CardPurpose = 'use' | 'trade'
-
 /** Printed language, using the codes Magic prints on the card (e.g. `EN`, `ES`, `JA`). */
 export type Language = 'en' | 'es' | 'pt' | 'fr' | 'de' | 'it' | 'ja' | 'ko' | 'ru' | 'zhs' | 'zht'
 
@@ -44,7 +37,6 @@ export interface Card {
   /** Number of copies (owned, reserved or wanted, depending on `status`). */
   quantity: number
   status: CardStatus
-  purpose: CardPurpose
   language: Language
   finish?: Finish
   /** Market price of one copy, in USD. */

@@ -3,7 +3,6 @@ import { formatUsd } from '../format'
 import { FinishBadge } from './FinishBadge'
 import { ManaCost } from './ManaCost'
 import { StatusBadge } from './StatusBadge'
-import { TradeBadge } from './TradeBadge'
 
 interface Props {
   card: Card
@@ -26,7 +25,6 @@ export function CardRow({ card, onClick }: Props) {
           </span>
           <FinishBadge finish={card.finish} size="sm" />
           <StatusBadge status={card.status} size="sm" />
-          <TradeBadge purpose={card.purpose} size="sm" />
         </span>
         <span className="card-row-price price">
           {card.priceUsd !== undefined ? formatUsd(card.priceUsd) : ''}

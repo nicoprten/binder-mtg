@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react'
 import { cards } from '../data'
-import type { Card, CardPurpose, CardStatus, Color, Finish } from '../types'
+import type { Card, CardStatus, Color, Finish } from '../types'
 import { CardTile } from './CardTile'
 import { CardRow } from './CardRow'
 import { CardModal } from './CardModal'
 import { formatUsd } from '../format'
-import { PURPOSES, PURPOSE_LABEL, STATUSES, STATUS_LABEL } from '../status'
+import { STATUSES, STATUS_LABEL } from '../status'
 
 const COLORS: { key: Color; label: string }[] = [
   { key: 'W', label: 'White' },
@@ -46,7 +46,6 @@ export function Binder() {
   const [color, setColor] = useState<Color | ''>('')
   const [finish, setFinish] = useState<Finish | ''>('')
   const [status, setStatus] = useState<CardStatus | ''>('')
-  const [purpose, setPurpose] = useState<CardPurpose | ''>('')
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [view, setView] = useState<ViewMode>(loadView)
 
@@ -61,7 +60,6 @@ export function Binder() {
       if (color && !c.colors.includes(color)) return false
       if (finish && (c.finish ?? 'nonfoil') !== finish) return false
       if (status && c.status !== status) return false
-      if (purpose && c.purpose !== purpose) return false
       if (!q) return true
       return (
         c.name.toLowerCase().includes(q) ||
@@ -70,7 +68,7 @@ export function Binder() {
         c.tags?.some((t) => t.toLowerCase().includes(q))
       )
     })
-  }, [query, color, finish, status, purpose])
+  }, [query, color, finish, status])
 
   const selected: Card | undefined = cards.find((c) => c.id === selectedId)
   const owned = cards.filter((c) => c.status === 'in-stock')
@@ -100,14 +98,6 @@ export function Binder() {
             {STATUSES.map((st) => (
               <option key={st} value={st}>
                 {STATUS_LABEL[st]}
-              </option>
-            ))}
-          </select>
-          <select value={purpose} onChange={(e) => setPurpose(e.target.value as CardPurpose | '')}>
-            <option value="">Use & trade</option>
-            {PURPOSES.map((pu) => (
-              <option key={pu} value={pu}>
-                {PURPOSE_LABEL[pu]}
               </option>
             ))}
           </select>
