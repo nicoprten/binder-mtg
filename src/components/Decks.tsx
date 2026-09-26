@@ -165,7 +165,7 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
                     <span className="name">{card.name}</span>
                     <ManaCost cost={card.manaCost} />
                     <FinishBadge finish={card.finish} size="sm" />
-                    {card.status !== 'in-stock' && <StatusBadge status={card.status} size="sm" />}
+                    {card.status !== 'owned' && <StatusBadge status={card.status} size="sm" />}
                     {card.priceUsd !== undefined && (
                       <span className="price">{formatUsd(card.priceUsd * quantity)}</span>
                     )}

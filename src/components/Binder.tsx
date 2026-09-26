@@ -71,7 +71,7 @@ export function Binder() {
   }, [query, color, finish, status])
 
   const selected: Card | undefined = cards.find((c) => c.id === selectedId)
-  const owned = cards.filter((c) => c.status === 'in-stock')
+  const owned = cards.filter((c) => c.status === 'owned')
   const ownedCopies = owned.reduce((n, c) => n + c.quantity, 0)
   const ownedValue = owned.reduce((n, c) => n + (c.priceUsd ?? 0) * c.quantity, 0)
 
@@ -110,7 +110,7 @@ export function Binder() {
             ))}
           </select>
           <span className="count">
-            {filtered.length} of {cards.length} cards · {ownedCopies} in stock ·{' '}
+            {filtered.length} of {cards.length} cards · {ownedCopies} owned ·{' '}
             <span className="price">{formatUsd(ownedValue)}</span>
           </span>
           <div className="view-toggle" role="group" aria-label="View">
