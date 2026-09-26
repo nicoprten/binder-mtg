@@ -613,5 +613,115 @@
       "orcs",
       "goblins"
     ]
+  },
+  {
+    "id": "ltr-0443",
+    "name": "The Grey Havens",
+    "set": "LTR",
+    "collectorNumber": "0443",
+    "manaCost": "",
+    "cmc": 0,
+    "colors": [],
+    "typeLine": "Legendary Land",
+    "oracleText": "When The Grey Havens enters the battlefield, scry 1.\n{T}: Add {C}.\n{T}: Add one mana of any color among legendary creature cards in your graveyard.",
+    "rarity": "uncommon",
+    "artist": "Kieran Yanner",
+    "image": "cards/ltr-0443-the-grey-havens.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5,
+    "priceArs": 800,
+    "tags": [
+      "land",
+      "borderless"
+    ]
+  },
+  {
+    "id": "ltr-0228",
+    "name": "Shagrat, Loot Bearer",
+    "set": "LTR",
+    "collectorNumber": "0228",
+    "manaCost": "{2}{B}{R}",
+    "cmc": 4,
+    "colors": [
+      "B",
+      "R"
+    ],
+    "typeLine": "Legendary Creature — Orc Soldier",
+    "oracleText": "Whenever Shagrat, Loot Bearer attacks, attach up to one target Equipment to it. Then amass Orcs X, where X is the number of Equipment attached to Shagrat. (Control of the Equipment doesn't change. To amass Orcs X, put X +1/+1 counters on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)",
+    "power": "4",
+    "toughness": "4",
+    "rarity": "rare",
+    "artist": "Tatiana Veryayskaya",
+    "image": "cards/ltr-0228-shagrat-loot-bearer.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.79,
+    "priceArs": 1250,
+    "tags": [
+      "orcs",
+      "tokens",
+      "extended-art"
+    ]
+  },
+  {
+    "id": "ltr-0419",
+    "name": "Quickbeam, Upstart Ent",
+    "set": "LTR",
+    "collectorNumber": "0419",
+    "manaCost": "{4}{G}{G}",
+    "cmc": 6,
+    "colors": [
+      "G"
+    ],
+    "typeLine": "Legendary Creature — Treefolk",
+    "oracleText": "Whenever Quickbeam, Upstart Ent or another Treefolk enters the battlefield under your control, up to two target creatures each get +2/+2 and gain trample until end of turn.",
+    "power": "5",
+    "toughness": "6",
+    "rarity": "uncommon",
+    "artist": "David Rapoza",
+    "image": "cards/ltr-0419-quickbeam-upstart-ent.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.38,
+    "priceArs": 600,
+    "tags": [
+      "borderless"
+    ]
+  },
+  {
+    "id": "ltr-0431",
+    "name": "Prince Imrahil the Fair",
+    "set": "LTR",
+    "collectorNumber": "0431",
+    "manaCost": "{W}{U}",
+    "cmc": 2,
+    "colors": [
+      "W",
+      "U"
+    ],
+    "typeLine": "Legendary Creature — Human Noble",
+    "oracleText": "Whenever you draw your second card each turn, create a 1/1 white Human Soldier creature token.",
+    "power": "2",
+    "toughness": "2",
+    "rarity": "uncommon",
+    "artist": "Tyler Jacobson",
+    "image": "cards/ltr-0431-prince-imrahil-the-fair.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.38,
+    "priceArs": 600,
+    "tags": [
+      "tokens",
+      "borderless"
+    ]
   }
 ]
