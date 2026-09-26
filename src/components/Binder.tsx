@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { cards } from '../data'
 import type { Card, CardStatus, Color, Finish } from '../types'
 import { CardTile } from './CardTile'
+import { CardRow } from './CardRow'
 import { CardModal } from './CardModal'
 import { formatUsd } from '../format'
 import { STATUSES, STATUS_LABEL } from '../status'
@@ -13,6 +14,26 @@ const COLORS: { key: Color; label: string }[] = [
   { key: 'R', label: 'Red' },
   { key: 'G', label: 'Green' },
 ]
+
+type ViewMode = 'grid' | 'list'
+
+const VIEW_KEY = 'binder-mtg:binder-view'
+
+function loadView(): ViewMode {
+  try {
+    return localStorage.getItem(VIEW_KEY) === 'list' ? 'list' : 'grid'
+  } catch {
+    return 'grid'
+  }
+}
+
+function saveView(view: ViewMode) {
+  try {
+    localStorage.setItem(VIEW_KEY, view)
+  } catch {
+    // Storage unavailable: the choice lasts for this page load only.
+  }
+}
 
 const FINISHES: { key: Finish; label: string }[] = [
   { key: 'nonfoil', label: 'Nonfoil' },
@@ -26,6 +47,12 @@ export function Binder() {
   const [finish, setFinish] = useState<Finish | ''>('')
   const [status, setStatus] = useState<CardStatus | ''>('')
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [view, setView] = useState<ViewMode>(loadView)
+
+  function changeView(next: ViewMode) {
+    setView(next)
+    saveView(next)
+  }
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -86,10 +113,28 @@ export function Binder() {
             {filtered.length} of {cards.length} cards · {ownedCopies} in stock ·{' '}
             <span className="price">{formatUsd(ownedValue)}</span>
           </span>
+          <div className="view-toggle" role="group" aria-label="View">
+            <button
+              type="button"
+              className={view === 'grid' ? 'active' : ''}
+              onClick={() => changeView('grid')}
+              title="Grid view"
+            >
+              Grid
+            </button>
+            <button
+              type="button"
+              className={view === 'list' ? 'active' : ''}
+              onClick={() => changeView('list')}
+              title="List view"
+            >
+              List
+            </button>
+          </div>
         </div>
         {filtered.length === 0 ? (
           <p className="empty">No cards match.</p>
-        ) : (
+        ) : view === 'grid' ? (
           <div className="card-grid">
             {filtered.map((c) => (
               <CardTile
@@ -101,6 +146,12 @@ export function Binder() {
               />
             ))}
           </div>
+        ) : (
+          <ul className="card-list">
+            {filtered.map((c) => (
+              <CardRow key={c.id} card={c} onClick={() => setSelectedId(c.id)} />
+            ))}
+          </ul>
         )}
       </div>
       {selected && <CardModal card={selected} onClose={() => setSelectedId(null)} />}

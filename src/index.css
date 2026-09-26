@@ -342,6 +342,113 @@ main {
   color: var(--muted);
 }
 
+/* View toggle */
+.view-toggle {
+  display: inline-flex;
+  margin-left: auto;
+}
+
+.view-toggle button {
+  border-radius: 0;
+}
+
+.view-toggle button:first-child {
+  border-radius: 6px 0 0 6px;
+}
+
+.view-toggle button:last-child {
+  border-radius: 0 6px 6px 0;
+  margin-left: -1px;
+}
+
+.view-toggle button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #1a1408;
+  font-weight: 600;
+}
+
+/* List view */
+.card-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.card-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 2fr 5rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.8rem;
+  text-align: left;
+  background: var(--panel);
+}
+
+.card-row-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  min-width: 0;
+}
+
+.card-row-meta .card-row-type {
+  flex: 1 1 8rem;
+}
+
+.card-row:hover {
+  background: var(--panel-2);
+}
+
+.card-row-name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-row-type,
+.card-row-set {
+  font-size: 0.85rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-row-price {
+  text-align: right;
+}
+
+@media (max-width: 720px) {
+  .card-row {
+    grid-template-columns: 1fr auto;
+    row-gap: 0.35rem;
+  }
+
+  .card-row-name {
+    white-space: normal;
+  }
+
+  .card-row-meta {
+    grid-column: 1 / -1;
+  }
+
+  .card-row-type,
+  .card-row-set {
+    display: none;
+  }
+
+  .card-row-price {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
 /* Status badges */
 .status-badge {
   display: inline-block;

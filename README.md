@@ -2,7 +2,7 @@
 
 A virtual binder for a Magic: The Gathering collection, with two sections:
 
-- **Binder**: every card in the collection, searchable by name, type, oracle text or tag, with filters by status, color and finish, and a detail panel for each card. Each card is tagged as in stock (gold), to pick up (orange) or wishlist (purple).
+- **Binder**: every card in the collection, searchable by name, type, oracle text or tag, with filters by status, color and finish, a grid or list view, and a detail modal for each card. Each card is tagged as in stock (gold), to pick up (orange) or wishlist (purple).
 - **Decks**: decks built from the cards in the binder. They are stored in the browser's `localStorage`, and a deck row is flagged when it uses more copies of a card than the binder holds.
 
 Foil and surge foil cards get a shimmering label under the card.
