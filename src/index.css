@@ -481,6 +481,10 @@ main {
   --status: #b57bff;
 }
 
+.status-to-trade {
+  --status: #3fd4c4;
+}
+
 .card-status {
   position: absolute;
   left: 6px;
