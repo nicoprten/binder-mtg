@@ -4,6 +4,8 @@ import { ManaCost, OracleLine } from './ManaCost'
 import { formatUsd } from '../format'
 import { StatusBadge } from './StatusBadge'
 import { LANGUAGE_LABEL } from '../language'
+import { PURPOSE_LABEL } from '../status'
+import { TradeBadge } from './TradeBadge'
 
 const RARITY_LABEL: Record<Card['rarity'], string> = {
   common: 'Common',
@@ -39,6 +41,10 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
           <dt>Status</dt>
           <dd>
             <StatusBadge status={card.status} size="sm" />
+          </dd>
+          <dt>Purpose</dt>
+          <dd>
+            {card.purpose === 'trade' ? <TradeBadge purpose={card.purpose} size="sm" /> : PURPOSE_LABEL.use}
           </dd>
           <dt>Set</dt>
           <dd>

@@ -492,6 +492,31 @@ main {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
+/* Trade badge */
+.trade-badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #3fd4c4;
+  background: rgba(63, 212, 196, 0.16);
+  border: 1px solid rgba(63, 212, 196, 0.55);
+  white-space: nowrap;
+}
+
+.trade-badge.trade-sm {
+  padding: 0.05rem 0.45rem;
+  font-size: 0.65rem;
+}
+
+.card-slot-meta {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /* Finish badges */
 @keyframes foil-shimmer {
   0% {
