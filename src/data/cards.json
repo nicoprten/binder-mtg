@@ -18,6 +18,7 @@
     "image": "cards/hoc-0019-orcish-bowmasters.jpg",
     "quantity": 1,
     "status": "in-stock",
+    "language": "en",
     "finish": "nonfoil",
     "priceUsd": 81,
     "tags": [
@@ -45,6 +46,7 @@
     "image": "cards/hob-0201-the-great-goblin.webp",
     "quantity": 1,
     "status": "in-stock",
+    "language": "en",
     "finish": "foil",
     "priceUsd": 10,
     "tags": [

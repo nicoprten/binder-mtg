@@ -3,6 +3,7 @@ import { FinishBadge } from './FinishBadge'
 import { ManaCost } from './ManaCost'
 import { formatUsd } from '../format'
 import { StatusBadge } from './StatusBadge'
+import { LANGUAGE_LABEL } from '../language'
 
 const RARITY_LABEL: Record<Card['rarity'], string> = {
   common: 'Common',
@@ -42,6 +43,10 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
           <dt>Set</dt>
           <dd>
             {card.set} · #{card.collectorNumber}
+          </dd>
+          <dt>Language</dt>
+          <dd>
+            {LANGUAGE_LABEL[card.language]} <span className="muted">({card.language.toUpperCase()})</span>
           </dd>
           <dt>Rarity</dt>
           <dd className={`rarity-${card.rarity}`}>{RARITY_LABEL[card.rarity]}</dd>

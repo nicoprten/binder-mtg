@@ -10,6 +10,9 @@ export type Rarity = 'common' | 'uncommon' | 'rare' | 'mythic'
  */
 export type CardStatus = 'in-stock' | 'to-pick-up' | 'wishlist'
 
+/** Printed language, using the codes Magic prints on the card (e.g. `EN`, `ES`, `JA`). */
+export type Language = 'en' | 'es' | 'pt' | 'fr' | 'de' | 'it' | 'ja' | 'ko' | 'ru' | 'zhs' | 'zht'
+
 /** Physical finish of the card. Defaults to `nonfoil` when omitted. */
 export type Finish = 'nonfoil' | 'foil' | 'surge-foil'
 
@@ -34,6 +37,7 @@ export interface Card {
   /** Number of copies (owned, reserved or wanted, depending on `status`). */
   quantity: number
   status: CardStatus
+  language: Language
   finish?: Finish
   /** Market price of one copy, in USD. */
   priceUsd?: number
