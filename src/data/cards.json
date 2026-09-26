@@ -77,5 +77,83 @@
       "ramp",
       "borderless"
     ]
+  },
+  {
+    "id": "war-137",
+    "name": "Krenko, Tin Street Kingpin",
+    "set": "WAR",
+    "collectorNumber": "137",
+    "manaCost": "{2}{R}",
+    "cmc": 3,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Legendary Creature — Goblin",
+    "oracleText": "Whenever Krenko, Tin Street Kingpin attacks, put a +1/+1 counter on it, then create a number of 1/1 red Goblin creature tokens equal to Krenko's power.",
+    "power": "1",
+    "toughness": "2",
+    "rarity": "rare",
+    "artist": "Mark Behm",
+    "image": "cards/war-137-krenko-tin-street-kingpin.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 1.7,
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "mkm-0135",
+    "name": "Krenko, Baron of Tin Street",
+    "set": "MKM",
+    "collectorNumber": "0135",
+    "manaCost": "{2}{R}",
+    "cmc": 3,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Legendary Creature — Goblin",
+    "oracleText": "Haste\n{T}, Sacrifice an artifact: Put a +1/+1 counter on each Goblin you control.\nWhenever an artifact is put into a graveyard from the battlefield, you may pay {R}. If you do, create a 1/1 red Goblin creature token. It gains haste until end of turn.",
+    "power": "3",
+    "toughness": "3",
+    "rarity": "rare",
+    "artist": "Brian Valeza",
+    "image": "cards/mkm-0135-krenko-baron-of-tin-street.webp",
+    "quantity": 1,
+    "status": "wishlist",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "clu-0139",
+    "name": "Krenko's Command",
+    "set": "CLU",
+    "collectorNumber": "0139",
+    "manaCost": "{1}{R}",
+    "cmc": 2,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Sorcery",
+    "oracleText": "Create two 1/1 red Goblin creature tokens.",
+    "rarity": "common",
+    "artist": "Lucas Graciano",
+    "image": "cards/clu-0139-krenkos-command.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5,
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
   }
 ]
