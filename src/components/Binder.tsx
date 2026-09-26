@@ -86,10 +86,10 @@ export function Binder() {
     const q = query.trim().toLowerCase()
     return cards.filter((c) => {
       if (colors.size > 0) {
-        // Exact match: the card's colors must be precisely the selected ones.
-        const wanted: string[] = colors.has('C') ? [] : [...colors]
-        const matches =
-          c.colors.length === wanted.length && wanted.every((col) => c.colors.includes(col as Color))
+        // The card must contain every selected color; colorless means no colors at all.
+        const matches = colors.has('C')
+          ? c.colors.length === 0
+          : [...colors].every((col) => c.colors.includes(col as Color))
         if (!matches) return false
       }
       if (finish && (c.finish ?? 'nonfoil') !== finish) return false
