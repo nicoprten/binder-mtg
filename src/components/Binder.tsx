@@ -7,13 +7,25 @@ import { CardModal } from './CardModal'
 import { formatUsd } from '../format'
 import { STATUSES, STATUS_LABEL } from '../status'
 
-const COLORS: { key: Color; label: string }[] = [
+type ColorKey = Color | 'C'
+
+const COLORS: { key: ColorKey; label: string }[] = [
   { key: 'W', label: 'White' },
   { key: 'U', label: 'Blue' },
   { key: 'B', label: 'Black' },
   { key: 'R', label: 'Red' },
   { key: 'G', label: 'Green' },
+  { key: 'C', label: 'Colorless' },
 ]
+
+const MANA_CLASS: Record<ColorKey, string> = {
+  W: 'mana-w',
+  U: 'mana-u',
+  B: 'mana-b',
+  R: 'mana-r',
+  G: 'mana-g',
+  C: 'mana-c',
+}
 
 type ViewMode = 'grid' | 'list'
 
@@ -43,7 +55,16 @@ const FINISHES: { key: Finish; label: string }[] = [
 
 export function Binder() {
   const [query, setQuery] = useState('')
-  const [color, setColor] = useState<Color | ''>('')
+  const [colors, setColors] = useState<Set<ColorKey>>(() => new Set())
+
+  function toggleColor(key: ColorKey) {
+    setColors((prev) => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      return next
+    })
+  }
   const [finish, setFinish] = useState<Finish | ''>('')
   const [status, setStatus] = useState<CardStatus | ''>('')
   const [selectedId, setSelectedId] = useState<string | null>(null)
@@ -57,7 +78,11 @@ export function Binder() {
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
     return cards.filter((c) => {
-      if (color && !c.colors.includes(color)) return false
+      if (colors.size > 0) {
+        const matches =
+          c.colors.some((col) => colors.has(col)) || (c.colors.length === 0 && colors.has('C'))
+        if (!matches) return false
+      }
       if (finish && (c.finish ?? 'nonfoil') !== finish) return false
       if (status && c.status !== status) return false
       if (!q) return true
@@ -68,7 +93,7 @@ export function Binder() {
         c.tags?.some((t) => t.toLowerCase().includes(q))
       )
     })
-  }, [query, color, finish, status])
+  }, [query, colors, finish, status])
 
   const selected: Card | undefined = cards.find((c) => c.id === selectedId)
   const owned = cards.filter((c) => c.status === 'owned')
@@ -85,14 +110,20 @@ export function Binder() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <select value={color} onChange={(e) => setColor(e.target.value as Color | '')}>
-            <option value="">All colors</option>
+          <div className="color-filter" role="group" aria-label="Colors">
             {COLORS.map((c) => (
-              <option key={c.key} value={c.key}>
-                {c.label}
-              </option>
+              <button
+                key={c.key}
+                type="button"
+                className={`mana ${MANA_CLASS[c.key]}${colors.has(c.key) ? ' active' : ''}`}
+                aria-pressed={colors.has(c.key)}
+                title={c.label}
+                onClick={() => toggleColor(c.key)}
+              >
+                {c.key}
+              </button>
             ))}
-          </select>
+          </div>
           <select value={status} onChange={(e) => setStatus(e.target.value as CardStatus | '')}>
             <option value="">All statuses</option>
             {STATUSES.map((st) => (
