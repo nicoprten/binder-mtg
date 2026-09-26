@@ -205,5 +205,60 @@
     "tags": [
       "borderless"
     ]
+  },
+  {
+    "id": "ltr-0429",
+    "name": "Gothmog, Morgul Lieutenant",
+    "set": "LTR",
+    "collectorNumber": "0429",
+    "manaCost": "{3}{B}",
+    "cmc": 4,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Legendary Creature — Human Soldier",
+    "oracleText": "When Gothmog, Morgul Lieutenant enters the battlefield, amass Orcs 1.\nCreature tokens you control have deathtouch.",
+    "power": "3",
+    "toughness": "3",
+    "rarity": "uncommon",
+    "artist": "Tyler Jacobson",
+    "image": "cards/ltr-0429-gothmog-morgul-lieutenant.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "foil",
+    "priceUsd": 0.5,
+    "tags": [
+      "orcs",
+      "tokens",
+      "borderless"
+    ]
+  },
+  {
+    "id": "ltr-0086",
+    "name": "Gorbag of Minas Morgul",
+    "set": "LTR",
+    "collectorNumber": "0086",
+    "manaCost": "{1}{B}",
+    "cmc": 2,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Legendary Creature — Orc Soldier",
+    "oracleText": "Whenever a Goblin or Orc you control deals combat damage to a player, you may sacrifice it. When you do, choose one —\n• Draw a card.\n• Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this artifact: Add one mana of any color.\")",
+    "power": "2",
+    "toughness": "2",
+    "rarity": "uncommon",
+    "artist": "Alex Brock",
+    "image": "cards/ltr-0086-gorbag-of-minas-morgul.webp",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "foil",
+    "priceUsd": 0.5,
+    "tags": [
+      "orcs",
+      "goblins"
+    ]
   }
 ]
