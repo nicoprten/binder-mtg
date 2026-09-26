@@ -1,0 +1,38 @@
+[
+  {
+    "id": "hoc-0019",
+    "name": "Orcish Bowmasters",
+    "set": "HOC",
+    "collectorNumber": "0019",
+    "manaCost": "{1}{B}",
+    "cmc": 2,
+    "colors": ["B"],
+    "typeLine": "Creature — Orc Archer",
+    "oracleText": "Flash\nWhen this creature enters and whenever an opponent draws a card except the first one they draw in each of their draw steps, this creature deals 1 damage to any target. Then amass Orcs 1.",
+    "power": "1",
+    "toughness": "1",
+    "rarity": "mythic",
+    "artist": "Ron Spencer",
+    "image": "/cards/hoc-0019-orcish-bowmasters.jpg",
+    "quantity": 1,
+    "tags": ["orcs", "borderless"]
+  },
+  {
+    "id": "hob-0201",
+    "name": "The Great Goblin",
+    "set": "HOB",
+    "collectorNumber": "0201",
+    "manaCost": "{1}{B}{R}",
+    "cmc": 3,
+    "colors": ["B", "R"],
+    "typeLine": "Legendary Creature — Goblin Noble",
+    "oracleText": "Whenever you put one or more counters on a Goblin, Orc, or Army you control, The Great Goblin deals 2 damage to target opponent.\nWhenever another Goblin, Orc, or Army you control dies, exile the top card of your library. You may play it until the end of your next turn.",
+    "power": "3",
+    "toughness": "2",
+    "rarity": "rare",
+    "artist": "Ted Nasmith",
+    "image": "/cards/hob-0201-the-great-goblin.webp",
+    "quantity": 1,
+    "tags": ["goblins", "orcs", "borderless"]
+  }
+]
