@@ -96,10 +96,9 @@
     "artist": "Mark Behm",
     "image": "cards/war-137-krenko-tin-street-kingpin.webp",
     "quantity": 1,
-    "status": "to-pick-up",
+    "status": "wishlist",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 1.7,
     "tags": [
       "goblins",
       "tokens"
@@ -123,9 +122,10 @@
     "artist": "Brian Valeza",
     "image": "cards/mkm-0135-krenko-baron-of-tin-street.webp",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 1.7,
     "tags": [
       "goblins",
       "tokens"
