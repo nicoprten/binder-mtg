@@ -1,4 +1,5 @@
 import type { Card } from '../types'
+import { FinishBadge } from './FinishBadge'
 
 interface Props {
   card: Card
@@ -9,14 +10,17 @@ interface Props {
 
 export function CardTile({ card, badge, selected, onClick }: Props) {
   return (
-    <button
-      type="button"
-      className={`card-tile${selected ? ' selected' : ''}`}
-      onClick={onClick}
-      title={card.name}
-    >
-      <img src={card.image} alt={card.name} loading="lazy" />
-      {badge && <span className="card-badge">{badge}</span>}
-    </button>
+    <div className="card-slot">
+      <button
+        type="button"
+        className={`card-tile${selected ? ' selected' : ''}`}
+        onClick={onClick}
+        title={card.name}
+      >
+        <img src={card.image} alt={card.name} loading="lazy" />
+        {badge && <span className="card-badge">{badge}</span>}
+      </button>
+      <FinishBadge finish={card.finish} />
+    </div>
   )
 }

@@ -1,26 +1,34 @@
 import { useMemo, useState } from 'react'
 import { cards } from '../data'
-import type { Card, Color } from '../types'
+import type { Card, Color, Finish } from '../types'
 import { CardTile } from './CardTile'
 import { CardDetail } from './CardDetail'
 
 const COLORS: { key: Color; label: string }[] = [
-  { key: 'W', label: 'Blanco' },
-  { key: 'U', label: 'Azul' },
-  { key: 'B', label: 'Negro' },
-  { key: 'R', label: 'Rojo' },
-  { key: 'G', label: 'Verde' },
+  { key: 'W', label: 'White' },
+  { key: 'U', label: 'Blue' },
+  { key: 'B', label: 'Black' },
+  { key: 'R', label: 'Red' },
+  { key: 'G', label: 'Green' },
+]
+
+const FINISHES: { key: Finish; label: string }[] = [
+  { key: 'nonfoil', label: 'Nonfoil' },
+  { key: 'foil', label: 'Foil' },
+  { key: 'surge-foil', label: 'Surge Foil' },
 ]
 
 export function Binder() {
   const [query, setQuery] = useState('')
   const [color, setColor] = useState<Color | ''>('')
+  const [finish, setFinish] = useState<Finish | ''>('')
   const [selectedId, setSelectedId] = useState<string | null>(cards[0]?.id ?? null)
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
     return cards.filter((c) => {
       if (color && !c.colors.includes(color)) return false
+      if (finish && (c.finish ?? 'nonfoil') !== finish) return false
       if (!q) return true
       return (
         c.name.toLowerCase().includes(q) ||
@@ -29,7 +37,7 @@ export function Binder() {
         c.tags?.some((t) => t.toLowerCase().includes(q))
       )
     })
-  }, [query, color])
+  }, [query, color, finish])
 
   const selected: Card | undefined = cards.find((c) => c.id === selectedId)
   const total = cards.reduce((n, c) => n + c.quantity, 0)
@@ -40,24 +48,32 @@ export function Binder() {
         <div className="toolbar">
           <input
             type="search"
-            placeholder="Buscar por nombre, tipo, texto o tag…"
+            placeholder="Search by name, type, text or tag…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
           <select value={color} onChange={(e) => setColor(e.target.value as Color | '')}>
-            <option value="">Todos los colores</option>
+            <option value="">All colors</option>
             {COLORS.map((c) => (
               <option key={c.key} value={c.key}>
                 {c.label}
               </option>
             ))}
           </select>
+          <select value={finish} onChange={(e) => setFinish(e.target.value as Finish | '')}>
+            <option value="">All finishes</option>
+            {FINISHES.map((f) => (
+              <option key={f.key} value={f.key}>
+                {f.label}
+              </option>
+            ))}
+          </select>
           <span className="count">
-            {filtered.length} de {cards.length} cartas · {total} copias
+            {filtered.length} of {cards.length} cards · {total} copies
           </span>
         </div>
         {filtered.length === 0 ? (
-          <p className="empty">No hay cartas que coincidan.</p>
+          <p className="empty">No cards match.</p>
         ) : (
           <div className="card-grid">
             {filtered.map((c) => (

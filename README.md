@@ -1,25 +1,28 @@
 # Binder MTG
 
-Binder virtual de cartas de Magic: The Gathering, con dos secciones:
+A virtual binder for a Magic: The Gathering collection, with two sections:
 
-- **Binder**: todas las cartas de la colección, con búsqueda por nombre, tipo, texto o tag, filtro por color y detalle de cada carta.
-- **Mazos**: mazos armados a partir de las cartas de la binder. Se guardan en el `localStorage` del navegador y avisan si un mazo usa más copias de una carta que las que hay en la binder.
+- **Binder**: every card in the collection, searchable by name, type, oracle text or tag, with filters by color and finish, and a detail panel for each card.
+- **Decks**: decks built from the cards in the binder. They are stored in the browser's `localStorage`, and a deck row is flagged when it uses more copies of a card than the binder holds.
 
-## Cómo correrlo
+Foil and surge foil cards get a shimmering label under the card.
+
+## Running it
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Agregar cartas a la binder
+## Adding cards to the binder
 
-1. Guardar la imagen de la carta en `public/cards/` con el nombre `<set>-<número>-<nombre>.jpg` (o `.webp`).
-2. Agregar una entrada en `src/data/cards.json` siguiendo el tipo `Card` de `src/types.ts`. El `id` es `<set>-<número>` en minúsculas.
-3. Si tenés más de una copia, subir `quantity`.
+1. Save the card image in `public/cards/` as `<set>-<number>-<name>.jpg` (or `.webp`).
+2. Add an entry to `src/data/cards.json` following the `Card` type in `src/types.ts`. The `id` is `<set>-<number>` in lowercase.
+3. Set `finish` to `nonfoil`, `foil` or `surge-foil`.
+4. If you own more than one copy, raise `quantity`.
 
 ## Scripts
 
-- `npm run dev`: servidor de desarrollo.
-- `npm run build`: chequeo de tipos y build de producción en `dist/`.
-- `npm run lint`: lint con oxlint.
+- `npm run dev`: development server.
+- `npm run build`: type check and production build into `dist/`.
+- `npm run lint`: lint with oxlint.

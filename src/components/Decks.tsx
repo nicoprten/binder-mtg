@@ -3,6 +3,7 @@ import { cards, cardsById } from '../data'
 import type { Deck } from '../types'
 import { useDecks } from '../hooks/useDecks'
 import { CardTile } from './CardTile'
+import { FinishBadge } from './FinishBadge'
 import { ManaCost } from './ManaCost'
 
 export function Decks() {
@@ -22,7 +23,7 @@ export function Decks() {
   }
 
   function handleDelete(deck: Deck) {
-    if (!window.confirm(`¿Borrar el mazo "${deck.name}"?`)) return
+    if (!window.confirm(`Delete deck "${deck.name}"?`)) return
     deleteDeck(deck.id)
     if (selectedId === deck.id) setSelectedId(null)
   }
@@ -32,14 +33,14 @@ export function Decks() {
       <aside className="deck-list">
         <form onSubmit={handleCreate} className="deck-create">
           <input
-            placeholder="Nombre del mazo nuevo"
+            placeholder="New deck name"
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
           />
-          <button type="submit">Crear</button>
+          <button type="submit">Create</button>
         </form>
         {decks.length === 0 ? (
-          <p className="empty">Todavía no armaste ningún mazo.</p>
+          <p className="empty">You haven't built any decks yet.</p>
         ) : (
           <ul>
             {decks.map((d) => {
@@ -69,7 +70,7 @@ export function Decks() {
         />
       ) : (
         <div className="deck-editor empty">
-          <p>Elegí un mazo de la lista o creá uno nuevo.</p>
+          <p>Pick a deck from the list or create a new one.</p>
         </div>
       )}
     </section>
@@ -115,20 +116,20 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
           value={deck.name}
           onChange={(e) => onRename(e.target.value)}
         />
-        <span className="count">{total} cartas</span>
+        <span className="count">{total} cards</span>
         <button type="button" onClick={exportText} disabled={entries.length === 0}>
-          Copiar lista
+          Copy list
         </button>
         <button type="button" className="danger" onClick={onDelete}>
-          Borrar mazo
+          Delete deck
         </button>
       </header>
 
       <div className="deck-body">
         <div className="deck-cards">
-          <h3>Cartas del mazo</h3>
+          <h3>Deck cards</h3>
           {entries.length === 0 ? (
-            <p className="empty">El mazo está vacío. Agregá cartas desde la binder de la derecha.</p>
+            <p className="empty">This deck is empty. Add cards from the binder on the right.</p>
           ) : (
             <ul className="deck-entries">
               {entries.map(({ card, quantity }) => {
@@ -146,8 +147,9 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
                     </span>
                     <span className="name">{card.name}</span>
                     <ManaCost cost={card.manaCost} />
+                    <FinishBadge finish={card.finish} size="sm" />
                     {over && (
-                      <span className="warn" title="Tenés menos copias en la binder">
+                      <span className="warn" title="You own fewer copies in the binder">
                         binder: {card.quantity}
                       </span>
                     )}
@@ -159,10 +161,10 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
         </div>
 
         <div className="deck-picker">
-          <h3>Agregar desde la binder</h3>
+          <h3>Add from binder</h3>
           <input
             type="search"
-            placeholder="Buscar carta…"
+            placeholder="Search card…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -173,7 +175,7 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
                 <CardTile
                   key={c.id}
                   card={c}
-                  badge={q > 0 ? `${q} en mazo` : undefined}
+                  badge={q > 0 ? `${q} in deck` : undefined}
                   onClick={() => onSetQuantity(c.id, q + 1)}
                 />
               )

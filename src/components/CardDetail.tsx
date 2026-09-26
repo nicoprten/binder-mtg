@@ -1,11 +1,12 @@
 import type { Card } from '../types'
+import { FinishBadge } from './FinishBadge'
 import { ManaCost } from './ManaCost'
 
 const RARITY_LABEL: Record<Card['rarity'], string> = {
-  common: 'Común',
-  uncommon: 'Infrecuente',
-  rare: 'Rara',
-  mythic: 'Mítica',
+  common: 'Common',
+  uncommon: 'Uncommon',
+  rare: 'Rare',
+  mythic: 'Mythic',
 }
 
 export function CardDetail({ card, children }: { card: Card; children?: React.ReactNode }) {
@@ -36,11 +37,13 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
           <dd>
             {card.set} · #{card.collectorNumber}
           </dd>
-          <dt>Rareza</dt>
+          <dt>Rarity</dt>
           <dd className={`rarity-${card.rarity}`}>{RARITY_LABEL[card.rarity]}</dd>
-          <dt>Artista</dt>
+          <dt>Finish</dt>
+          <dd>{card.finish && card.finish !== 'nonfoil' ? <FinishBadge finish={card.finish} size="sm" /> : 'Nonfoil'}</dd>
+          <dt>Artist</dt>
           <dd>{card.artist}</dd>
-          <dt>En binder</dt>
+          <dt>In binder</dt>
           <dd>{card.quantity}</dd>
         </dl>
         {card.tags && card.tags.length > 0 && (

@@ -7,7 +7,7 @@ const SYMBOL_CLASS: Record<string, string> = {
   C: 'mana mana-c',
 }
 
-/** Renderiza un costo tipo "{1}{B}{R}" como fichas de maná. */
+/** Renders a cost like "{1}{B}{R}" as mana symbols. */
 export function ManaCost({ cost }: { cost: string }) {
   const symbols = cost.match(/\{([^}]+)\}/g)?.map((s) => s.slice(1, -1)) ?? []
   if (symbols.length === 0) return null

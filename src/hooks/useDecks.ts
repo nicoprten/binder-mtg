@@ -18,7 +18,7 @@ function save(decks: Deck[]) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(decks))
   } catch {
-    // Sin almacenamiento disponible: los mazos viven solo en memoria.
+    // No storage available: decks live in memory only.
   }
 }
 

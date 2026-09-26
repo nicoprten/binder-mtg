@@ -26,7 +26,7 @@ export default function App() {
             Binder
           </a>
           <a href="#/decks" className={view === 'decks' ? 'active' : ''}>
-            Mazos
+            Decks
           </a>
         </div>
       </nav>
