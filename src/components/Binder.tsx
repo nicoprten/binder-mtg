@@ -59,9 +59,16 @@ export function Binder() {
 
   function toggleColor(key: ColorKey) {
     setColors((prev) => {
-      const next = new Set(prev)
-      if (next.has(key)) next.delete(key)
-      else next.add(key)
+      if (prev.has(key)) {
+        const next = new Set(prev)
+        next.delete(key)
+        return next
+      }
+      // Colorless cannot combine with a color, so it replaces the selection and vice versa.
+      if (key === 'C') return new Set<ColorKey>(['C'])
+      const next = new Set<ColorKey>(prev)
+      next.delete('C')
+      next.add(key)
       return next
     })
   }
@@ -79,8 +86,10 @@ export function Binder() {
     const q = query.trim().toLowerCase()
     return cards.filter((c) => {
       if (colors.size > 0) {
+        // Exact match: the card's colors must be precisely the selected ones.
+        const wanted: string[] = colors.has('C') ? [] : [...colors]
         const matches =
-          c.colors.some((col) => colors.has(col)) || (c.colors.length === 0 && colors.has('C'))
+          c.colors.length === wanted.length && wanted.every((col) => c.colors.includes(col as Color))
         if (!matches) return false
       }
       if (finish && (c.finish ?? 'nonfoil') !== finish) return false
