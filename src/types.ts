@@ -15,7 +15,7 @@ export type CardStatus = 'owned' | 'to-pick-up' | 'wishlist' | 'to-trade'
 export type Language = 'en' | 'es' | 'pt' | 'fr' | 'de' | 'it' | 'ja' | 'ko' | 'ru' | 'zhs' | 'zht'
 
 /** Special frame of a printing, used to pick the right version when resolving a card by name. */
-export type Frame = 'borderless' | 'showcase' | 'extended-art'
+export type Frame = 'borderless' | 'showcase' | 'extended-art' | 'promo'
 
 /** Physical finish of the card. Defaults to `nonfoil` when omitted. */
 export type Finish = 'nonfoil' | 'foil' | 'surge-foil'

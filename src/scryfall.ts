@@ -40,6 +40,7 @@ const FRAME_FILTER: Record<Frame, string> = {
   borderless: 'is:borderless',
   showcase: 'is:showcase',
   'extended-art': 'is:extended',
+  promo: 'is:promo',
 }
 
 /** Exact-name lookup, within the set when `withSet` is true, ignoring any frame preference. */
@@ -58,10 +59,8 @@ function namedPath(card: Card, withSet = true): string | undefined {
  * the lookup becomes a search restricted to that frame, so the right variant is picked.
  */
 export function scryfallPath(card: Card): string | undefined {
-  // No set: the card is whatever printing Scryfall returns for the exact name.
-  if (!card.set) return namedPath(card, false)
   const number = (card.collectorNumber ?? '').replace(/^0+(?=\d)/, '')
-  if (number) return `${card.set.toLowerCase()}/${encodeURIComponent(number)}`
+  if (card.set && number) return `${card.set.toLowerCase()}/${encodeURIComponent(number)}`
   const front = card.name.split(' // ')[0].trim()
   if (!front) return undefined
   if (card.frame) {
@@ -70,10 +69,11 @@ export function scryfallPath(card: Card): string | undefined {
       frames.length === 1
         ? FRAME_FILTER[frames[0]]
         : `(${frames.map((f) => FRAME_FILTER[f]).join(' or ')})`
-    const q = `!"${front}" e:${card.set.toLowerCase()} ${filter}`
+    const q = `!"${front}"${card.set ? ` e:${card.set.toLowerCase()}` : ''} ${filter}`
     return `search?q=${encodeURIComponent(q)}&unique=prints&order=set`
   }
-  return namedPath(card)
+  // No set: the card is whatever printing Scryfall returns for the exact name.
+  return namedPath(card, !!card.set)
 }
 
 const memory = new Map<string, Promise<ScryfallInfo | null>>()
