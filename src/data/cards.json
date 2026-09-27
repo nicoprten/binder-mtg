@@ -1599,8 +1599,9 @@
     "image": "cards/dmc-178-blackblade-reforged.jpg",
     "quantity": 1,
     "status": "owned",
-    "language": "en",
+    "language": "es",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "equipment"
     ]
@@ -1700,6 +1701,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 2.5,
     "tags": [
       "goblins",
       "promo"
