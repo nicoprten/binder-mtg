@@ -759,6 +759,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "goblins",
       "tokens"
@@ -1040,6 +1041,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "removal"
     ]
@@ -1176,6 +1178,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "breaking-news"
     ]
@@ -1270,6 +1273,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "goblins",
       "removal",
@@ -1295,6 +1299,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": []
   },
   {
@@ -1624,9 +1629,9 @@
     ]
   },
   {
-    "id": "3ed-orcish-oriflamme",
+    "id": "6ed-orcish-oriflamme",
     "name": "Orcish Oriflamme",
-    "set": "3ED",
+    "set": "6ED",
     "collectorNumber": "",
     "manaCost": "{3}{R}",
     "cmc": 4,
@@ -1642,6 +1647,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "orcs",
       "reprint"
@@ -1950,6 +1956,66 @@
     "language": "en",
     "finish": "nonfoil",
     "frame": "extended-art",
+    "priceUsd": 1.5
+  },
+  {
+    "id": "dbl-winterthorn-blessing",
+    "name": "Winterthorn Blessing",
+    "set": "DBL",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "one-sinew-dancer",
+    "name": "Sinew Dancer",
+    "set": "ONE",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "one-bonepicker-skirge",
+    "name": "Bonepicker Skirge",
+    "set": "ONE",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "tdc-teval-the-balanced-scale",
+    "name": "Teval, the Balanced Scale",
+    "set": "TDC",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "foil",
+    "priceUsd": 5.0
+  },
+  {
+    "id": "tdm-kishla-skimmer",
+    "name": "Kishla Skimmer",
+    "set": "TDM",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "tdc-kotis-sibsig-champion",
+    "name": "Kotis, Sibsig Champion",
+    "set": "TDC",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "foil",
     "priceUsd": 1.5
   }
 ]
