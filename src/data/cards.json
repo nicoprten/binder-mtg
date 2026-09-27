@@ -786,6 +786,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 1.0,
     "tags": [
       "goblins",
       "ramp"
@@ -812,6 +813,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "goblins",
       "tokens"
@@ -839,6 +841,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "goblins"
     ]
@@ -864,6 +867,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "goblins"
     ]
@@ -889,6 +893,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 1.0,
     "tags": [
       "goblins",
       "tokens"
@@ -915,6 +920,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 1.0,
     "tags": [
       "goblins",
       "tokens"
@@ -1111,6 +1117,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "removal"
     ]
@@ -1134,6 +1141,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": []
   },
   {
@@ -1155,6 +1163,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "removal"
     ]
@@ -1202,6 +1211,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "removal"
     ]
@@ -1249,6 +1259,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "goblins",
       "tokens"
@@ -1365,6 +1376,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 2.0,
     "tags": [
       "reprint"
     ]
@@ -1412,6 +1424,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 1.0,
     "tags": [
       "goblins",
       "tokens",
@@ -1511,6 +1524,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "equipment",
       "removal"
@@ -1533,6 +1547,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 2.0,
     "tags": [
       "ramp"
     ]
@@ -1622,6 +1637,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 1.0,
     "tags": [
       "goblins",
       "orcs",
@@ -1696,6 +1712,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "borderless"
     ]
@@ -1718,7 +1735,8 @@
     "quantity": 1,
     "status": "owned",
     "language": "en",
-    "finish": "nonfoil",
+    "finish": "foil",
+    "priceUsd": 1.5,
     "tags": [
       "goblins",
       "tokens"
@@ -1743,6 +1761,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": []
   },
   {
@@ -2019,5 +2038,45 @@
     "language": "en",
     "finish": "foil",
     "priceUsd": 1.5
+  },
+  {
+    "id": "blb-hidden-grotto",
+    "name": "Hidden Grotto",
+    "set": "BLB",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 1.0
+  },
+  {
+    "id": "dtk-dragon-fodder",
+    "name": "Dragon Fodder",
+    "set": "DTK",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "hob-the-great-goblin",
+    "name": "The Great Goblin",
+    "set": "HOB",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 1.0
+  },
+  {
+    "id": "mar-fisk-tower",
+    "name": "Fisk Tower",
+    "set": "MAR",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
   }
 ]
