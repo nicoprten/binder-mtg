@@ -1868,5 +1868,75 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 3
+  },
+  {
+    "id": "tdm-songcrafter-mage",
+    "name": "Songcrafter Mage",
+    "set": "TDM",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "foil",
+    "priceUsd": 1.0
+  },
+  {
+    "id": "tdc-floral-evoker",
+    "name": "Floral Evoker",
+    "set": "TDC",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 1.0
+  },
+  {
+    "id": "sld-the-mimeoplasm",
+    "name": "The Mimeoplasm",
+    "set": "SLD",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 5.0
+  },
+  {
+    "id": "tdm-awaken-the-honored-dead",
+    "name": "Awaken the Honored Dead",
+    "set": "TDM",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 1.5
+  },
+  {
+    "id": "tdm-glacierwood-siege",
+    "name": "Glacierwood Siege",
+    "set": "TDM",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 1.5
+  },
+  {
+    "id": "tdm-essence-anchor",
+    "name": "Essence Anchor",
+    "set": "TDM",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "iko-titans-nest",
+    "name": "Titans' Nest",
+    "set": "IKO",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 1.5
   }
 ]
