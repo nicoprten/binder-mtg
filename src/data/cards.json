@@ -2067,7 +2067,7 @@
     "set": "BLB",
     "quantity": 1,
     "status": "owned",
-    "language": "en",
+    "language": "es",
     "finish": "nonfoil",
     "priceUsd": 1.0
   },
@@ -2199,6 +2199,28 @@
       "goblins",
       "tokens",
       "adventure"
+    ]
+  },
+  {
+    "id": "c21-239",
+    "name": "Commander's Sphere",
+    "set": "C21",
+    "collectorNumber": "239",
+    "manaCost": "{3}",
+    "cmc": 3,
+    "colors": [],
+    "typeLine": "Artifact",
+    "oracleText": "{T}: Add one mana of any color in your commander's color identity.\nSacrifice Commander's Sphere: Draw a card.",
+    "rarity": "common",
+    "artist": "Ryan Alexander Lee",
+    "image": "cards/c21-239-commanders-sphere.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "es",
+    "finish": "nonfoil",
+    "priceUsd": 0.5,
+    "tags": [
+      "ramp"
     ]
   }
 ]
