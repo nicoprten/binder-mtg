@@ -2162,5 +2162,20 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5
+  },
+  {
+    "id": "hob-great-ugly-looking-goblin",
+    "name": "Great Ugly-Looking Goblin // Clap! Snap!",
+    "set": "HOB",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "foil",
+    "priceUsd": 1,
+    "tags": [
+      "goblins",
+      "tokens",
+      "adventure"
+    ]
   }
 ]
