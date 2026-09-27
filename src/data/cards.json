@@ -1822,27 +1822,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
-    "tags": [
-      "land"
-    ]
-  },
-  {
-    "id": "fdn-0279",
-    "name": "Mountain",
-    "set": "FDN",
-    "collectorNumber": "0279",
-    "manaCost": "",
-    "cmc": 0,
-    "colors": [],
-    "typeLine": "Basic Land — Mountain",
-    "oracleText": "({T}: Add {R}.)",
-    "rarity": "common",
-    "artist": "Rebecca Guay",
-    "image": "cards/fdn-0279-mountain.jpg",
-    "quantity": 6,
-    "status": "owned",
-    "language": "en",
-    "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "land"
     ]
