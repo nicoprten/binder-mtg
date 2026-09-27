@@ -14,7 +14,33 @@ const SYMBOL_TEXT: Record<string, string> = {
   T: '⤵',
 }
 
+const HYBRID_COLOR: Record<string, string> = {
+  W: '#f8f0d8',
+  U: '#b3d3ea',
+  B: '#a69f9d',
+  R: '#f0a08a',
+  G: '#a3c9a3',
+  C: '#cfc9c0',
+}
+
 function Symbol({ symbol }: { symbol: string }) {
+  if (symbol.includes('/')) {
+    const [a, b] = symbol.split('/')
+    const ca = HYBRID_COLOR[a] ?? '#c9c4bd'
+    const cb = HYBRID_COLOR[b] ?? '#c9c4bd'
+    return (
+      <span
+        className="mana mana-hybrid"
+        aria-label={`{${symbol}}`}
+        title={`${a} or ${b}`}
+        style={{ backgroundImage: `linear-gradient(135deg, ${ca} 50%, ${cb} 50%)` }}
+      >
+        {a}
+        <small>/</small>
+        {b}
+      </span>
+    )
+  }
   return (
     <span className={SYMBOL_CLASS[symbol] ?? 'mana mana-generic'} aria-label={`{${symbol}}`}>
       {SYMBOL_TEXT[symbol] ?? symbol}

@@ -650,6 +650,13 @@ main {
 .mana-c {
   background: #cfc9c0;
 }
+.mana-hybrid {
+  font-size: 0.6em;
+  letter-spacing: -0.05em;
+}
+.mana-hybrid small {
+  font-size: 0.8em;
+}
 
 .oracle .mana {
   vertical-align: -0.1em;

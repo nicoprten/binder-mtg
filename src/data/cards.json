@@ -723,5 +723,1097 @@
       "tokens",
       "borderless"
     ]
+  },
+  {
+    "id": "hob-0211",
+    "name": "Bolg's Company",
+    "set": "HOB",
+    "collectorNumber": "0211",
+    "manaCost": "{B}{R}",
+    "cmc": 2,
+    "colors": [
+      "B",
+      "R"
+    ],
+    "typeLine": "Creature — Goblin Soldier",
+    "oracleText": "This creature has haste as long as you control another Goblin.\n{B}, Sacrifice another Goblin: Add {B}{R}.",
+    "power": "2",
+    "toughness": "2",
+    "rarity": "rare",
+    "artist": "Denman Rooke",
+    "image": "cards/hob-0211-bolg-s-company.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "borderless"
+    ]
+  },
+  {
+    "id": "hob-0089",
+    "name": "Bothersome Noisemaker",
+    "set": "HOB",
+    "collectorNumber": "0089",
+    "manaCost": "{1}{R}",
+    "cmc": 2,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Creature — Goblin Bard",
+    "oracleText": "Whenever you cast a noncreature spell, amass Goblins 1. (Put a +1/+1 counter on an Army you control. It's also a Goblin. If you don't control an Army, create a 0/0 black Goblin Army creature token first.)",
+    "power": "2",
+    "toughness": "2",
+    "rarity": "uncommon",
+    "artist": "Andreia Ugrai",
+    "image": "cards/hob-0089-bothersome-noisemaker.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "dom-144",
+    "name": "Skirk Prospector",
+    "set": "DOM",
+    "collectorNumber": "144",
+    "manaCost": "{R}",
+    "cmc": 1,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Creature — Goblin",
+    "oracleText": "Sacrifice a Goblin: Add {R}.",
+    "power": "1",
+    "toughness": "1",
+    "rarity": "common",
+    "artist": "Slawomir Maniak",
+    "image": "cards/dom-144-skirk-prospector.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "ramp"
+    ]
+  },
+  {
+    "id": "hob-0100",
+    "name": "Goblin-town Flunkies",
+    "set": "HOB",
+    "collectorNumber": "0100",
+    "manaCost": "{1}{R}",
+    "cmc": 2,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Creature — Goblin Soldier",
+    "oracleText": "Haste\nWhen this creature enters, amass Goblins 1. (Put a +1/+1 counter on an Army you control. It's also a Goblin. If you don't control an Army, create a 0/0 black Goblin Army creature token first.)",
+    "power": "1",
+    "toughness": "1",
+    "rarity": "common",
+    "artist": "Jason Kang",
+    "image": "cards/hob-0100-goblin-town-flunkies.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "ecl-0217",
+    "name": "Eclipsed Boggart",
+    "set": "ECL",
+    "collectorNumber": "0217",
+    "manaCost": "{B/R}{B/R}{B/R}",
+    "cmc": 3,
+    "colors": [
+      "B",
+      "R"
+    ],
+    "typeLine": "Creature — Goblin Scout",
+    "oracleText": "When this creature enters, look at the top four cards of your library. You may reveal a Goblin, Swamp, or Mountain card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+    "power": "2",
+    "toughness": "3",
+    "rarity": "uncommon",
+    "artist": "Tiffany Turrill",
+    "image": "cards/ecl-0217-eclipsed-boggart.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins"
+    ]
+  },
+  {
+    "id": "ecl-0163",
+    "name": "Warren Torchmaster",
+    "set": "ECL",
+    "collectorNumber": "0163",
+    "manaCost": "{1}{R}",
+    "cmc": 2,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Creature — Goblin Warrior",
+    "oracleText": "At the beginning of combat on your turn, you may blight 1. When you do, target creature gains haste until end of turn. (To blight 1, put a -1/-1 counter on a creature you control.)",
+    "power": "2",
+    "toughness": "2",
+    "rarity": "uncommon",
+    "artist": "Ioannis Fiore",
+    "image": "cards/ecl-0163-warren-torchmaster.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins"
+    ]
+  },
+  {
+    "id": "fdn-0631",
+    "name": "Redcap Gutter-Dweller",
+    "set": "FDN",
+    "collectorNumber": "0631",
+    "manaCost": "{2}{R}{R}",
+    "cmc": 4,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Creature — Goblin Warrior",
+    "oracleText": "Menace\nWhen this creature enters, create two 1/1 black Rat creature tokens with \"This token can't block.\"\nAt the beginning of your upkeep, you may sacrifice another creature. If you do, put a +1/+1 counter on this creature and exile the top card of your library. You may play that card this turn.",
+    "power": "3",
+    "toughness": "3",
+    "rarity": "rare",
+    "artist": "Alexey Kruglov",
+    "image": "cards/fdn-0631-redcap-gutter-dweller.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "dmr-136",
+    "name": "Siege-Gang Commander",
+    "set": "DMR",
+    "collectorNumber": "136",
+    "manaCost": "{3}{R}{R}",
+    "cmc": 5,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Creature — Goblin",
+    "oracleText": "When Siege-Gang Commander enters the battlefield, create three 1/1 red Goblin creature tokens.\n{1}{R}, Sacrifice a Goblin: Siege-Gang Commander deals 2 damage to any target.",
+    "power": "2",
+    "toughness": "2",
+    "rarity": "rare",
+    "artist": "Aaron Miller",
+    "image": "cards/dmr-136-siege-gang-commander.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "hob-0085",
+    "name": "Stony-Voiced Goblins",
+    "set": "HOB",
+    "collectorNumber": "0085",
+    "manaCost": "{1}{B}",
+    "cmc": 2,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Creature — Goblin Bard",
+    "oracleText": "When this creature enters, each opponent discards a card.",
+    "power": "1",
+    "toughness": "1",
+    "rarity": "common",
+    "artist": "Marius Bota",
+    "image": "cards/hob-0085-stony-voiced-goblins.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins"
+    ]
+  },
+  {
+    "id": "hob-0067",
+    "name": "Front Porch Sentries",
+    "set": "HOB",
+    "collectorNumber": "0067",
+    "manaCost": "{1}{B}",
+    "cmc": 2,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Creature — Goblin Soldier",
+    "oracleText": "When this creature dies, target creature an opponent controls gets -1/-1 until end of turn.",
+    "power": "2",
+    "toughness": "2",
+    "rarity": "common",
+    "artist": "Stanislav Sherbakov",
+    "image": "cards/hob-0067-front-porch-sentries.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins"
+    ]
+  },
+  {
+    "id": "hob-0061",
+    "name": "Azog, Moria's Ruin",
+    "set": "HOB",
+    "collectorNumber": "0061",
+    "manaCost": "{2}{B}",
+    "cmc": 3,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Legendary Creature — Goblin Soldier",
+    "oracleText": "When Azog enters, destroy up to one other target creature. Its controller amasses Goblins X, where X is that creature's power. If you controlled that creature, draw a card. (To amass Goblins X, that player puts X +1/+1 counters on an Army they control. It's also a Goblin. If they don't control an Army, they create a 0/0 black Goblin Army creature token first.)",
+    "power": "1",
+    "toughness": "3",
+    "rarity": "rare",
+    "artist": "Miklós Ligeti",
+    "image": "cards/hob-0061-azog-moria-s-ruin.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "removal",
+      "tokens"
+    ]
+  },
+  {
+    "id": "dmr-085",
+    "name": "Festering Goblin",
+    "set": "DMR",
+    "collectorNumber": "085",
+    "manaCost": "{B}",
+    "cmc": 1,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Creature — Zombie Goblin",
+    "oracleText": "When Festering Goblin dies, target creature gets -1/-1 until end of turn.",
+    "power": "1",
+    "toughness": "1",
+    "rarity": "common",
+    "artist": "Thomas M. Baxa",
+    "image": "cards/dmr-085-festering-goblin.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins"
+    ]
+  },
+  {
+    "id": "dft-0136",
+    "name": "Lightning Strike",
+    "set": "DFT",
+    "collectorNumber": "0136",
+    "manaCost": "{1}{R}",
+    "cmc": 2,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Instant",
+    "oracleText": "Lightning Strike deals 3 damage to any target.",
+    "rarity": "common",
+    "artist": "Steve Ellis",
+    "image": "cards/dft-0136-lightning-strike.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "removal"
+    ]
+  },
+  {
+    "id": "fin-0109",
+    "name": "Overkill",
+    "set": "FIN",
+    "collectorNumber": "0109",
+    "manaCost": "{2}{B}",
+    "cmc": 3,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Instant",
+    "oracleText": "Target creature gets -0/-9999 until end of turn.",
+    "rarity": "uncommon",
+    "artist": "Bachiim",
+    "image": "cards/fin-0109-overkill.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "removal"
+    ]
+  },
+  {
+    "id": "ltr-0416",
+    "name": "Nasty End",
+    "set": "LTR",
+    "collectorNumber": "0416",
+    "manaCost": "{1}{B}",
+    "cmc": 2,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Instant",
+    "oracleText": "As an additional cost to cast this spell, sacrifice a creature.\nDraw two cards. If the sacrificed creature was legendary, draw three cards instead.",
+    "rarity": "common",
+    "artist": "David Rapoza",
+    "image": "cards/ltr-0416-nasty-end.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "borderless"
+    ]
+  },
+  {
+    "id": "vow-120",
+    "name": "Hero's Downfall",
+    "set": "VOW",
+    "collectorNumber": "120",
+    "manaCost": "{1}{B}{B}",
+    "cmc": 3,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Instant",
+    "oracleText": "Destroy target creature or planeswalker.",
+    "rarity": "uncommon",
+    "artist": "Chris Rallis",
+    "image": "cards/vow-120-hero-s-downfall.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "removal"
+    ]
+  },
+  {
+    "id": "ecl-0123",
+    "name": "Unbury",
+    "set": "ECL",
+    "collectorNumber": "0123",
+    "manaCost": "{1}{B}",
+    "cmc": 2,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Instant",
+    "oracleText": "Choose one —\n• Return target creature card from your graveyard to your hand.\n• Return two target creature cards that share a creature type from your graveyard to your hand.",
+    "rarity": "uncommon",
+    "artist": "Kev Fang",
+    "image": "cards/ecl-0123-unbury.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": []
+  },
+  {
+    "id": "tla-0103",
+    "name": "Heartless Act",
+    "set": "TLA",
+    "collectorNumber": "0103",
+    "manaCost": "{1}{B}",
+    "cmc": 2,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Instant",
+    "oracleText": "Choose one —\n• Destroy target creature with no counters on it.\n• Remove up to three counters from target creature.",
+    "rarity": "uncommon",
+    "artist": "Stefan Sarrailh",
+    "image": "cards/tla-0103-heartless-act.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "removal"
+    ]
+  },
+  {
+    "id": "otp-0024",
+    "name": "Fling",
+    "set": "OTP",
+    "collectorNumber": "0024",
+    "manaCost": "{1}{R}",
+    "cmc": 2,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Instant",
+    "oracleText": "As an additional cost to cast this spell, sacrifice a creature.\nFling deals damage equal to the sacrificed creature's power to any target.",
+    "rarity": "uncommon",
+    "artist": "Florey",
+    "image": "cards/otp-0024-fling.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "breaking-news"
+    ]
+  },
+  {
+    "id": "soa-0026",
+    "name": "Bitter Triumph",
+    "set": "SOA",
+    "collectorNumber": "0026",
+    "manaCost": "{1}{B}",
+    "cmc": 2,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Instant",
+    "oracleText": "As an additional cost to cast this spell, discard a card or pay 3 life.\nDestroy target creature or planeswalker.",
+    "rarity": "uncommon",
+    "artist": "Justin & Alexis Hernandez",
+    "image": "cards/soa-0026-bitter-triumph.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "removal"
+    ]
+  },
+  {
+    "id": "hob-0068",
+    "name": "Gathering of Darkness",
+    "set": "HOB",
+    "collectorNumber": "0068",
+    "manaCost": "{3}{B}",
+    "cmc": 4,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Sorcery",
+    "oracleText": "Return up to one target creature card from your graveyard to your hand.\nAmass Goblins 3. (Put three +1/+1 counters on an Army you control. It's also a Goblin. If you don't control an Army, create a 0/0 black Goblin Army creature token first.)",
+    "rarity": "uncommon",
+    "artist": "Pavel Kolomeyets",
+    "image": "cards/hob-0068-gathering-of-darkness.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "hob-0115",
+    "name": "Tidings of War",
+    "set": "HOB",
+    "collectorNumber": "0115",
+    "manaCost": "{R}",
+    "cmc": 1,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Sorcery",
+    "oracleText": "Amass Goblins 1. If this spell was cast from a graveyard, amass Goblins 3 instead. (To amass Goblins X, put X +1/+1 counters on an Army you control. It's also a Goblin. If you don't control an Army, create a 0/0 black Goblin Army creature token first.)\nFlashback {3}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+    "rarity": "common",
+    "artist": "Pavel Kolomeyets",
+    "image": "cards/hob-0115-tidings-of-war.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "mma-108",
+    "name": "Warren Weirding",
+    "set": "MMA",
+    "collectorNumber": "108",
+    "manaCost": "{1}{B}",
+    "cmc": 2,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Tribal Sorcery — Goblin",
+    "oracleText": "Target player sacrifices a creature. If a Goblin is sacrificed this way, that player creates two 1/1 black Goblin Rogue creature tokens, and those tokens gain haste until end of turn.",
+    "rarity": "common",
+    "artist": "Matt Cavotta",
+    "image": "cards/mma-108-warren-weirding.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "removal",
+      "reprint"
+    ]
+  },
+  {
+    "id": "mkm-0093",
+    "name": "Macabre Reconstruction",
+    "set": "MKM",
+    "collectorNumber": "0093",
+    "manaCost": "{3}{B}",
+    "cmc": 4,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Sorcery",
+    "oracleText": "This spell costs {2} less to cast if a creature card was put into your graveyard from anywhere this turn.\nReturn up to two target creature cards from your graveyard to your hand.",
+    "rarity": "common",
+    "artist": "Sam Guay",
+    "image": "cards/mkm-0093-macabre-reconstruction.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": []
+  },
+  {
+    "id": "soi-121",
+    "name": "Macabre Waltz",
+    "set": "SOI",
+    "collectorNumber": "121",
+    "manaCost": "{1}{B}",
+    "cmc": 2,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Sorcery",
+    "oracleText": "Return up to two target creature cards from your graveyard to your hand, then discard a card.",
+    "rarity": "common",
+    "artist": "William Murai",
+    "image": "cards/soi-121-macabre-waltz.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": []
+  },
+  {
+    "id": "inr-0101",
+    "name": "Collective Brutality",
+    "set": "INR",
+    "collectorNumber": "0101",
+    "manaCost": "{1}{B}",
+    "cmc": 2,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Sorcery",
+    "oracleText": "Escalate—Discard a card. (Pay this cost for each mode chosen beyond the first.)\nChoose one or more —\n• Target opponent reveals their hand. You choose an instant or sorcery card from it. That player discards that card.\n• Target creature gets -2/-2 until end of turn.\n• Target opponent loses 2 life and you gain 2 life.",
+    "rarity": "rare",
+    "artist": "Johann Bodin",
+    "image": "cards/inr-0101-collective-brutality.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "removal"
+    ]
+  },
+  {
+    "id": "ulg-72",
+    "name": "Unearth",
+    "set": "ULG",
+    "collectorNumber": "72",
+    "manaCost": "{B}",
+    "cmc": 1,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Sorcery",
+    "oracleText": "Return target creature card with mana value 3 or less from your graveyard to the battlefield.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+    "rarity": "common",
+    "artist": "Hazeline",
+    "image": "cards/ulg-72-unearth.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "reprint"
+    ]
+  },
+  {
+    "id": "dmu-083",
+    "name": "Bone Splinters",
+    "set": "DMU",
+    "collectorNumber": "083",
+    "manaCost": "{B}",
+    "cmc": 1,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Sorcery",
+    "oracleText": "As an additional cost to cast this spell, sacrifice a creature.\nDestroy target creature.",
+    "rarity": "common",
+    "artist": "Jeremy Wilson",
+    "image": "cards/dmu-083-bone-splinters.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "removal"
+    ]
+  },
+  {
+    "id": "ecl-0228",
+    "name": "Grub's Command",
+    "set": "ECL",
+    "collectorNumber": "0228",
+    "manaCost": "{3}{B}{R}",
+    "cmc": 5,
+    "colors": [
+      "B",
+      "R"
+    ],
+    "typeLine": "Kindred Sorcery — Goblin",
+    "oracleText": "Choose two —\n• Create a token that's a copy of target Goblin you control.\n• Creatures target player controls get +1/+1 and gain haste until end of turn.\n• Destroy target artifact or creature.\n• Target player mills five cards, then puts each Goblin card milled this way into their hand.",
+    "rarity": "rare",
+    "artist": "Iris Compiet",
+    "image": "cards/ecl-0228-grub-s-command.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "tokens",
+      "removal"
+    ]
+  },
+  {
+    "id": "hob-0200",
+    "name": "Rage into the Valley",
+    "set": "HOB",
+    "collectorNumber": "0200",
+    "manaCost": "{2}{B}",
+    "cmc": 3,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Sorcery",
+    "oracleText": "You draw a card and lose 1 life.\nAmass Goblins 2.",
+    "rarity": "common",
+    "artist": "Ted Nasmith",
+    "image": "cards/hob-0200-rage-into-the-valley.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "tokens",
+      "borderless"
+    ]
+  },
+  {
+    "id": "hob-0108",
+    "name": "Ragged Short Spear",
+    "set": "HOB",
+    "collectorNumber": "0108",
+    "manaCost": "{1}{R}",
+    "cmc": 2,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Artifact — Equipment",
+    "oracleText": "When this Equipment enters, you may discard a card. If you do, draw two cards.\nEquipped creature gets +2/+0.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+    "rarity": "common",
+    "artist": "Miklós Ligeti",
+    "image": "cards/hob-0108-ragged-short-spear.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "equipment"
+    ]
+  },
+  {
+    "id": "hob-0157",
+    "name": "Goblin Plate Mail",
+    "set": "HOB",
+    "collectorNumber": "0157",
+    "manaCost": "{1}{B/R}",
+    "cmc": 2,
+    "colors": [
+      "B",
+      "R"
+    ],
+    "typeLine": "Artifact — Equipment",
+    "oracleText": "When this Equipment enters, amass Goblins 1, then attach this Equipment to the amassed Army. (Put a +1/+1 counter on an Army you control. It's also a Goblin. If you don't control an Army, create a 0/0 black Goblin Army creature token first.)\nEquipped creature gets +1/+0 and has menace.\nEquip {4}",
+    "rarity": "common",
+    "artist": "Miklós Ligeti",
+    "image": "cards/hob-0157-goblin-plate-mail.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "equipment",
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "hob-0063",
+    "name": "Crude Bent Blade",
+    "set": "HOB",
+    "collectorNumber": "0063",
+    "manaCost": "{2}{B}",
+    "cmc": 3,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Artifact — Equipment",
+    "oracleText": "When this Equipment enters, target opponent sacrifices a creature of their choice.\nEquipped creature gets +2/+1.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+    "rarity": "common",
+    "artist": "Russell Dongjun Lu",
+    "image": "cards/hob-0063-crude-bent-blade.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "equipment",
+      "removal"
+    ]
+  },
+  {
+    "id": "ecl-0257",
+    "name": "Gathering Stone",
+    "set": "ECL",
+    "collectorNumber": "0257",
+    "manaCost": "{4}",
+    "cmc": 4,
+    "colors": [],
+    "typeLine": "Artifact",
+    "oracleText": "As this artifact enters, choose a creature type.\nSpells you cast of the chosen type cost {1} less to cast.\nWhen this artifact enters and at the beginning of your upkeep, look at the top card of your library. You may reveal it and put it into your hand if it's a card of the chosen type. If you don't put the card into your hand, you may put it into your graveyard.",
+    "rarity": "uncommon",
+    "artist": "Paolo Parente",
+    "image": "cards/ecl-0257-gathering-stone.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "ramp"
+    ]
+  },
+  {
+    "id": "hob-0179",
+    "name": "Thrór's Map",
+    "set": "HOB",
+    "collectorNumber": "0179",
+    "manaCost": "{2}",
+    "cmc": 2,
+    "colors": [],
+    "typeLine": "Legendary Artifact",
+    "oracleText": "When Thrór's Map enters, search your library for a basic land card, reveal it, put it into your hand, then shuffle.\n{2}, {T}: Draw a card, then discard a card.",
+    "rarity": "uncommon",
+    "artist": "Gaboleps",
+    "image": "cards/hob-0179-thror-s-map.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "ramp"
+    ]
+  },
+  {
+    "id": "dmc-178",
+    "name": "Blackblade Reforged",
+    "set": "DMC",
+    "collectorNumber": "178",
+    "manaCost": "{2}",
+    "cmc": 2,
+    "colors": [],
+    "typeLine": "Legendary Artifact — Equipment",
+    "oracleText": "Equipped creature gets +1/+1 for each land you control.\nEquip legendary creature {3}\nEquip {7}",
+    "rarity": "rare",
+    "artist": "Chris Rahn",
+    "image": "cards/dmc-178-blackblade-reforged.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "equipment"
+    ]
+  },
+  {
+    "id": "hob-0065",
+    "name": "Down, Down to Goblin-town",
+    "set": "HOB",
+    "collectorNumber": "0065",
+    "manaCost": "{2}{B}",
+    "cmc": 3,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Enchantment — Saga",
+    "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after IV.)\nI — Target opponent reveals their hand. You choose a nonland card from it. That player discards that card.\nII — Amass Goblins 1. (Put a +1/+1 counter on an Army you control. It's also a Goblin. If you don't control an Army, create a 0/0 black Goblin Army creature token first.)\nIII, IV — Target opponent loses 1 life and you gain 1 life.",
+    "rarity": "uncommon",
+    "artist": "Rovina Cai",
+    "image": "cards/hob-0065-down-down-to-goblin-town.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "hob-0060",
+    "name": "Along the Crooked Way",
+    "set": "HOB",
+    "collectorNumber": "0060",
+    "manaCost": "{2}{B}",
+    "cmc": 3,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Enchantment",
+    "oracleText": "When this enchantment enters, return target creature card from your graveyard to your hand.\nWhenever a creature card leaves your graveyard, amass Goblins 1.\n{1}{B}: Goblins and Orcs you control gain menace until end of turn.",
+    "rarity": "rare",
+    "artist": "Bruce Brenneise",
+    "image": "cards/hob-0060-along-the-crooked-way.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "orcs",
+      "tokens"
+    ]
+  },
+  {
+    "id": "3ed-orcish-oriflamme",
+    "name": "Orcish Oriflamme",
+    "set": "3ED",
+    "collectorNumber": "",
+    "manaCost": "{3}{R}",
+    "cmc": 4,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Enchantment",
+    "oracleText": "Attacking creatures you control get +1/+0.",
+    "rarity": "uncommon",
+    "artist": "Dan Frazier",
+    "image": "cards/3ed-orcish-oriflamme-orcish-oriflamme.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "orcs",
+      "reprint"
+    ]
+  },
+  {
+    "id": "sch-0045",
+    "name": "Goblin Bombardment",
+    "set": "SCH",
+    "collectorNumber": "0045",
+    "manaCost": "{1}{R}",
+    "cmc": 2,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Enchantment",
+    "oracleText": "Sacrifice a creature: This enchantment deals 1 damage to any target.",
+    "rarity": "rare",
+    "artist": "Jeff Laubenstein",
+    "image": "cards/sch-0045-goblin-bombardment.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "promo"
+    ]
+  },
+  {
+    "id": "wot-0047",
+    "name": "Raid Bombardment",
+    "set": "WOT",
+    "collectorNumber": "0047",
+    "manaCost": "{2}{R}",
+    "cmc": 3,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Enchantment",
+    "oracleText": "Whenever a creature you control with power 2 or less attacks, Raid Bombardment deals 1 damage to the player or planeswalker that creature is attacking.",
+    "rarity": "uncommon",
+    "artist": "Shafer Brown",
+    "image": "cards/wot-0047-raid-bombardment.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "borderless"
+    ]
+  },
+  {
+    "id": "ecl-0092",
+    "name": "Boggart Mischief",
+    "set": "ECL",
+    "collectorNumber": "0092",
+    "manaCost": "{2}{B}",
+    "cmc": 3,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Kindred Enchantment — Goblin",
+    "oracleText": "When this enchantment enters, you may blight 1. If you do, create two 1/1 black and red Goblin creature tokens. (To blight 1, put a -1/-1 counter on a creature you control.)\nWhenever a Goblin creature you control dies, each opponent loses 1 life and you gain 1 life.",
+    "rarity": "uncommon",
+    "artist": "Ron Spears",
+    "image": "cards/ecl-0092-boggart-mischief.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins",
+      "tokens"
+    ]
+  },
+  {
+    "id": "c15-125",
+    "name": "Fallen Ideal",
+    "set": "C15",
+    "collectorNumber": "125",
+    "manaCost": "{2}{B}",
+    "cmc": 3,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Enchantment — Aura",
+    "oracleText": "Enchant creature\nEnchanted creature has flying and \"Sacrifice a creature: This creature gets +2/+1 until end of turn.\"\nWhen Fallen Ideal is put into a graveyard from the battlefield, return Fallen Ideal to its owner's hand.",
+    "rarity": "uncommon",
+    "artist": "Anson Maddocks",
+    "image": "cards/c15-125-fallen-ideal.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": []
+  },
+  {
+    "id": "hoc-0050",
+    "name": "Mount Doom",
+    "set": "HOC",
+    "collectorNumber": "0050",
+    "manaCost": "",
+    "cmc": 0,
+    "colors": [],
+    "typeLine": "Legendary Land",
+    "oracleText": "{T}, Pay 1 life: Add {B} or {R}.\n{1}{B}{R}, {T}: Mount Doom deals 1 damage to each opponent.\n{5}{B}{R}, {T}, Sacrifice Mount Doom and a legendary artifact: Choose up to two creatures, then destroy the rest. Activate only as a sorcery.",
+    "rarity": "mythic",
+    "artist": "James Bousema",
+    "image": "cards/hoc-0050-mount-doom.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "land",
+      "borderless"
+    ]
+  },
+  {
+    "id": "mid-261",
+    "name": "Evolving Wilds",
+    "set": "MID",
+    "collectorNumber": "261",
+    "manaCost": "",
+    "cmc": 0,
+    "colors": [],
+    "typeLine": "Land",
+    "oracleText": "{T}, Sacrifice Evolving Wilds: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+    "rarity": "common",
+    "artist": "Alayna Danner",
+    "image": "cards/mid-261-evolving-wilds.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "land"
+    ]
+  },
+  {
+    "id": "fdn-0279",
+    "name": "Mountain",
+    "set": "FDN",
+    "collectorNumber": "0279",
+    "manaCost": "",
+    "cmc": 0,
+    "colors": [],
+    "typeLine": "Basic Land — Mountain",
+    "oracleText": "({T}: Add {R}.)",
+    "rarity": "common",
+    "artist": "Rebecca Guay",
+    "image": "cards/fdn-0279-mountain.jpg",
+    "quantity": 6,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "land"
+    ]
   }
 ]
