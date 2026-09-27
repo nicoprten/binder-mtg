@@ -384,7 +384,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5,
-    "priceArs": 600,
     "tags": [
       "borderless"
     ]
@@ -409,7 +408,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 1,
-    "priceArs": 1250,
     "tags": [
       "orcs",
       "tokens"
@@ -435,7 +433,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5,
-    "priceArs": 800,
     "tags": [
       "orcs",
       "tokens"
@@ -464,7 +461,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 1,
-    "priceArs": 1250,
     "tags": [
       "orcs",
       "goblins"
@@ -492,7 +488,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5,
-    "priceArs": 600,
     "tags": [
       "goblins",
       "tokens"
@@ -520,7 +515,6 @@
     "language": "en",
     "finish": "foil",
     "priceUsd": 0.5,
-    "priceArs": 800,
     "tags": [
       "goblins",
       "tokens",
@@ -551,7 +545,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5,
-    "priceArs": 600,
     "tags": [
       "goblins",
       "tokens"
@@ -579,7 +572,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5,
-    "priceArs": 600,
     "tags": [
       "removal",
       "borderless"
@@ -608,7 +600,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5,
-    "priceArs": 800,
     "tags": [
       "orcs",
       "goblins"
@@ -632,7 +623,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5,
-    "priceArs": 800,
     "tags": [
       "land",
       "borderless"
@@ -661,7 +651,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 1,
-    "priceArs": 1250,
     "tags": [
       "orcs",
       "tokens",
@@ -690,7 +679,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5,
-    "priceArs": 600,
     "tags": [
       "borderless"
     ]
@@ -718,7 +706,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5,
-    "priceArs": 600,
     "tags": [
       "tokens",
       "borderless"
@@ -1826,7 +1813,6 @@
     "finish": "foil",
     "frame": "borderless",
     "priceUsd": 1,
-    "priceArs": 1400,
     "tags": [
       "borderless"
     ]
@@ -1841,7 +1827,6 @@
     "finish": "nonfoil",
     "frame": "borderless",
     "priceUsd": 5,
-    "priceArs": 7900,
     "tags": [
       "borderless"
     ]
@@ -1856,7 +1841,6 @@
     "finish": "nonfoil",
     "frame": "borderless",
     "priceUsd": 0.5,
-    "priceArs": 700,
     "tags": [
       "borderless"
     ]
@@ -1871,7 +1855,6 @@
     "finish": "foil",
     "frame": "borderless",
     "priceUsd": 1,
-    "priceArs": 900,
     "tags": [
       "borderless"
     ]
@@ -1884,7 +1867,6 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 3,
-    "priceArs": 4400
+    "priceUsd": 3
   }
 ]

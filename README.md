@@ -24,7 +24,7 @@ The full way, for a card you want stored offline too:
 
 1. Save the card image in `public/cards/` as `<set>-<number>-<name>.jpg` (or `.webp`) and reference it as `cards/<file>` without a leading slash.
 2. Add an entry to `src/data/cards.json` following the `Card` type in `src/types.ts`. The `id` is `<set>-<number>` in lowercase.
-3. Set `status` to `owned` (in your possession), `to-pick-up` (found, still to buy and collect), `wishlist` (wanted) or `to-trade` (owned, available to sell or trade); `language` to the printed language code (`en`, `es`, `ja`, …); `finish` to `nonfoil`, `foil` or `surge-foil`; and `priceUsd` to the market price of one copy (or `priceArs` when the price is in Argentine pesos; USD is shown when both exist and only USD counts toward totals).
+3. Set `status` to `owned` (in your possession), `to-pick-up` (found, still to buy and collect), `wishlist` (wanted) or `to-trade` (owned, available to sell or trade); `language` to the printed language code (`en`, `es`, `ja`, …); `finish` to `nonfoil`, `foil` or `surge-foil`; and `priceUsd` to the market price of one copy.
 4. If you own more than one copy, raise `quantity`.
 
 ## Scripts
