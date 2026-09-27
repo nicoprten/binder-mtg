@@ -1,6 +1,6 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { cards } from '../data'
-import type { Card, CardStatus, Color, Finish } from '../types'
+import type { Card, CardStatus, Finish } from '../types'
 import { CardTile } from './CardTile'
 import { CardRow } from './CardRow'
 import { SearchInput } from './SearchInput'
@@ -8,9 +8,8 @@ import { CardModal } from './CardModal'
 import { CollectionSummary } from './CollectionSummary'
 import { useScryfallMany } from '../hooks/useScryfallMany'
 import { resolveCard } from '../scryfall'
+import { readBinderParams, writeBinderParams, type ColorKey, type ViewMode } from '../urlState'
 import { STATUSES, STATUS_LABEL } from '../status'
-
-type ColorKey = Color | 'C'
 
 const COLORS: { key: ColorKey; label: string }[] = [
   { key: 'W', label: 'White' },
@@ -30,8 +29,6 @@ const MANA_CLASS: Record<ColorKey, string> = {
   C: 'mana-c',
 }
 
-type ViewMode = 'grid' | 'list'
-
 const VIEW_KEY = 'binder-mtg:binder-view'
 
 function loadView(): ViewMode {
@@ -50,6 +47,8 @@ function saveView(view: ViewMode) {
   }
 }
 
+const initial = readBinderParams()
+
 const FINISHES: { key: Finish; label: string }[] = [
   { key: 'nonfoil', label: 'Nonfoil' },
   { key: 'foil', label: 'Foil' },
@@ -57,8 +56,8 @@ const FINISHES: { key: Finish; label: string }[] = [
 ]
 
 export function Binder() {
-  const [query, setQuery] = useState('')
-  const [colors, setColors] = useState<Set<ColorKey>>(() => new Set())
+  const [query, setQuery] = useState(initial.query)
+  const [colors, setColors] = useState<Set<ColorKey>>(() => new Set(initial.colors))
 
   function toggleColor(key: ColorKey) {
     setColors((prev) => {
@@ -75,10 +74,22 @@ export function Binder() {
       return next
     })
   }
-  const [finish, setFinish] = useState<Finish | ''>('')
-  const [status, setStatus] = useState<CardStatus | ''>('')
-  const [selectedId, setSelectedId] = useState<string | null>(null)
-  const [view, setView] = useState<ViewMode>(loadView)
+  const [finish, setFinish] = useState<Finish | ''>(initial.finish)
+  const [status, setStatus] = useState<CardStatus | ''>(initial.status)
+  const [selectedId, setSelectedId] = useState<string | null>(initial.card || null)
+  const [view, setView] = useState<ViewMode>(() => initial.view || loadView())
+
+  // Keep the URL in sync so filters survive a reload and can be shared.
+  useEffect(() => {
+    writeBinderParams({
+      query,
+      colors: [...colors],
+      status,
+      finish,
+      view: view === 'grid' ? '' : view,
+      card: selectedId ?? '',
+    })
+  }, [query, colors, status, finish, view, selectedId])
 
   function changeView(next: ViewMode) {
     setView(next)

@@ -2,7 +2,7 @@
 
 A virtual binder for a Magic: The Gathering collection, with two sections:
 
-- **Binder**: a summary comparing what you paid with the Scryfall market value, for owned and to-trade cards together and for cards to pick up; then every card in the collection, searchable by name, type, oracle text or tag, with filters by status, color (cards having every selected color; colorless is exclusive) and finish, a grid or list view, and a detail modal for each card. Each card is tagged as owned (gold), to pick up (orange), wishlist (purple) or to trade (teal).
+- **Binder**: a summary comparing what you paid with the Scryfall market value, for owned and to-trade cards together and for cards to pick up; then every card in the collection, searchable by name, type, oracle text or tag, with filters by status, color (cards having every selected color; colorless is exclusive) and finish, a grid or list view, and a detail modal for each card. Filters, view and the open card are kept in the URL hash (for example `#/binder?q=krenko&c=BR&status=owned&view=list`), so a reload or a shared link restores them. Each card is tagged as owned (gold), to pick up (orange), wishlist (purple) or to trade (teal).
 - **Decks**: decks built from the cards in the binder. They are stored in the browser's `localStorage`, and a deck row is flagged when it uses more copies of a card than the binder holds.
 
 Foil and surge foil cards get a shimmering label under the card.
