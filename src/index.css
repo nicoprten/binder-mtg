@@ -368,8 +368,34 @@ main {
 }
 
 .card-detail h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   margin: 0;
   font-size: 1.15rem;
+}
+
+.copy-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.copy-button:hover {
+  color: var(--text);
+  background: var(--panel-2);
+}
+
+.copy-button.copied {
+  color: #7fd0a0;
 }
 
 .type-line {

@@ -2,6 +2,7 @@ import type { Card, Rarity } from '../types'
 import { FinishBadge } from './FinishBadge'
 import { CardImage } from './CardImage'
 import { MarketPrice } from './MarketPrice'
+import { CopyButton } from './CopyButton'
 import { ManaCost, OracleLine } from './ManaCost'
 import { formatUsd } from '../format'
 import { StatusBadge } from './StatusBadge'
@@ -22,7 +23,10 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
       </div>
       <div className="card-detail-body">
         <header>
-          <h2>{card.name}</h2>
+          <h2>
+            {card.name}
+            <CopyButton text={card.name} label="Copy card name" />
+          </h2>
           <ManaCost cost={card.manaCost ?? ''} />
         </header>
         <p className="type-line">{card.typeLine}</p>
