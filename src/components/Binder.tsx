@@ -4,7 +4,7 @@ import type { Card, CardStatus, Color, Finish } from '../types'
 import { CardTile } from './CardTile'
 import { CardRow } from './CardRow'
 import { CardModal } from './CardModal'
-import { formatUsd } from '../format'
+import { CollectionSummary } from './CollectionSummary'
 import { STATUSES, STATUS_LABEL } from '../status'
 
 type ColorKey = Color | 'C'
@@ -103,9 +103,6 @@ export function Binder() {
   }, [query, colors, finish, status])
 
   const selected: Card | undefined = cards.find((c) => c.id === selectedId)
-  const owned = cards.filter((c) => c.status === 'owned')
-  const ownedCopies = owned.reduce((n, c) => n + c.quantity, 0)
-  const ownedValue = owned.reduce((n, c) => n + (c.priceUsd ?? 0) * c.quantity, 0)
 
   return (
     <section className="binder">
@@ -148,8 +145,7 @@ export function Binder() {
             ))}
           </select>
           <span className="count">
-            {filtered.length} of {cards.length} cards · {ownedCopies} owned ·{' '}
-            <span className="price">{formatUsd(ownedValue)}</span>
+            {filtered.length} of {cards.length} cards
           </span>
           <div className="view-toggle" role="group" aria-label="View">
             <button
@@ -170,6 +166,7 @@ export function Binder() {
             </button>
           </div>
         </div>
+        <CollectionSummary cards={cards} />
         {filtered.length === 0 ? (
           <p className="empty">No cards match.</p>
         ) : view === 'grid' ? (
