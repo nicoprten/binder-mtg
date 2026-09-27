@@ -17,7 +17,9 @@ const RARITY_LABEL: Record<Rarity, string> = {
 export function CardDetail({ card, children }: { card: Card; children?: React.ReactNode }) {
   return (
     <aside className="card-detail">
-      <CardImage card={card} />
+      <div className="card-detail-art">
+        <CardImage card={card} />
+      </div>
       <div className="card-detail-body">
         <header>
           <h2>{card.name}</h2>
