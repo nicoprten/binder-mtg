@@ -2071,14 +2071,26 @@
     "priceUsd": 1.0
   },
   {
-    "id": "mar-fisk-tower",
+    "id": "msh-0265",
     "name": "Fisk Tower",
-    "set": "MAR",
+    "set": "MSH",
+    "collectorNumber": "0265",
+    "manaCost": "",
+    "cmc": 0,
+    "colors": [],
+    "typeLine": "Land",
+    "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {W} or {B}.",
+    "rarity": "common",
+    "artist": "Arthur Yuan",
+    "image": "cards/msh-0265-fisk-tower.webp",
     "quantity": 1,
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 0.5
+    "priceUsd": 0.5,
+    "tags": [
+      "land"
+    ]
   },
   {
     "id": "ltr-dunland-crebain",
