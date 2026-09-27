@@ -7,11 +7,14 @@ import { marketPrice } from '../scryfall'
 interface Group {
   label: string
   statuses: CardStatus[]
+  /** Wishlist cards have no paid price: show only what they would cost at market. */
+  marketOnly?: boolean
 }
 
 const GROUPS: Group[] = [
   { label: 'Owned & to trade', statuses: ['owned', 'to-trade'] },
   { label: 'To pick up', statuses: ['to-pick-up'] },
+  { label: 'Wishlist', statuses: ['wishlist'], marketOnly: true },
 ]
 
 /** Paid vs. market value per status group. */
@@ -50,20 +53,27 @@ export function CollectionSummary({ cards }: { cards: Card[] }) {
             <p className="summary-count">
               {r.cards} cards · {r.copies} copies
             </p>
-            <dl>
-              <dt>Paid</dt>
-              <dd className="price">{formatUsd(r.paid)}</dd>
-              <dt>Market</dt>
-              <dd className="market-price">{hasMarket ? `~${formatUsd(r.market)}` : '—'}</dd>
-              <dt>Difference</dt>
-              <dd className={hasMarket ? (diff >= 0 ? 'gain' : 'loss') : 'muted'}>
-                {hasMarket ? `${diff >= 0 ? '+' : '−'}${formatUsd(Math.abs(diff))}` : '—'}
-              </dd>
-            </dl>
-            {(r.unpriced > 0 || (hasMarket && r.withMarket < r.cards)) && (
+            {r.marketOnly ? (
+              <dl>
+                <dt>Market</dt>
+                <dd className="market-price">{hasMarket ? `~${formatUsd(r.market)}` : '—'}</dd>
+              </dl>
+            ) : (
+              <dl>
+                <dt>Paid</dt>
+                <dd className="price">{formatUsd(r.paid)}</dd>
+                <dt>Market</dt>
+                <dd className="market-price">{hasMarket ? `~${formatUsd(r.market)}` : '—'}</dd>
+                <dt>Difference</dt>
+                <dd className={hasMarket ? (diff >= 0 ? 'gain' : 'loss') : 'muted'}>
+                  {hasMarket ? `${diff >= 0 ? '+' : '−'}${formatUsd(Math.abs(diff))}` : '—'}
+                </dd>
+              </dl>
+            )}
+            {((!r.marketOnly && r.unpriced > 0) || (hasMarket && r.withMarket < r.cards)) && (
               <p className="summary-note">
-                {r.unpriced > 0 && `${r.unpriced} without a price`}
-                {r.unpriced > 0 && hasMarket && r.withMarket < r.cards && ' · '}
+                {!r.marketOnly && r.unpriced > 0 && `${r.unpriced} without a price`}
+                {!r.marketOnly && r.unpriced > 0 && hasMarket && r.withMarket < r.cards && ' · '}
                 {hasMarket && r.withMarket < r.cards && `${r.cards - r.withMarket} without market data`}
               </p>
             )}
