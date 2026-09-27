@@ -2318,5 +2318,138 @@
     "finish": "nonfoil",
     "priceUsd": 1,
     "tags": []
+  },
+  {
+    "id": "one-110",
+    "name": "Stinging Hivemaster",
+    "set": "ONE",
+    "collectorNumber": "110",
+    "manaCost": "{2}{B}",
+    "cmc": 3,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Creature — Phyrexian Warlock",
+    "oracleText": "Toxic 1 (Players dealt combat damage by this creature also get a poison counter.)\nWhen Stinging Hivemaster dies, create a 1/1 colorless Phyrexian Mite artifact creature token with toxic 1 and \"This creature can't block.\"",
+    "power": "3",
+    "toughness": "2",
+    "rarity": "common",
+    "artist": "Lie Setiawan",
+    "image": "cards/one-110-stinging-hivemaster.jpg",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.7,
+    "tags": [
+      "tokens"
+    ]
+  },
+  {
+    "id": "prm-0001-darksteel-colossus",
+    "name": "Darksteel Colossus",
+    "set": "PRM",
+    "collectorNumber": "0001",
+    "manaCost": "{11}",
+    "cmc": 11,
+    "colors": [],
+    "typeLine": "Artifact Creature — Golem",
+    "oracleText": "Trample, indestructible\nIf Darksteel Colossus would be put into a graveyard from anywhere, reveal Darksteel Colossus and shuffle it into its owner's library instead.",
+    "power": "11",
+    "toughness": "11",
+    "rarity": "rare",
+    "artist": "Loïc Canavaggia",
+    "image": "cards/prm-0001-darksteel-colossus.jpg",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "foil",
+    "frame": "borderless",
+    "priceUsd": 4,
+    "tags": [
+      "promo",
+      "borderless"
+    ]
+  },
+  {
+    "id": "dmu-323",
+    "name": "Tura Kennerüd, Skyknight",
+    "set": "DMU",
+    "collectorNumber": "323",
+    "manaCost": "{2}{W}{U}{U}",
+    "cmc": 5,
+    "colors": [
+      "W",
+      "U"
+    ],
+    "typeLine": "Legendary Creature — Human Knight",
+    "oracleText": "Flying\nWhenever you cast an instant or sorcery spell, create a 1/1 white Soldier creature token.",
+    "power": "3",
+    "toughness": "3",
+    "rarity": "uncommon",
+    "artist": "Benjamin Ee",
+    "image": "cards/dmu-323-tura-kennerud-skyknight.jpg",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "es",
+    "finish": "nonfoil",
+    "frame": "showcase",
+    "priceUsd": 0.5,
+    "tags": [
+      "tokens",
+      "showcase"
+    ]
+  },
+  {
+    "id": "znr-234",
+    "name": "Phylath, World Sculptor",
+    "set": "ZNR",
+    "collectorNumber": "234",
+    "manaCost": "{4}{R}{G}",
+    "cmc": 6,
+    "colors": [
+      "R",
+      "G"
+    ],
+    "typeLine": "Legendary Creature — Elemental",
+    "oracleText": "When Phylath, World Sculptor enters the battlefield, create a 0/1 green Plant creature token for each basic land you control.\nLandfall — Whenever a land enters the battlefield under your control, put four +1/+1 counters on target Plant you control.",
+    "power": "5",
+    "toughness": "5",
+    "rarity": "rare",
+    "artist": "Victor Adame Minguez",
+    "image": "cards/znr-234-phylath-world-sculptor.jpg",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "es",
+    "finish": "nonfoil",
+    "priceUsd": 0.5,
+    "tags": [
+      "tokens"
+    ]
+  },
+  {
+    "id": "war-184",
+    "name": "Ajani, the Greathearted",
+    "set": "WAR",
+    "collectorNumber": "184",
+    "manaCost": "{2}{G}{W}",
+    "cmc": 4,
+    "colors": [
+      "G",
+      "W"
+    ],
+    "typeLine": "Legendary Planeswalker — Ajani",
+    "oracleText": "Creatures you control have vigilance.\n+1: You gain 3 life.\n−2: Put a +1/+1 counter on each creature you control and a loyalty counter on each other planeswalker you control.",
+    "rarity": "rare",
+    "artist": "Victor Adame Minguez",
+    "image": "cards/war-184-ajani-the-greathearted.jpg",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "es",
+    "finish": "nonfoil",
+    "priceUsd": 0.5,
+    "tags": [
+      "planeswalker"
+    ]
   }
 ]
