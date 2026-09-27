@@ -109,6 +109,7 @@ interface ScryfallFace {
 }
 
 interface ScryfallCardJson extends ScryfallFace {
+  name?: string
   card_faces?: ScryfallFace[]
   prices?: { usd?: string | null; usd_foil?: string | null }
   collector_number?: string
@@ -193,7 +194,10 @@ export function fetchScryfall(card: Card): Promise<ScryfallInfo | null> {
   // the name in any set. Lookups by collector number have no fallback.
   const fallbacks: (string | undefined)[] = []
   if (path.startsWith('search?')) fallbacks.push(namedPath(card))
-  if (path.startsWith('search?') || path.startsWith('named?')) fallbacks.push(namedPath(card, false))
+  fallbacks.push(namedPath(card, false))
+  const byNumber = !path.startsWith('search?') && !path.startsWith('named?')
+  if (byNumber) fallbacks.unshift(namedPath(card))
+  const front = card.name.split(' // ')[0].trim().toLowerCase()
   const promise = enqueue(async () => {
     for (const p of [path, ...fallbacks]) {
       if (!p) continue
@@ -206,6 +210,9 @@ export function fetchScryfall(card: Card): Promise<ScryfallInfo | null> {
         // A search returns a list; the first printing is the one wanted.
         const found = Array.isArray(json.data) ? json.data[0] : json
         if (!found) continue
+        // A wrong collector number returns a different card: ignore it and try by name.
+        const foundName = (found.name ?? '').split(' // ')[0].trim().toLowerCase()
+        if (foundName && foundName !== front) continue
         const info = parse(found)
         writeCache(path, info)
         return info
