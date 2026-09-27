@@ -2222,5 +2222,101 @@
     "tags": [
       "ramp"
     ]
+  },
+  {
+    "id": "fdn-0192",
+    "name": "Burst Lightning",
+    "set": "FDN",
+    "collectorNumber": "0192",
+    "manaCost": "{R}",
+    "cmc": 1,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Instant",
+    "oracleText": "Kicker {4} (You may pay an additional {4} as you cast this spell.)\nBurst Lightning deals 2 damage to any target. If this spell was kicked, it deals 4 damage instead.",
+    "rarity": "common",
+    "artist": "Vance Kovacs",
+    "image": "cards/fdn-0192-burst-lightning.jpg",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5,
+    "tags": [
+      "removal"
+    ]
+  },
+  {
+    "id": "dmu-137",
+    "name": "Lightning Strike",
+    "set": "DMU",
+    "collectorNumber": "137",
+    "manaCost": "{1}{R}",
+    "cmc": 2,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Instant",
+    "oracleText": "Lightning Strike deals 3 damage to any target.",
+    "rarity": "common",
+    "artist": "Marta Nael",
+    "image": "cards/dmu-137-lightning-strike.jpg",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "es",
+    "finish": "foil",
+    "priceUsd": 0.5,
+    "tags": [
+      "removal"
+    ]
+  },
+  {
+    "id": "dmu-104",
+    "name": "Sengir Connoisseur",
+    "set": "DMU",
+    "collectorNumber": "104",
+    "manaCost": "{3}{B}{B}",
+    "cmc": 5,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Creature — Vampire",
+    "oracleText": "Flying\nWhenever one or more other creatures die, put a +1/+1 counter on Sengir Connoisseur. This ability triggers only once each turn.",
+    "power": "3",
+    "toughness": "3",
+    "rarity": "uncommon",
+    "artist": "Irina Nordsol",
+    "image": "cards/dmu-104-sengir-connoisseur.jpg",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "es",
+    "finish": "nonfoil",
+    "priceUsd": 0.5,
+    "tags": []
+  },
+  {
+    "id": "fdn-0178",
+    "name": "Marauding Blight-Priest",
+    "set": "FDN",
+    "collectorNumber": "0178",
+    "manaCost": "{2}{B}",
+    "cmc": 3,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Creature — Vampire Cleric",
+    "oracleText": "Whenever you gain life, each opponent loses 1 life.",
+    "power": "3",
+    "toughness": "2",
+    "rarity": "common",
+    "artist": "Caio Monteiro",
+    "image": "cards/fdn-0178-marauding-blight-priest.jpg",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 1,
+    "tags": []
   }
 ]
