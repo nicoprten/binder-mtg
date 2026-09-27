@@ -2539,5 +2539,25 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5
+  },
+  {
+    "id": "trade-kiora-the-rising-tide",
+    "name": "Kiora, the Rising Tide",
+    "set": "",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "trade-spectral-sailor",
+    "name": "Spectral Sailor",
+    "set": "",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
   }
 ]
