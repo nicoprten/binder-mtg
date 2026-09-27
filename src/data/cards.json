@@ -1824,8 +1824,12 @@
     "status": "owned",
     "language": "en",
     "finish": "foil",
+    "frame": "borderless",
     "priceUsd": 1,
-    "priceArs": 1400
+    "priceArs": 1400,
+    "tags": [
+      "borderless"
+    ]
   },
   {
     "id": "hob-glamdring-foe-hammer",
@@ -1835,8 +1839,12 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "frame": "borderless",
     "priceUsd": 5,
-    "priceArs": 7900
+    "priceArs": 7900,
+    "tags": [
+      "borderless"
+    ]
   },
   {
     "id": "hob-troop-of-ponies",
@@ -1846,8 +1854,12 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "frame": "borderless",
     "priceUsd": 0.5,
-    "priceArs": 700
+    "priceArs": 700,
+    "tags": [
+      "borderless"
+    ]
   },
   {
     "id": "hob-thorin-oakenshield",
@@ -1857,8 +1869,12 @@
     "status": "owned",
     "language": "en",
     "finish": "foil",
+    "frame": "borderless",
     "priceUsd": 1,
-    "priceArs": 900
+    "priceArs": 900,
+    "tags": [
+      "borderless"
+    ]
   },
   {
     "id": "hoc-gandalf-party-guest",

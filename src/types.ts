@@ -14,6 +14,9 @@ export type CardStatus = 'owned' | 'to-pick-up' | 'wishlist' | 'to-trade'
 /** Printed language, using the codes Magic prints on the card (e.g. `EN`, `ES`, `JA`). */
 export type Language = 'en' | 'es' | 'pt' | 'fr' | 'de' | 'it' | 'ja' | 'ko' | 'ru' | 'zhs' | 'zht'
 
+/** Special frame of a printing, used to pick the right version when resolving a card by name. */
+export type Frame = 'borderless' | 'showcase' | 'extended-art'
+
 /** Physical finish of the card. Defaults to `nonfoil` when omitted. */
 export type Finish = 'nonfoil' | 'foil' | 'surge-foil'
 
@@ -45,6 +48,7 @@ export interface Card {
   status: CardStatus
   language: Language
   finish?: Finish
+  frame?: Frame
   /** Market price of one copy, in USD. */
   priceUsd?: number
   /** Price of one copy in Argentine pesos, when it was bought or listed in ARS. */

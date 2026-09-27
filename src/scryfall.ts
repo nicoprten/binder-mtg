@@ -36,9 +36,16 @@ export function isOffline(): boolean {
   return typeof window !== 'undefined' && window.BINDER_LOCAL_IMAGES === true
 }
 
+const FRAME_FILTER: Record<NonNullable<Card['frame']>, string> = {
+  borderless: 'is:borderless',
+  showcase: 'is:showcase',
+  'extended-art': 'is:extended',
+}
+
 /**
  * Scryfall identifies a printing by set code and collector number (no leading zeros).
- * Without a number the card is looked up by exact name within the set.
+ * Without a number the card is looked up by exact name within the set; with a `frame`
+ * the lookup becomes a search restricted to that frame, so the right variant is picked.
  */
 export function scryfallPath(card: Card): string | undefined {
   if (!card.set) return undefined
@@ -46,7 +53,12 @@ export function scryfallPath(card: Card): string | undefined {
   if (number) return `${card.set.toLowerCase()}/${encodeURIComponent(number)}`
   const front = card.name.split(' // ')[0].trim()
   if (!front) return undefined
-  return `named?exact=${encodeURIComponent(front)}&set=${encodeURIComponent(card.set.toLowerCase())}`
+  const set = card.set.toLowerCase()
+  if (card.frame) {
+    const q = `!"${front}" e:${set} ${FRAME_FILTER[card.frame]}`
+    return `search?q=${encodeURIComponent(q)}&unique=prints&order=set`
+  }
+  return `named?exact=${encodeURIComponent(front)}&set=${encodeURIComponent(set)}`
 }
 
 const memory = new Map<string, Promise<ScryfallInfo | null>>()
@@ -168,7 +180,11 @@ export function fetchScryfall(card: Card): Promise<ScryfallInfo | null> {
         headers: { Accept: 'application/json' },
       })
       if (!res.ok) return null
-      const info = parse((await res.json()) as ScryfallCardJson)
+      const json = (await res.json()) as ScryfallCardJson & { data?: ScryfallCardJson[] }
+      // A search returns a list; the first printing is the one wanted.
+      const card = Array.isArray(json.data) ? json.data[0] : json
+      if (!card) return null
+      const info = parse(card)
       writeCache(path, info)
       return info
     } catch {
