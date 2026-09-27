@@ -126,7 +126,41 @@ main {
   margin-bottom: 1rem;
 }
 
-.toolbar input[type='search'] {
+.search-box {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.search-box input {
+  width: 100%;
+  padding-right: 2rem;
+}
+
+.search-box input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-clear {
+  position: absolute;
+  right: 0.35rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--panel-2);
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.search-clear:hover {
+  color: var(--text);
+  background: var(--border);
+}
+
+.toolbar-search {
   flex: 1;
   min-width: 200px;
 }
@@ -861,7 +895,7 @@ main {
   letter-spacing: 0.05em;
 }
 
-.deck-picker input {
+.picker-search {
   width: 100%;
   margin-bottom: 0.75rem;
 }

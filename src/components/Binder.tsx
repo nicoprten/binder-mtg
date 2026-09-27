@@ -3,6 +3,7 @@ import { cards } from '../data'
 import type { Card, CardStatus, Color, Finish } from '../types'
 import { CardTile } from './CardTile'
 import { CardRow } from './CardRow'
+import { SearchInput } from './SearchInput'
 import { CardModal } from './CardModal'
 import { CollectionSummary } from './CollectionSummary'
 import { useScryfallMany } from '../hooks/useScryfallMany'
@@ -113,11 +114,11 @@ export function Binder() {
     <section className="binder">
       <div className="binder-main">
         <div className="toolbar">
-          <input
-            type="search"
+          <SearchInput
+            className="toolbar-search"
             placeholder="Search by name, type, text or tag…"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={setQuery}
           />
           <div className="color-filter" role="group" aria-label="Colors">
             {COLORS.map((c) => (

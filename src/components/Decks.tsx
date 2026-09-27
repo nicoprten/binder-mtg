@@ -3,6 +3,7 @@ import { cards } from '../data'
 import type { Card, Deck } from '../types'
 import { useDecks } from '../hooks/useDecks'
 import { CardTile } from './CardTile'
+import { SearchInput } from './SearchInput'
 import { FinishBadge } from './FinishBadge'
 import { ManaCost } from './ManaCost'
 import { formatCardPrice, formatUsd } from '../format'
@@ -192,11 +193,11 @@ function DeckEditor({ deck, allCards, onRename, onDelete, onSetQuantity }: Edito
 
         <div className="deck-picker">
           <h3>Add from binder</h3>
-          <input
-            type="search"
+          <SearchInput
+            className="picker-search"
             placeholder="Search card…"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={setQuery}
           />
           <div className="card-grid small">
             {available.map((c) => {
