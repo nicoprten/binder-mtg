@@ -1028,6 +1028,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "goblins"
     ]
@@ -1339,6 +1340,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 1.0,
     "tags": []
   },
   {
@@ -1408,6 +1410,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 1.0,
     "tags": [
       "removal"
     ]
@@ -1580,6 +1583,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 1.5,
     "tags": [
       "ramp"
     ]
