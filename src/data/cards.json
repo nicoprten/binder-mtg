@@ -2141,7 +2141,14 @@
     "status": "owned",
     "language": "en",
     "finish": "foil",
-    "priceUsd": 1.0
+    "frame": [
+      "borderless",
+      "extended-art"
+    ],
+    "priceUsd": 1.0,
+    "tags": [
+      "borderless"
+    ]
   },
   {
     "id": "voc-timothar-baron-of-bats",
@@ -2161,7 +2168,14 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
-    "priceUsd": 0.5
+    "frame": [
+      "borderless",
+      "extended-art"
+    ],
+    "priceUsd": 0.5,
+    "tags": [
+      "borderless"
+    ]
   },
   {
     "id": "hob-great-ugly-looking-goblin",
