@@ -1877,6 +1877,10 @@
     "status": "owned",
     "language": "en",
     "finish": "foil",
+    "frame": [
+      "borderless",
+      "showcase"
+    ],
     "priceUsd": 1.0
   },
   {
@@ -1907,6 +1911,10 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "frame": [
+      "borderless",
+      "showcase"
+    ],
     "priceUsd": 1.5
   },
   {
@@ -1917,6 +1925,10 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "frame": [
+      "borderless",
+      "showcase"
+    ],
     "priceUsd": 1.5
   },
   {

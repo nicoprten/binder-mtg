@@ -48,7 +48,8 @@ export interface Card {
   status: CardStatus
   language: Language
   finish?: Finish
-  frame?: Frame
+  /** One frame, or several when any of them is acceptable (the lookup takes the first printing that matches). */
+  frame?: Frame | Frame[]
   /** Market price of one copy, in USD. */
   priceUsd?: number
   tags?: string[]

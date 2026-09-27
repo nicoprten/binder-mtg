@@ -18,7 +18,7 @@ npm run dev
 
 ## Adding cards to the binder
 
-The quick way: add an entry to `src/data/cards.json` with just `id`, `name`, `set`, `quantity`, `status`, `language`, plus `finish` and `priceUsd` if known. Add `frame` (`borderless`, `showcase` or `extended-art`) when the copy is a special-frame version, so the right printing is chosen. The app looks the card up on Scryfall by exact name within that set (restricted to that frame when given) and fills in the collector number, cost, type, text, rarity, artist and picture at runtime. Until that lookup completes (or when Scryfall is unreachable) the card shows a placeholder with its name.
+The quick way: add an entry to `src/data/cards.json` with just `id`, `name`, `set`, `quantity`, `status`, `language`, plus `finish` and `priceUsd` if known. Add `frame` (`borderless`, `showcase` or `extended-art`, or a list of them when any would do) when the copy is a special-frame version, so the right printing is chosen. The app looks the card up on Scryfall by exact name within that set (restricted to that frame when given) and fills in the collector number, cost, type, text, rarity, artist and picture at runtime. Until that lookup completes (or when Scryfall is unreachable) the card shows a placeholder with its name.
 
 The full way, for a card you want stored offline too:
 

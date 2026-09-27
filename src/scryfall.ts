@@ -1,4 +1,4 @@
-import type { Card, Color, Rarity } from './types'
+import type { Card, Color, Frame, Rarity } from './types'
 
 /** The subset of a Scryfall card object this app reads. */
 export interface ScryfallInfo {
@@ -36,7 +36,7 @@ export function isOffline(): boolean {
   return typeof window !== 'undefined' && window.BINDER_LOCAL_IMAGES === true
 }
 
-const FRAME_FILTER: Record<NonNullable<Card['frame']>, string> = {
+const FRAME_FILTER: Record<Frame, string> = {
   borderless: 'is:borderless',
   showcase: 'is:showcase',
   'extended-art': 'is:extended',
@@ -55,7 +55,12 @@ export function scryfallPath(card: Card): string | undefined {
   if (!front) return undefined
   const set = card.set.toLowerCase()
   if (card.frame) {
-    const q = `!"${front}" e:${set} ${FRAME_FILTER[card.frame]}`
+    const frames = Array.isArray(card.frame) ? card.frame : [card.frame]
+    const filter =
+      frames.length === 1
+        ? FRAME_FILTER[frames[0]]
+        : `(${frames.map((f) => FRAME_FILTER[f]).join(' or ')})`
+    const q = `!"${front}" e:${set} ${filter}`
     return `search?q=${encodeURIComponent(q)}&unique=prints&order=set`
   }
   return `named?exact=${encodeURIComponent(front)}&set=${encodeURIComponent(set)}`
