@@ -197,7 +197,31 @@
     "rarity": "common",
     "artist": "Denman Rooke",
     "image": "cards/hob-0209-thorins-last-stand.webp",
-    "quantity": 2,
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "foil",
+    "priceUsd": 1,
+    "tags": [
+      "borderless"
+    ]
+  },
+  {
+    "id": "hob-0209-trade",
+    "name": "Thorin's Last Stand",
+    "set": "HOB",
+    "collectorNumber": "0209",
+    "manaCost": "{2}{W}{W}",
+    "cmc": 4,
+    "colors": [
+      "W"
+    ],
+    "typeLine": "Instant",
+    "oracleText": "Choose one —\n• Creatures you control get +2/+1 until end of turn.\n• Destroy target artifact or enchantment. You gain 2 life.",
+    "rarity": "common",
+    "artist": "Denman Rooke",
+    "image": "cards/hob-0209-thorins-last-stand.webp",
+    "quantity": 1,
     "status": "to-trade",
     "language": "en",
     "finish": "foil",
