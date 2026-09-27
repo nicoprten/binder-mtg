@@ -2,6 +2,7 @@ import type { Card } from '../types'
 import { FinishBadge } from './FinishBadge'
 import { formatCardPrice } from '../format'
 import { StatusBadge } from './StatusBadge'
+import { CardImage } from './CardImage'
 
 interface Props {
   card: Card
@@ -19,7 +20,7 @@ export function CardTile({ card, badge, selected, onClick }: Props) {
         onClick={onClick}
         title={card.name}
       >
-        <img src={card.image} alt={card.name} loading="lazy" />
+        <CardImage card={card} loading="lazy" />
         <span className="card-status">
           <StatusBadge status={card.status} size="sm" />
         </span>

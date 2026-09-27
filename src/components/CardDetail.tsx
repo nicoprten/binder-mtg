@@ -1,5 +1,6 @@
 import type { Card } from '../types'
 import { FinishBadge } from './FinishBadge'
+import { CardImage } from './CardImage'
 import { ManaCost, OracleLine } from './ManaCost'
 import { formatArs, formatUsd } from '../format'
 import { StatusBadge } from './StatusBadge'
@@ -15,7 +16,7 @@ const RARITY_LABEL: Record<Card['rarity'], string> = {
 export function CardDetail({ card, children }: { card: Card; children?: React.ReactNode }) {
   return (
     <aside className="card-detail">
-      <img src={card.image} alt={card.name} />
+      <CardImage card={card} />
       <div className="card-detail-body">
         <header>
           <h2>{card.name}</h2>

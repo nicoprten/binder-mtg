@@ -7,6 +7,8 @@ A virtual binder for a Magic: The Gathering collection, with two sections:
 
 Foil and surge foil cards get a shimmering label under the card.
 
+Card pictures show the local image in `public/cards/` first, then swap in the high-resolution Scryfall image, addressed by set code and collector number, once it loads. Cards without a collector number keep the local image. Set `window.BINDER_LOCAL_IMAGES = true` before the app script to use only the local images.
+
 ## Running it
 
 ```bash
