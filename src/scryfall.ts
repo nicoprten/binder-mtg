@@ -42,12 +42,14 @@ const FRAME_FILTER: Record<Frame, string> = {
   'extended-art': 'is:extended',
 }
 
-/** Exact-name lookup within the set, ignoring any frame preference. */
-function namedPath(card: Card): string | undefined {
-  if (!card.set) return undefined
+/** Exact-name lookup, within the set when `withSet` is true, ignoring any frame preference. */
+function namedPath(card: Card, withSet = true): string | undefined {
   const front = card.name.split(' // ')[0].trim()
   if (!front) return undefined
-  return `named?exact=${encodeURIComponent(front)}&set=${encodeURIComponent(card.set.toLowerCase())}`
+  const base = `named?exact=${encodeURIComponent(front)}`
+  if (!withSet) return base
+  if (!card.set) return undefined
+  return `${base}&set=${encodeURIComponent(card.set.toLowerCase())}`
 }
 
 /**
@@ -186,11 +188,14 @@ export function fetchScryfall(card: Card): Promise<ScryfallInfo | null> {
   if (cached) return Promise.resolve(cached)
   const pending = memory.get(path)
   if (pending) return pending
-  // A frame-restricted search that finds nothing falls back to the plain named lookup,
-  // so a card whose special printing Scryfall does not list still resolves.
-  const fallback = path.startsWith('search?') ? namedPath(card) : undefined
+  // Fallbacks, in order: a frame-restricted search that finds nothing tries the plain
+  // named lookup in the set; a name unknown in that set (e.g. a wrong set code) tries
+  // the name in any set. Lookups by collector number have no fallback.
+  const fallbacks: (string | undefined)[] = []
+  if (path.startsWith('search?')) fallbacks.push(namedPath(card))
+  if (path.startsWith('search?') || path.startsWith('named?')) fallbacks.push(namedPath(card, false))
   const promise = enqueue(async () => {
-    for (const p of [path, fallback]) {
+    for (const p of [path, ...fallbacks]) {
       if (!p) continue
       try {
         const res = await fetch(`https://api.scryfall.com/cards/${p}`, {

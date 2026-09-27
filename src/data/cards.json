@@ -2064,7 +2064,7 @@
     "name": "The Great Goblin",
     "set": "HOB",
     "quantity": 1,
-    "status": "owned",
+    "status": "to-trade",
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 1.0
