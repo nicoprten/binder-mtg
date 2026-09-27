@@ -1,13 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { Card } from '../types'
-import { scryfallImageUrl } from '../images'
-
-declare global {
-  interface Window {
-    /** Set by builds that cannot reach Scryfall (e.g. the claude.ai artifact) to skip remote images. */
-    BINDER_LOCAL_IMAGES?: boolean
-  }
-}
+import { useScryfall } from '../hooks/useScryfall'
 
 interface Props {
   card: Card
@@ -20,7 +13,7 @@ interface Props {
  * high-resolution Scryfall image once it has loaded; stays local if it fails.
  */
 export function CardImage({ card, className, loading }: Props) {
-  const remote = typeof window !== 'undefined' && window.BINDER_LOCAL_IMAGES ? undefined : scryfallImageUrl(card)
+  const remote = useScryfall(card)?.image
   const [loadedRemote, setLoadedRemote] = useState<string | null>(null)
 
   useEffect(() => {

@@ -7,6 +7,7 @@ import { FinishBadge } from './FinishBadge'
 import { ManaCost } from './ManaCost'
 import { formatCardPrice, formatUsd } from '../format'
 import { StatusBadge } from './StatusBadge'
+import { MarketPrice } from './MarketPrice'
 
 export function Decks() {
   const { decks, createDeck, updateDeck, deleteDeck, setCardQuantity } = useDecks()
@@ -169,6 +170,7 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
                     {formatCardPrice(card, quantity) && (
                       <span className="price">{formatCardPrice(card, quantity)}</span>
                     )}
+                    <MarketPrice card={card} quantity={quantity} />
                     {over && (
                       <span className="warn" title="Fewer copies in the binder">
                         binder: {card.quantity}

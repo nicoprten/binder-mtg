@@ -168,6 +168,20 @@ main {
   color: var(--muted);
 }
 
+.market-price {
+  color: var(--muted);
+  font-size: 0.85em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.card-row-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
 .card-tile {
   position: relative;
   padding: 0;

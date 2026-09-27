@@ -3,6 +3,7 @@ import { formatCardPrice } from '../format'
 import { FinishBadge } from './FinishBadge'
 import { ManaCost } from './ManaCost'
 import { StatusBadge } from './StatusBadge'
+import { MarketPrice } from './MarketPrice'
 
 interface Props {
   card: Card
@@ -26,8 +27,9 @@ export function CardRow({ card, onClick }: Props) {
           <FinishBadge finish={card.finish} size="sm" />
           <StatusBadge status={card.status} size="sm" />
         </span>
-        <span className="card-row-price price">
-          {formatCardPrice(card) ?? ''}
+        <span className="card-row-price">
+          <span className="price">{formatCardPrice(card) ?? ''}</span>
+          <MarketPrice card={card} />
         </span>
       </button>
     </li>

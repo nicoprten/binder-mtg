@@ -7,7 +7,7 @@ A virtual binder for a Magic: The Gathering collection, with two sections:
 
 Foil and surge foil cards get a shimmering label under the card.
 
-Card pictures show the local image in `public/cards/` first, then swap in the high-resolution Scryfall image, addressed by set code and collector number, once it loads. Cards without a collector number keep the local image. Set `window.BINDER_LOCAL_IMAGES = true` before the app script to use only the local images.
+Each card is looked up on Scryfall by set code and collector number (one request per card, spaced 100 ms apart, cached in the browser for a day). From that lookup the app shows the high-resolution picture, swapping it in over the local image from `public/cards/`, and the market price in USD for the card's finish (`usd` or `usd_foil`), displayed with a `~` next to your own price. Cards without a collector number keep the local image and show no market price. Set `window.BINDER_LOCAL_IMAGES = true` before the app script to use only the local images.
 
 ## Running it
 

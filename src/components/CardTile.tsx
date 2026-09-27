@@ -3,6 +3,7 @@ import { FinishBadge } from './FinishBadge'
 import { formatCardPrice } from '../format'
 import { StatusBadge } from './StatusBadge'
 import { CardImage } from './CardImage'
+import { MarketPrice } from './MarketPrice'
 
 interface Props {
   card: Card
@@ -29,6 +30,7 @@ export function CardTile({ card, badge, selected, onClick }: Props) {
       <div className="card-slot-meta">
         <FinishBadge finish={card.finish} />
         {formatCardPrice(card) && <span className="price">{formatCardPrice(card)}</span>}
+        <MarketPrice card={card} />
       </div>
     </div>
   )
