@@ -29,6 +29,7 @@ export interface Card {
   /** Stable identifier: `${set}-${collectorNumber}` in lowercase, or a slug when the number is unknown. */
   id: string
   name: string
+  /** Set code; may be empty when unknown, in which case Scryfall picks a printing by name. */
   set: string
   collectorNumber?: string
   /** Mana cost in Scryfall notation, e.g. "{1}{B}". */

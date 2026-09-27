@@ -2453,5 +2453,95 @@
     "tags": [
       "planeswalker"
     ]
+  },
+  {
+    "id": "trade-sunbathing-rootwalla",
+    "name": "Sunbathing Rootwalla",
+    "set": "",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "es",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "trade-ambush-wolf",
+    "name": "Ambush Wolf",
+    "set": "",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "trade-mild-mannered-librarian",
+    "name": "Mild-Mannered Librarian",
+    "set": "",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "trade-think-twice",
+    "name": "Think Twice",
+    "set": "",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "trade-strix-lookout",
+    "name": "Strix Lookout",
+    "set": "",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "en",
+    "finish": "foil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "trade-ertai-s-scorn",
+    "name": "Ertai's Scorn",
+    "set": "",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "es",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "trade-armasaur-guide",
+    "name": "Armasaur Guide",
+    "set": "",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "trade-cathar-commando",
+    "name": "Cathar Commando",
+    "set": "",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
+  },
+  {
+    "id": "trade-guarded-heir",
+    "name": "Guarded Heir",
+    "set": "",
+    "quantity": 1,
+    "status": "to-trade",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
   }
 ]

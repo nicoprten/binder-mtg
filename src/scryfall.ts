@@ -58,7 +58,8 @@ function namedPath(card: Card, withSet = true): string | undefined {
  * the lookup becomes a search restricted to that frame, so the right variant is picked.
  */
 export function scryfallPath(card: Card): string | undefined {
-  if (!card.set) return undefined
+  // No set: the card is whatever printing Scryfall returns for the exact name.
+  if (!card.set) return namedPath(card, false)
   const number = (card.collectorNumber ?? '').replace(/^0+(?=\d)/, '')
   if (number) return `${card.set.toLowerCase()}/${encodeURIComponent(number)}`
   const front = card.name.split(' // ')[0].trim()
