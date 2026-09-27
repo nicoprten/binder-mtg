@@ -2348,8 +2348,7 @@
   {
     "id": "prm-0001-darksteel-colossus",
     "name": "Darksteel Colossus",
-    "set": "PRM",
-    "collectorNumber": "0001",
+    "set": "PLST",
     "manaCost": "{11}",
     "cmc": 11,
     "colors": [],
@@ -2364,11 +2363,14 @@
     "status": "owned",
     "language": "en",
     "finish": "foil",
-    "frame": "extended-art",
+    "frame": [
+      "showcase",
+      "extended-art",
+      "borderless"
+    ],
     "priceUsd": 4,
     "tags": [
-      "promo",
-      "extended-art"
+      "promo"
     ]
   },
   {
