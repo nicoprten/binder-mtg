@@ -2072,16 +2072,6 @@
     "priceUsd": 1.0
   },
   {
-    "id": "dtk-dragon-fodder",
-    "name": "Dragon Fodder",
-    "set": "DTK",
-    "quantity": 1,
-    "status": "owned",
-    "language": "en",
-    "finish": "nonfoil",
-    "priceUsd": 0.5
-  },
-  {
     "id": "hob-the-great-goblin",
     "name": "The Great Goblin",
     "set": "HOB",
