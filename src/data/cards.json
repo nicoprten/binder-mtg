@@ -1094,6 +1094,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "borderless"
     ]
@@ -2078,5 +2079,34 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5
+  },
+  {
+    "id": "ltr-dunland-crebain",
+    "name": "Dunland Crebain",
+    "set": "LTR",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "frame": "borderless",
+    "priceUsd": 0.5,
+    "tags": [
+      "orcs",
+      "tokens",
+      "borderless"
+    ]
+  },
+  {
+    "id": "slp-springleaf-drum",
+    "name": "Springleaf Drum",
+    "set": "SLP",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 2.0,
+    "tags": [
+      "ramp"
+    ]
   }
 ]
