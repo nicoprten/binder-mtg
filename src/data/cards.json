@@ -1978,7 +1978,8 @@
     "finish": "nonfoil",
     "frame": [
       "extended-art",
-      "borderless"
+      "borderless",
+      "showcase"
     ],
     "priceUsd": 0.5
   },
@@ -1992,7 +1993,8 @@
     "finish": "nonfoil",
     "frame": [
       "extended-art",
-      "borderless"
+      "borderless",
+      "showcase"
     ],
     "priceUsd": 0.5
   },

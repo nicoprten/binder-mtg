@@ -42,6 +42,14 @@ const FRAME_FILTER: Record<Frame, string> = {
   'extended-art': 'is:extended',
 }
 
+/** Exact-name lookup within the set, ignoring any frame preference. */
+function namedPath(card: Card): string | undefined {
+  if (!card.set) return undefined
+  const front = card.name.split(' // ')[0].trim()
+  if (!front) return undefined
+  return `named?exact=${encodeURIComponent(front)}&set=${encodeURIComponent(card.set.toLowerCase())}`
+}
+
 /**
  * Scryfall identifies a printing by set code and collector number (no leading zeros).
  * Without a number the card is looked up by exact name within the set; with a `frame`
@@ -53,17 +61,16 @@ export function scryfallPath(card: Card): string | undefined {
   if (number) return `${card.set.toLowerCase()}/${encodeURIComponent(number)}`
   const front = card.name.split(' // ')[0].trim()
   if (!front) return undefined
-  const set = card.set.toLowerCase()
   if (card.frame) {
     const frames = Array.isArray(card.frame) ? card.frame : [card.frame]
     const filter =
       frames.length === 1
         ? FRAME_FILTER[frames[0]]
         : `(${frames.map((f) => FRAME_FILTER[f]).join(' or ')})`
-    const q = `!"${front}" e:${set} ${filter}`
+    const q = `!"${front}" e:${card.set.toLowerCase()} ${filter}`
     return `search?q=${encodeURIComponent(q)}&unique=prints&order=set`
   }
-  return `named?exact=${encodeURIComponent(front)}&set=${encodeURIComponent(set)}`
+  return namedPath(card)
 }
 
 const memory = new Map<string, Promise<ScryfallInfo | null>>()
@@ -179,22 +186,29 @@ export function fetchScryfall(card: Card): Promise<ScryfallInfo | null> {
   if (cached) return Promise.resolve(cached)
   const pending = memory.get(path)
   if (pending) return pending
+  // A frame-restricted search that finds nothing falls back to the plain named lookup,
+  // so a card whose special printing Scryfall does not list still resolves.
+  const fallback = path.startsWith('search?') ? namedPath(card) : undefined
   const promise = enqueue(async () => {
-    try {
-      const res = await fetch(`https://api.scryfall.com/cards/${path}`, {
-        headers: { Accept: 'application/json' },
-      })
-      if (!res.ok) return null
-      const json = (await res.json()) as ScryfallCardJson & { data?: ScryfallCardJson[] }
-      // A search returns a list; the first printing is the one wanted.
-      const card = Array.isArray(json.data) ? json.data[0] : json
-      if (!card) return null
-      const info = parse(card)
-      writeCache(path, info)
-      return info
-    } catch {
-      return null
+    for (const p of [path, fallback]) {
+      if (!p) continue
+      try {
+        const res = await fetch(`https://api.scryfall.com/cards/${p}`, {
+          headers: { Accept: 'application/json' },
+        })
+        if (!res.ok) continue
+        const json = (await res.json()) as ScryfallCardJson & { data?: ScryfallCardJson[] }
+        // A search returns a list; the first printing is the one wanted.
+        const found = Array.isArray(json.data) ? json.data[0] : json
+        if (!found) continue
+        const info = parse(found)
+        writeCache(path, info)
+        return info
+      } catch {
+        // Try the next lookup, if any.
+      }
     }
+    return null
   })
   memory.set(path, promise)
   return promise
