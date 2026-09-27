@@ -1949,6 +1949,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "frame": "extended-art",
     "priceUsd": 1.5
   }
 ]
