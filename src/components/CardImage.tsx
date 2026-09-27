@@ -30,5 +30,13 @@ export function CardImage({ card, className, loading }: Props) {
   }, [remote])
 
   const src = remote && loadedRemote === remote ? remote : card.image
+  if (!src) {
+    return (
+      <div className={`card-placeholder${className ? ` ${className}` : ''}`} role="img" aria-label={card.name}>
+        <span>{card.name}</span>
+        <small>{card.set}</small>
+      </div>
+    )
+  }
   return <img src={src} alt={card.name} className={className} loading={loading} />
 }

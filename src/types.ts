@@ -17,24 +17,29 @@ export type Language = 'en' | 'es' | 'pt' | 'fr' | 'de' | 'it' | 'ja' | 'ko' | '
 /** Physical finish of the card. Defaults to `nonfoil` when omitted. */
 export type Finish = 'nonfoil' | 'foil' | 'surge-foil'
 
+/**
+ * A card in the binder. Only `id`, `name`, `set`, `quantity`, `status` and `language`
+ * are required: a card entered with just those is resolved at runtime from Scryfall
+ * by name and set, which fills in every optional field below (and the picture).
+ */
 export interface Card {
-  /** Stable identifier: `${set}-${collectorNumber}` in lowercase. */
+  /** Stable identifier: `${set}-${collectorNumber}` in lowercase, or a slug when the number is unknown. */
   id: string
   name: string
   set: string
-  collectorNumber: string
+  collectorNumber?: string
   /** Mana cost in Scryfall notation, e.g. "{1}{B}". */
-  manaCost: string
-  cmc: number
-  colors: Color[]
-  typeLine: string
-  oracleText: string
+  manaCost?: string
+  cmc?: number
+  colors?: Color[]
+  typeLine?: string
+  oracleText?: string
   power?: string
   toughness?: string
-  rarity: Rarity
-  artist: string
+  rarity?: Rarity
+  artist?: string
   /** Image path relative to the site root, without a leading slash (files live in /public). */
-  image: string
+  image?: string
   /** Number of copies (owned, reserved or wanted, depending on `status`). */
   quantity: number
   status: CardStatus

@@ -1815,5 +1815,60 @@
     "tags": [
       "land"
     ]
+  },
+  {
+    "id": "hob-bards-company",
+    "name": "Bard's Company",
+    "set": "HOB",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "foil",
+    "priceUsd": 1,
+    "priceArs": 1400
+  },
+  {
+    "id": "hob-glamdring-foe-hammer",
+    "name": "Glamdring, Foe-hammer // Gleam of Death",
+    "set": "HOB",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 5,
+    "priceArs": 7900
+  },
+  {
+    "id": "hob-troop-of-ponies",
+    "name": "Troop of Ponies",
+    "set": "HOB",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5,
+    "priceArs": 700
+  },
+  {
+    "id": "hob-thorin-oakenshield",
+    "name": "Thorin Oakenshield",
+    "set": "HOB",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "foil",
+    "priceUsd": 1,
+    "priceArs": 900
+  },
+  {
+    "id": "hoc-gandalf-party-guest",
+    "name": "Gandalf, Party Guest",
+    "set": "HOC",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 3,
+    "priceArs": 4400
   }
 ]

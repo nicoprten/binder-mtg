@@ -5,6 +5,8 @@ import { CardTile } from './CardTile'
 import { CardRow } from './CardRow'
 import { CardModal } from './CardModal'
 import { CollectionSummary } from './CollectionSummary'
+import { useScryfallMany } from '../hooks/useScryfallMany'
+import { resolveCard } from '../scryfall'
 import { STATUSES, STATUS_LABEL } from '../status'
 
 type ColorKey = Color | 'C'
@@ -82,12 +84,15 @@ export function Binder() {
     saveView(next)
   }
 
+  const infos = useScryfallMany(cards)
+  const resolved = useMemo(() => cards.map((c) => resolveCard(c, infos[c.id])), [infos])
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return cards.filter((c) => {
+    return resolved.filter((c) => {
       if (colors.size > 0) {
         // The card must have every selected color. A card with no colors counts as colorless.
-        const own: ColorKey[] = c.colors.length > 0 ? c.colors : ['C']
+        const own: ColorKey[] = (c.colors ?? []).length > 0 ? (c.colors as ColorKey[]) : ['C']
         if (![...colors].every((col) => own.includes(col))) return false
       }
       if (finish && (c.finish ?? 'nonfoil') !== finish) return false
@@ -95,14 +100,14 @@ export function Binder() {
       if (!q) return true
       return (
         c.name.toLowerCase().includes(q) ||
-        c.typeLine.toLowerCase().includes(q) ||
-        c.oracleText.toLowerCase().includes(q) ||
+        (c.typeLine ?? '').toLowerCase().includes(q) ||
+        (c.oracleText ?? '').toLowerCase().includes(q) ||
         c.tags?.some((t) => t.toLowerCase().includes(q))
       )
     })
-  }, [query, colors, finish, status])
+  }, [resolved, query, colors, finish, status])
 
-  const selected: Card | undefined = cards.find((c) => c.id === selectedId)
+  const selected: Card | undefined = resolved.find((c) => c.id === selectedId)
 
   return (
     <section className="binder">
@@ -166,7 +171,7 @@ export function Binder() {
             </button>
           </div>
         </div>
-        <CollectionSummary cards={cards} />
+        <CollectionSummary cards={resolved} />
         {filtered.length === 0 ? (
           <p className="empty">No cards match.</p>
         ) : view === 'grid' ? (

@@ -1,4 +1,4 @@
-import type { Card } from './types'
+import type { Card, Color, Rarity } from './types'
 
 /** The subset of a Scryfall card object this app reads. */
 export interface ScryfallInfo {
@@ -8,6 +8,16 @@ export interface ScryfallInfo {
   usd?: number
   /** `prices.usd_foil`. */
   usdFoil?: number
+  collectorNumber?: string
+  manaCost?: string
+  cmc?: number
+  colors?: Color[]
+  typeLine?: string
+  oracleText?: string
+  power?: string
+  toughness?: string
+  rarity?: Rarity
+  artist?: string
   /** When this entry was fetched, in ms since epoch. */
   fetchedAt: number
 }
@@ -26,11 +36,17 @@ export function isOffline(): boolean {
   return typeof window !== 'undefined' && window.BINDER_LOCAL_IMAGES === true
 }
 
-/** Scryfall identifies a printing by set code and collector number (no leading zeros). */
+/**
+ * Scryfall identifies a printing by set code and collector number (no leading zeros).
+ * Without a number the card is looked up by exact name within the set.
+ */
 export function scryfallPath(card: Card): string | undefined {
-  const number = card.collectorNumber.replace(/^0+(?=\d)/, '')
-  if (!card.set || !number) return undefined
-  return `${card.set.toLowerCase()}/${encodeURIComponent(number)}`
+  if (!card.set) return undefined
+  const number = (card.collectorNumber ?? '').replace(/^0+(?=\d)/, '')
+  if (number) return `${card.set.toLowerCase()}/${encodeURIComponent(number)}`
+  const front = card.name.split(' // ')[0].trim()
+  if (!front) return undefined
+  return `named?exact=${encodeURIComponent(front)}&set=${encodeURIComponent(card.set.toLowerCase())}`
 }
 
 const memory = new Map<string, Promise<ScryfallInfo | null>>()
@@ -58,20 +74,71 @@ function writeCache(path: string, info: ScryfallInfo) {
   }
 }
 
-interface ScryfallCardJson {
+interface ScryfallFace {
   image_uris?: { normal?: string }
-  card_faces?: { image_uris?: { normal?: string } }[]
-  prices?: { usd?: string | null; usd_foil?: string | null }
+  mana_cost?: string
+  oracle_text?: string
+  power?: string
+  toughness?: string
 }
 
+interface ScryfallCardJson extends ScryfallFace {
+  card_faces?: ScryfallFace[]
+  prices?: { usd?: string | null; usd_foil?: string | null }
+  collector_number?: string
+  cmc?: number
+  colors?: string[]
+  color_identity?: string[]
+  type_line?: string
+  rarity?: string
+  artist?: string
+}
+
+const RARITIES: Rarity[] = ['common', 'uncommon', 'rare', 'mythic']
+
 function parse(json: ScryfallCardJson): ScryfallInfo {
-  const image = json.image_uris?.normal ?? json.card_faces?.[0]?.image_uris?.normal
+  const front = json.card_faces?.[0]
   const toNumber = (v: string | null | undefined) => (v ? Number(v) : undefined)
+  const rarity = RARITIES.includes(json.rarity as Rarity) ? (json.rarity as Rarity) : undefined
+  const colors = (json.colors ?? json.color_identity ?? []).filter((c): c is Color =>
+    ['W', 'U', 'B', 'R', 'G'].includes(c),
+  )
+  const oracle =
+    json.oracle_text ??
+    json.card_faces?.map((f) => f.oracle_text ?? '').filter(Boolean).join('\n—\n')
   return {
-    image,
+    image: json.image_uris?.normal ?? front?.image_uris?.normal,
     usd: toNumber(json.prices?.usd),
     usdFoil: toNumber(json.prices?.usd_foil),
+    collectorNumber: json.collector_number,
+    manaCost: json.mana_cost ?? front?.mana_cost,
+    cmc: json.cmc,
+    colors,
+    typeLine: json.type_line,
+    oracleText: oracle,
+    power: json.power ?? front?.power,
+    toughness: json.toughness ?? front?.toughness,
+    rarity,
+    artist: json.artist,
     fetchedAt: Date.now(),
+  }
+}
+
+/** The card with every field it lacks filled in from Scryfall, when that data is available. */
+export function resolveCard(card: Card, info: ScryfallInfo | null | undefined): Card {
+  if (!info) return card
+  return {
+    ...card,
+    collectorNumber: card.collectorNumber ?? info.collectorNumber,
+    manaCost: card.manaCost ?? info.manaCost,
+    cmc: card.cmc ?? info.cmc,
+    colors: card.colors ?? info.colors,
+    typeLine: card.typeLine ?? info.typeLine,
+    oracleText: card.oracleText ?? info.oracleText,
+    power: card.power ?? info.power,
+    toughness: card.toughness ?? info.toughness,
+    rarity: card.rarity ?? info.rarity,
+    artist: card.artist ?? info.artist,
   }
 }
 

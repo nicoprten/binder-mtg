@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
-import { cards, cardsById } from '../data'
-import type { Deck } from '../types'
+import { cards } from '../data'
+import type { Card, Deck } from '../types'
 import { useDecks } from '../hooks/useDecks'
 import { CardTile } from './CardTile'
 import { FinishBadge } from './FinishBadge'
@@ -8,9 +8,13 @@ import { ManaCost } from './ManaCost'
 import { formatCardPrice, formatUsd } from '../format'
 import { StatusBadge } from './StatusBadge'
 import { MarketPrice } from './MarketPrice'
+import { useScryfallMany } from '../hooks/useScryfallMany'
+import { resolveCard } from '../scryfall'
 
 export function Decks() {
   const { decks, createDeck, updateDeck, deleteDeck, setCardQuantity } = useDecks()
+  const infos = useScryfallMany(cards)
+  const resolved = useMemo(() => cards.map((c) => resolveCard(c, infos[c.id])), [infos])
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [newName, setNewName] = useState('')
 
@@ -66,6 +70,7 @@ export function Decks() {
       {selected ? (
         <DeckEditor
           deck={selected}
+          allCards={resolved}
           onRename={(name) => updateDeck(selected.id, { name })}
           onDelete={() => handleDelete(selected)}
           onSetQuantity={(cardId, q) => setCardQuantity(selected.id, cardId, q)}
@@ -81,22 +86,24 @@ export function Decks() {
 
 interface EditorProps {
   deck: Deck
+  allCards: Card[]
   onRename: (name: string) => void
   onDelete: () => void
   onSetQuantity: (cardId: string, quantity: number) => void
 }
 
-function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
+function DeckEditor({ deck, allCards, onRename, onDelete, onSetQuantity }: EditorProps) {
   const [query, setQuery] = useState('')
   const [confirmingDelete, setConfirmingDelete] = useState(false)
 
+  const byId = useMemo(() => new Map(allCards.map((c) => [c.id, c])), [allCards])
   const entries = useMemo(
     () =>
       deck.cards
-        .map((e) => ({ ...e, card: cardsById[e.cardId] }))
-        .filter((e) => e.card !== undefined)
-        .sort((a, b) => a.card.cmc - b.card.cmc || a.card.name.localeCompare(b.card.name)),
-    [deck.cards],
+        .map((e) => ({ ...e, card: byId.get(e.cardId) }))
+        .filter((e): e is typeof e & { card: Card } => e.card !== undefined)
+        .sort((a, b) => (a.card.cmc ?? 0) - (b.card.cmc ?? 0) || a.card.name.localeCompare(b.card.name)),
+    [deck.cards, byId],
   )
   const total = entries.reduce((s, e) => s + e.quantity, 0)
   const value = entries.reduce((s, e) => s + (e.card.priceUsd ?? 0) * e.quantity, 0)
@@ -104,8 +111,8 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
 
   const available = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return cards.filter((c) => !q || c.name.toLowerCase().includes(q))
-  }, [query])
+    return allCards.filter((c) => !q || c.name.toLowerCase().includes(q))
+  }, [allCards, query])
 
   function exportText() {
     const text = entries.map((e) => `${e.quantity} ${e.card.name}`).join('\n')
@@ -164,7 +171,7 @@ function DeckEditor({ deck, onRename, onDelete, onSetQuantity }: EditorProps) {
                       </button>
                     </span>
                     <span className="name">{card.name}</span>
-                    <ManaCost cost={card.manaCost} />
+                    <ManaCost cost={card.manaCost ?? ''} />
                     <FinishBadge finish={card.finish} size="sm" />
                     {card.status !== 'owned' && <StatusBadge status={card.status} size="sm" />}
                     {formatCardPrice(card, quantity) && (

@@ -19,10 +19,11 @@ export function CardRow({ card, onClick }: Props) {
           {card.quantity > 1 && <span className="muted"> ×{card.quantity}</span>}
         </span>
         <span className="card-row-meta">
-          <ManaCost cost={card.manaCost} />
+          <ManaCost cost={card.manaCost ?? ''} />
           <span className="card-row-type muted">{card.typeLine}</span>
           <span className="card-row-set muted">
-            {card.set} #{card.collectorNumber}
+            {card.set}
+            {card.collectorNumber && ` #${card.collectorNumber}`}
           </span>
           <FinishBadge finish={card.finish} size="sm" />
           <StatusBadge status={card.status} size="sm" />
