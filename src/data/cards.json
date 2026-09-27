@@ -732,7 +732,8 @@
     "quantity": 1,
     "status": "owned",
     "language": "en",
-    "finish": "nonfoil",
+    "finish": "foil",
+    "priceUsd": 2.0,
     "tags": [
       "goblins",
       "borderless"
@@ -946,7 +947,8 @@
     "quantity": 1,
     "status": "owned",
     "language": "en",
-    "finish": "nonfoil",
+    "finish": "foil",
+    "priceUsd": 1.0,
     "tags": [
       "goblins"
     ]
@@ -971,7 +973,8 @@
     "quantity": 1,
     "status": "owned",
     "language": "en",
-    "finish": "nonfoil",
+    "finish": "foil",
+    "priceUsd": 1.0,
     "tags": [
       "goblins"
     ]
@@ -996,7 +999,8 @@
     "quantity": 1,
     "status": "owned",
     "language": "en",
-    "finish": "nonfoil",
+    "finish": "foil",
+    "priceUsd": 1.0,
     "tags": [
       "goblins",
       "removal",
@@ -1071,6 +1075,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "removal"
     ]
@@ -1235,7 +1240,8 @@
     "quantity": 1,
     "status": "owned",
     "language": "en",
-    "finish": "nonfoil",
+    "finish": "foil",
+    "priceUsd": 1.0,
     "tags": [
       "goblins",
       "tokens"
@@ -1354,6 +1360,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 1.0,
     "tags": [
       "removal"
     ]
@@ -1451,6 +1458,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "goblins",
       "tokens",
@@ -1476,6 +1484,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
+    "priceUsd": 0.5,
     "tags": [
       "equipment"
     ]
@@ -1499,7 +1508,8 @@
     "quantity": 1,
     "status": "owned",
     "language": "en",
-    "finish": "nonfoil",
+    "finish": "foil",
+    "priceUsd": 1.0,
     "tags": [
       "equipment",
       "goblins",
@@ -1613,7 +1623,8 @@
     "quantity": 1,
     "status": "owned",
     "language": "en",
-    "finish": "nonfoil",
+    "finish": "foil",
+    "priceUsd": 1.0,
     "tags": [
       "goblins",
       "tokens"
@@ -1781,7 +1792,8 @@
     "quantity": 1,
     "status": "owned",
     "language": "en",
-    "finish": "nonfoil",
+    "finish": "foil",
+    "priceUsd": 14.5,
     "tags": [
       "land",
       "borderless"
@@ -2120,5 +2132,35 @@
     "tags": [
       "ramp"
     ]
+  },
+  {
+    "id": "hob-dreaded-bat-cloud",
+    "name": "Dreaded Bat-Cloud",
+    "set": "HOB",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "foil",
+    "priceUsd": 1.0
+  },
+  {
+    "id": "voc-timothar-baron-of-bats",
+    "name": "Timothar, Baron of Bats",
+    "set": "VOC",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "foil",
+    "priceUsd": 1.5
+  },
+  {
+    "id": "hob-gandalf-spark-starter",
+    "name": "Gandalf, Spark Starter",
+    "set": "HOB",
+    "quantity": 1,
+    "status": "owned",
+    "language": "en",
+    "finish": "nonfoil",
+    "priceUsd": 0.5
   }
 ]
