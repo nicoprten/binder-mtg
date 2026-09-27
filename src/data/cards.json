@@ -1976,11 +1976,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
-    "frame": [
-      "extended-art",
-      "borderless",
-      "showcase"
-    ],
+    "frame": "showcase",
     "priceUsd": 0.5
   },
   {
@@ -1991,11 +1987,7 @@
     "status": "owned",
     "language": "en",
     "finish": "nonfoil",
-    "frame": [
-      "extended-art",
-      "borderless",
-      "showcase"
-    ],
+    "frame": "showcase",
     "priceUsd": 0.5
   },
   {
