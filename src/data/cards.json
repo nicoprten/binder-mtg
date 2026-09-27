@@ -2640,7 +2640,12 @@
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
-    "finish": "nonfoil"
+    "finish": "nonfoil",
+    "shop": {
+      "store": "Magic Palace",
+      "url": "https://magicpalacetcg.com.ar/sling-gang-lieutenant-h2r-8/",
+      "priceUsd": 1.0
+    }
   },
   {
     "id": "dom-130",
@@ -2704,7 +2709,12 @@
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
-    "finish": "nonfoil"
+    "finish": "nonfoil",
+    "shop": {
+      "store": "Albattle Singles",
+      "url": "https://singles.albattletcg.com/",
+      "priceUsd": 0.5
+    }
   },
   {
     "id": "sch-36",
@@ -2796,7 +2806,12 @@
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
-    "finish": "nonfoil"
+    "finish": "nonfoil",
+    "shop": {
+      "store": "Albattle Singles",
+      "url": "https://singles.albattletcg.com/",
+      "priceUsd": 0.5
+    }
   },
   {
     "id": "m15-96",
@@ -2844,7 +2859,12 @@
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
-    "finish": "nonfoil"
+    "finish": "nonfoil",
+    "shop": {
+      "store": "Albattle Singles",
+      "url": "https://singles.albattletcg.com/",
+      "priceUsd": 1.5
+    }
   },
   {
     "id": "2x2-359",
@@ -2856,6 +2876,11 @@
     "language": "en",
     "finish": "nonfoil",
     "frame": "borderless",
+    "shop": {
+      "store": "Albattle Singles",
+      "url": "https://singles.albattletcg.com/",
+      "priceUsd": 1.0
+    },
     "tags": [
       "borderless"
     ]
@@ -2882,7 +2907,12 @@
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
-    "finish": "nonfoil"
+    "finish": "nonfoil",
+    "shop": {
+      "store": "Albattle Singles",
+      "url": "https://singles.albattletcg.com/",
+      "priceUsd": 0.5
+    }
   },
   {
     "id": "hob-222",

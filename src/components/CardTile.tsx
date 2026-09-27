@@ -4,6 +4,7 @@ import { formatCardPrice } from '../format'
 import { StatusBadge } from './StatusBadge'
 import { CardImage } from './CardImage'
 import { MarketPrice } from './MarketPrice'
+import { ShopEye } from './ShopEye'
 
 interface Props {
   card: Card
@@ -24,6 +25,9 @@ export function CardTile({ card, badge, selected, onClick }: Props) {
         <CardImage card={card} loading="lazy" />
         <span className="card-status">
           <StatusBadge status={card.status} size="sm" />
+        </span>
+        <span className="card-shop">
+          <ShopEye shop={card.shop} />
         </span>
         {badge && <span className="card-badge">{badge}</span>}
       </button>

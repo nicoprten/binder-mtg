@@ -53,7 +53,18 @@ export interface Card {
   frame?: Frame | Frame[]
   /** Market price of one copy, in USD. */
   priceUsd?: number
+  /** Where the card was seen for sale, for cards still to buy. */
+  shop?: Shop
   tags?: string[]
+}
+
+export interface Shop {
+  /** Store name, e.g. "Magic Palace". */
+  store: string
+  /** Product page, or the store's front page when there is no direct link. */
+  url: string
+  /** Listed price converted to USD, when known. */
+  priceUsd?: number
 }
 
 export interface DeckEntry {

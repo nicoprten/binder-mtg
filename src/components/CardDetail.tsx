@@ -63,6 +63,19 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
           <dd>{card.artist ?? '—'}</dd>
           <dt>Price</dt>
           <dd className="price">{card.priceUsd !== undefined ? formatUsd(card.priceUsd) : '—'}</dd>
+          {card.shop && (
+            <>
+              <dt>Where to buy</dt>
+              <dd>
+                <a href={card.shop.url} target="_blank" rel="noopener noreferrer" className="shop-link">
+                  {card.shop.store}
+                </a>
+                {card.shop.priceUsd !== undefined && (
+                  <span className="muted"> · {formatUsd(card.shop.priceUsd)}</span>
+                )}
+              </dd>
+            </>
+          )}
           <dt>Market</dt>
           <dd>
             <MarketPrice card={card} />
