@@ -3066,5 +3066,21 @@
     "tags": [
       "showcase"
     ]
+  },
+  {
+    "id": "hob-stir-up-trouble",
+    "name": "Stir Up Trouble",
+    "set": "HOB",
+    "quantity": 1,
+    "status": "wishlist",
+    "language": "en",
+    "finish": "nonfoil",
+    "shops": [
+      {
+        "store": "Albattle Singles",
+        "url": "https://singles.albattletcg.com/",
+        "priceUsd": 0.5
+      }
+    ]
   }
 ]
