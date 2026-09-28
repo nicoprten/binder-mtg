@@ -2620,25 +2620,14 @@
     ]
   },
   {
-    "id": "slz-113",
+    "id": "skullclamp-pickup",
     "name": "Skullclamp",
-    "set": "SLZ",
-    "collectorNumber": "0113",
+    "set": "",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "frame": "showcase",
-    "shops": [
-      {
-        "store": "La Workshop",
-        "url": "https://laworkshoptcg.com/singles",
-        "priceUsd": 8.99
-      }
-    ],
-    "tags": [
-      "showcase"
-    ]
+    "priceUsd": 9
   },
   {
     "id": "sld-2416",
@@ -2662,25 +2651,14 @@
     ]
   },
   {
-    "id": "sld-2411",
+    "id": "m21-conspicuous-snoop",
     "name": "Conspicuous Snoop",
-    "set": "SLD",
-    "collectorNumber": "2411",
+    "set": "M21",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "frame": "showcase",
-    "shops": [
-      {
-        "store": "La Workshop",
-        "url": "https://laworkshoptcg.com/singles",
-        "priceUsd": 5.5
-      }
-    ],
-    "tags": [
-      "showcase"
-    ]
+    "priceUsd": 5.5
   },
   {
     "id": "dmr-123",
@@ -2715,16 +2693,10 @@
     "set": "DOM",
     "collectorNumber": "130",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "shops": [
-      {
-        "store": "La Workshop",
-        "url": "https://laworkshoptcg.com/singles",
-        "priceUsd": 2.25
-      }
-    ]
+    "priceUsd": 2.25
   },
   {
     "id": "mh3-110",
@@ -2737,21 +2709,15 @@
     "finish": "nonfoil"
   },
   {
-    "id": "ecl-206",
+    "id": "ecl-0331",
     "name": "Boggart Cursecrafter",
     "set": "ECL",
-    "collectorNumber": "0206",
+    "collectorNumber": "0331",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
-    "finish": "nonfoil",
-    "shops": [
-      {
-        "store": "La Workshop",
-        "url": "https://laworkshoptcg.com/singles",
-        "priceUsd": 1.5
-      }
-    ]
+    "finish": "foil",
+    "priceUsd": 1.5
   },
   {
     "id": "one-129",
@@ -2963,21 +2929,10 @@
     "set": "GK2",
     "collectorNumber": "068",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "shops": [
-      {
-        "store": "Albattle Singles",
-        "url": "https://singles.albattletcg.com/",
-        "priceUsd": 1.5
-      },
-      {
-        "store": "La Workshop",
-        "url": "https://laworkshoptcg.com/singles",
-        "priceUsd": 0.99
-      }
-    ]
+    "priceUsd": 1
   },
   {
     "id": "2x2-359",
@@ -3051,25 +3006,14 @@
     ]
   },
   {
-    "id": "slz-215",
+    "id": "khc-arcane-signet",
     "name": "Arcane Signet",
-    "set": "SLZ",
-    "collectorNumber": "0215",
+    "set": "KHC",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "frame": "borderless",
-    "shops": [
-      {
-        "store": "La Workshop",
-        "url": "https://laworkshoptcg.com/singles",
-        "priceUsd": 0.99
-      }
-    ],
-    "tags": [
-      "borderless"
-    ]
+    "priceUsd": 1
   },
   {
     "id": "frc-63",
