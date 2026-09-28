@@ -2620,9 +2620,9 @@
     ]
   },
   {
-    "id": "skullclamp-pickup",
+    "id": "moc-skullclamp",
     "name": "Skullclamp",
-    "set": "",
+    "set": "MOC",
     "quantity": 1,
     "status": "to-pick-up",
     "language": "en",
