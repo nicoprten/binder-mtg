@@ -944,6 +944,13 @@ main {
   color: var(--text);
 }
 
+.pickup-order {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
 .pickup-top p {
   margin: 0.15rem 0 0;
   font-size: 0.9rem;

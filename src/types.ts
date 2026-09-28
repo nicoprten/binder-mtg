@@ -86,6 +86,8 @@ export interface Pickup {
   id: string
   store: string
   url?: string
+  /** The store's order number, e.g. "#111272". */
+  order?: string
   /** Where to collect it; editable from the page. */
   address: string
   /** Whether it has been paid; editable from the page. */

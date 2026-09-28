@@ -47,6 +47,7 @@ export function Pickups() {
                   ) : (
                     r.store
                   )}
+                  {r.order && <span className="pickup-order">{r.order}</span>}
                 </h3>
                 <p className="muted">
                   {r.items.length} cards · {r.totalArs !== null ? ars.format(r.totalArs) : `≈ ${ars.format(r.usd * ARS_PER_USD)}`} ·{' '}

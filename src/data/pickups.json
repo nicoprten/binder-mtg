@@ -1,12 +1,12 @@
 [
   {
-    "id": "albattle-1",
-    "store": "Albattle Singles",
-    "url": "https://singles.albattletcg.com/",
-    "address": "",
+    "id": "magicdealers-111272",
+    "store": "Magic Dealers",
+    "order": "#111272",
+    "address": "Zapiola 2041",
     "paid": false,
     "totalArs": 163650,
-    "note": "Includes a Goblin Army // Treasure token (600 ARS) not tracked in the binder.",
+    "note": "10% off paying cash. Includes a Goblin Army // Treasure token (600 ARS) not tracked in the binder.",
     "cardIds": [
       "ltr-0086",
       "ltr-0429",
@@ -30,6 +30,17 @@
       "hoc-0019",
       "mkm-0135",
       "clu-0139"
+    ]
+  },
+  {
+    "id": "solring-6908",
+    "store": "Sol Ring order",
+    "order": "#6908",
+    "address": "Sánchez de Bustamante 466",
+    "paid": false,
+    "totalArs": null,
+    "cardIds": [
+      "slc-0019"
     ]
   },
   {
