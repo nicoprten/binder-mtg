@@ -947,8 +947,8 @@ main {
 .pickup-order {
   margin-left: 0.5rem;
   font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--muted);
+  font-weight: 600;
+  color: var(--accent);
 }
 
 .pickup-top p {
