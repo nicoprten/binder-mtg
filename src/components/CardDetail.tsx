@@ -67,16 +67,24 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
           <dd>{card.artist ?? '—'}</dd>
           <dt>Price</dt>
           <dd className="price">{card.priceUsd !== undefined ? formatUsd(card.priceUsd) : '—'}</dd>
-          {card.shop && (
+          {card.shops && card.shops.length > 0 && (
             <>
               <dt>Where to buy</dt>
               <dd>
-                <a href={card.shop.url} target="_blank" rel="noopener noreferrer" className="shop-link">
-                  {card.shop.store}
-                </a>
-                {card.shop.priceUsd !== undefined && (
-                  <span className="muted"> · {formatUsd(card.shop.priceUsd)}</span>
-                )}
+                <ul className="shop-list">
+                  {[...card.shops]
+                    .sort((a, b) => (a.priceUsd ?? Infinity) - (b.priceUsd ?? Infinity))
+                    .map((shop) => (
+                      <li key={shop.url + shop.store}>
+                        <a href={shop.url} target="_blank" rel="noopener noreferrer" className="shop-link">
+                          {shop.store}
+                        </a>
+                        {shop.priceUsd !== undefined && (
+                          <span className="muted"> · {formatUsd(shop.priceUsd)}</span>
+                        )}
+                      </li>
+                    ))}
+                </ul>
               </dd>
             </>
           )}

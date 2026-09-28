@@ -1,16 +1,19 @@
 import type { Shop } from '../types'
+import { bestShop } from '../shops'
 
-/** Eye icon marking a card whose seller is already known. Links to the listing. */
-export function ShopEye({ shop, size = 'md' }: { shop?: Shop; size?: 'sm' | 'md' }) {
+/** Eye icon marking a card whose seller is already known. Links to the cheapest listing. */
+export function ShopEye({ shops, size = 'md' }: { shops?: Shop[]; size?: 'sm' | 'md' }) {
+  const shop = bestShop(shops)
   if (!shop) return null
+  const more = shops!.length > 1 ? ` (+${shops!.length - 1} more)` : ''
   return (
     <a
       className={`shop-eye shop-eye-${size}`}
       href={shop.url}
       target="_blank"
       rel="noopener noreferrer"
-      title={`Seen at ${shop.store}`}
-      aria-label={`Seen at ${shop.store}`}
+      title={`Seen at ${shop.store}${more}`}
+      aria-label={`Seen at ${shop.store}${more}`}
       onClick={(e) => e.stopPropagation()}
     >
       <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true">

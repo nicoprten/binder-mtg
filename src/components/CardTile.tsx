@@ -27,7 +27,7 @@ export function CardTile({ card, badge, selected, onClick }: Props) {
           <StatusBadge status={card.status} size="sm" />
         </span>
         <span className="card-shop">
-          <ShopEye shop={card.shop} />
+          <ShopEye shops={card.shops} />
         </span>
         {badge && <span className="card-badge">{badge}</span>}
       </button>

@@ -99,6 +99,13 @@
     "status": "wishlist",
     "language": "en",
     "finish": "nonfoil",
+    "shops": [
+      {
+        "store": "Magic Couple",
+        "url": "https://www.mmagiccouple.com/",
+        "priceUsd": 5.0
+      }
+    ],
     "tags": [
       "goblins",
       "tokens"
@@ -177,6 +184,13 @@
     "status": "wishlist",
     "language": "en",
     "finish": "nonfoil",
+    "shops": [
+      {
+        "store": "Magic Couple",
+        "url": "https://www.mmagiccouple.com/",
+        "priceUsd": 3.0
+      }
+    ],
     "tags": [
       "goblins",
       "tokens"
@@ -2578,7 +2592,14 @@
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
-    "finish": "nonfoil"
+    "finish": "nonfoil",
+    "shops": [
+      {
+        "store": "Magic Couple",
+        "url": "https://www.mmagiccouple.com/",
+        "priceUsd": 1.0
+      }
+    ]
   },
   {
     "id": "slz-113",
@@ -2590,6 +2611,13 @@
     "language": "en",
     "finish": "nonfoil",
     "frame": "showcase",
+    "shops": [
+      {
+        "store": "La Workshop",
+        "url": "https://laworkshoptcg.com/singles",
+        "priceUsd": 8.99
+      }
+    ],
     "tags": [
       "showcase"
     ]
@@ -2604,6 +2632,13 @@
     "language": "en",
     "finish": "nonfoil",
     "frame": "borderless",
+    "shops": [
+      {
+        "store": "La Workshop",
+        "url": "https://laworkshoptcg.com/singles",
+        "priceUsd": 8.99
+      }
+    ],
     "tags": [
       "borderless"
     ]
@@ -2618,6 +2653,13 @@
     "language": "en",
     "finish": "nonfoil",
     "frame": "showcase",
+    "shops": [
+      {
+        "store": "La Workshop",
+        "url": "https://laworkshoptcg.com/singles",
+        "priceUsd": 5.5
+      }
+    ],
     "tags": [
       "showcase"
     ]
@@ -2641,11 +2683,13 @@
     "status": "wishlist",
     "language": "en",
     "finish": "nonfoil",
-    "shop": {
-      "store": "Magic Palace",
-      "url": "https://magicpalacetcg.com.ar/sling-gang-lieutenant-h2r-8/",
-      "priceUsd": 1.0
-    }
+    "shops": [
+      {
+        "store": "Magic Palace",
+        "url": "https://magicpalacetcg.com.ar/sling-gang-lieutenant-h2r-8/",
+        "priceUsd": 1.0
+      }
+    ]
   },
   {
     "id": "dom-130",
@@ -2655,7 +2699,14 @@
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
-    "finish": "nonfoil"
+    "finish": "nonfoil",
+    "shops": [
+      {
+        "store": "La Workshop",
+        "url": "https://laworkshoptcg.com/singles",
+        "priceUsd": 2.25
+      }
+    ]
   },
   {
     "id": "mh3-110",
@@ -2675,7 +2726,14 @@
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
-    "finish": "nonfoil"
+    "finish": "nonfoil",
+    "shops": [
+      {
+        "store": "La Workshop",
+        "url": "https://laworkshoptcg.com/singles",
+        "priceUsd": 1.5
+      }
+    ]
   },
   {
     "id": "one-129",
@@ -2710,11 +2768,18 @@
     "status": "wishlist",
     "language": "en",
     "finish": "nonfoil",
-    "shop": {
-      "store": "Albattle Singles",
-      "url": "https://singles.albattletcg.com/",
-      "priceUsd": 0.5
-    }
+    "shops": [
+      {
+        "store": "Albattle Singles",
+        "url": "https://singles.albattletcg.com/",
+        "priceUsd": 0.5
+      },
+      {
+        "store": "La Workshop",
+        "url": "https://laworkshoptcg.com/singles",
+        "priceUsd": 0.5
+      }
+    ]
   },
   {
     "id": "sch-36",
@@ -2726,6 +2791,13 @@
     "language": "en",
     "finish": "nonfoil",
     "frame": "promo",
+    "shops": [
+      {
+        "store": "Magic Couple",
+        "url": "https://www.mmagiccouple.com/",
+        "priceUsd": 1.0
+      }
+    ],
     "tags": [
       "promo"
     ]
@@ -2738,7 +2810,14 @@
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
-    "finish": "nonfoil"
+    "finish": "nonfoil",
+    "shops": [
+      {
+        "store": "Magic Couple",
+        "url": "https://www.mmagiccouple.com/",
+        "priceUsd": 1.5
+      }
+    ]
   },
   {
     "id": "ltr-285",
@@ -2794,6 +2873,13 @@
     "language": "en",
     "finish": "nonfoil",
     "frame": "borderless",
+    "shops": [
+      {
+        "store": "Magic Couple",
+        "url": "https://www.mmagiccouple.com/",
+        "priceUsd": 5.0
+      }
+    ],
     "tags": [
       "borderless"
     ]
@@ -2807,11 +2893,13 @@
     "status": "wishlist",
     "language": "en",
     "finish": "nonfoil",
-    "shop": {
-      "store": "Albattle Singles",
-      "url": "https://singles.albattletcg.com/",
-      "priceUsd": 0.5
-    }
+    "shops": [
+      {
+        "store": "Albattle Singles",
+        "url": "https://singles.albattletcg.com/",
+        "priceUsd": 0.5
+      }
+    ]
   },
   {
     "id": "m15-96",
@@ -2860,11 +2948,18 @@
     "status": "wishlist",
     "language": "en",
     "finish": "nonfoil",
-    "shop": {
-      "store": "Albattle Singles",
-      "url": "https://singles.albattletcg.com/",
-      "priceUsd": 1.5
-    }
+    "shops": [
+      {
+        "store": "Albattle Singles",
+        "url": "https://singles.albattletcg.com/",
+        "priceUsd": 1.5
+      },
+      {
+        "store": "La Workshop",
+        "url": "https://laworkshoptcg.com/singles",
+        "priceUsd": 0.99
+      }
+    ]
   },
   {
     "id": "2x2-359",
@@ -2876,11 +2971,13 @@
     "language": "en",
     "finish": "nonfoil",
     "frame": "borderless",
-    "shop": {
-      "store": "Albattle Singles",
-      "url": "https://singles.albattletcg.com/",
-      "priceUsd": 1.0
-    },
+    "shops": [
+      {
+        "store": "Albattle Singles",
+        "url": "https://singles.albattletcg.com/",
+        "priceUsd": 1.0
+      }
+    ],
     "tags": [
       "borderless"
     ]
@@ -2908,11 +3005,18 @@
     "status": "wishlist",
     "language": "en",
     "finish": "nonfoil",
-    "shop": {
-      "store": "Albattle Singles",
-      "url": "https://singles.albattletcg.com/",
-      "priceUsd": 0.5
-    }
+    "shops": [
+      {
+        "store": "Albattle Singles",
+        "url": "https://singles.albattletcg.com/",
+        "priceUsd": 0.5
+      },
+      {
+        "store": "La Workshop",
+        "url": "https://laworkshoptcg.com/singles",
+        "priceUsd": 0.5
+      }
+    ]
   },
   {
     "id": "hob-222",
@@ -2938,6 +3042,13 @@
     "language": "en",
     "finish": "nonfoil",
     "frame": "borderless",
+    "shops": [
+      {
+        "store": "La Workshop",
+        "url": "https://laworkshoptcg.com/singles",
+        "priceUsd": 0.99
+      }
+    ],
     "tags": [
       "borderless"
     ]

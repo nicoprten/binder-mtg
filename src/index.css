@@ -756,6 +756,12 @@ main {
   color: #7fd0a0;
 }
 
+.shop-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* Finish badges */
 @keyframes foil-shimmer {
   0% {

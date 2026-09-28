@@ -54,7 +54,7 @@ export interface Card {
   /** Market price of one copy, in USD. */
   priceUsd?: number
   /** Where the card was seen for sale, for cards still to buy. */
-  shop?: Shop
+  shops?: Shop[]
   tags?: string[]
 }
 

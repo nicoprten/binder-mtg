@@ -28,7 +28,7 @@ export function CardRow({ card, onClick }: Props) {
           </span>
           <FinishBadge finish={card.finish} size="sm" />
           <StatusBadge status={card.status} size="sm" />
-          <ShopEye shop={card.shop} size="sm" />
+          <ShopEye shops={card.shops} size="sm" />
         </span>
         <span className="card-row-price">
           <span className="price">{formatCardPrice(card) ?? ''}</span>

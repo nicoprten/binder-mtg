@@ -20,7 +20,7 @@ npm run dev
 
 Basic lands are not tracked.
 
-A card you already know where to buy can carry a `shop` (`store`, `url`, optional `priceUsd`): it shows an eye icon on the tile and a "Where to buy" link in the detail.
+A card you already know where to buy can carry `shops`, a list of `{store, url, priceUsd?}`: the tile shows an eye icon linking to the cheapest listing and the detail lists them all.
 
 The quick way: add an entry to `src/data/cards.json` with just `id`, `name`, `set` (may be empty when unknown), `quantity`, `status`, `language`, plus `finish` and `priceUsd` if known. Add `frame` (`borderless`, `showcase`, `extended-art` or `promo`, or a list of them when any would do) when the copy is a special-frame version, so the right printing is chosen. The app looks the card up on Scryfall by exact name within that set (restricted to that frame when given) and fills in the collector number, cost, type, text, rarity, artist and picture at runtime. Until that lookup completes (or when Scryfall is unreachable) the card shows a placeholder with its name.
 
