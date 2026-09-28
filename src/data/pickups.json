@@ -34,7 +34,8 @@
   },
   {
     "id": "solring-6908",
-    "store": "Sol Ring order",
+    "store": "Magic Palace",
+    "url": "https://magicpalacetcg.com.ar/",
     "order": "#6908",
     "address": "Sánchez de Bustamante 466",
     "paid": false,
@@ -47,7 +48,7 @@
     "id": "morgana-1",
     "store": "Morgana Store",
     "url": "https://morganastore.com.ar/",
-    "address": "",
+    "address": "Cabildo 2280",
     "paid": false,
     "totalArs": 3780,
     "cardIds": [
@@ -58,7 +59,8 @@
     "id": "workshop-1",
     "store": "La Workshop",
     "url": "https://laworkshoptcg.com/singles",
-    "address": "",
+    "order": "#4121",
+    "address": "Moldes 2168, Planta baja F (entrada al fondo)",
     "paid": false,
     "totalArs": null,
     "note": "Priced in USD by the store.",
