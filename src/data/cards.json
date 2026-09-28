@@ -2565,38 +2565,14 @@
     "priceUsd": 0.5
   },
   {
-    "id": "ecl-0320",
+    "id": "ecl-153",
     "name": "Scuzzback Scrounger",
     "set": "ECL",
-    "collectorNumber": "0320",
-    "manaCost": "{1}{R}",
-    "cmc": 2,
-    "colors": [
-      "R"
-    ],
-    "typeLine": "Creature — Goblin Warrior",
-    "oracleText": "At the beginning of your first main phase, you may blight 1. If you do, create a Treasure token.",
-    "power": "3",
-    "toughness": "2",
-    "rarity": "rare",
-    "artist": "Matthew Forsythe",
-    "image": "cards/ecl-0320-scuzzback-scrounger.jpg",
+    "collectorNumber": "0153",
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
-    "finish": "foil",
-    "frame": "borderless",
-    "shops": [
-      {
-        "store": "Morgana Store",
-        "url": "https://morganastore.com.ar/products/scuzzback-scrounger-ecl-320-borderless-foil-en",
-        "priceUsd": 3
-      }
-    ],
-    "tags": [
-      "goblins",
-      "borderless"
-    ]
+    "finish": "nonfoil"
   },
   {
     "id": "znc-43",
@@ -2634,27 +2610,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 9
-  },
-  {
-    "id": "sld-2416",
-    "name": "Skullclamp",
-    "set": "SLD",
-    "collectorNumber": "2416",
-    "quantity": 1,
-    "status": "wishlist",
-    "language": "en",
-    "finish": "nonfoil",
-    "frame": "borderless",
-    "shops": [
-      {
-        "store": "La Workshop",
-        "url": "https://laworkshoptcg.com/singles",
-        "priceUsd": 8.99
-      }
-    ],
-    "tags": [
-      "borderless"
-    ]
   },
   {
     "id": "m21-conspicuous-snoop",
@@ -2819,20 +2774,6 @@
     "finish": "nonfoil"
   },
   {
-    "id": "hoc-43",
-    "name": "Mithril Coat",
-    "set": "HOC",
-    "collectorNumber": "0043",
-    "quantity": 1,
-    "status": "wishlist",
-    "language": "en",
-    "finish": "nonfoil",
-    "frame": "borderless",
-    "tags": [
-      "borderless"
-    ]
-  },
-  {
     "id": "ecl-91",
     "name": "Bloodline Bidding",
     "set": "ECL",
@@ -2932,20 +2873,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 1
-  },
-  {
-    "id": "sld-2560",
-    "name": "Sol Ring",
-    "set": "SLD",
-    "collectorNumber": "2560",
-    "quantity": 1,
-    "status": "wishlist",
-    "language": "en",
-    "finish": "nonfoil",
-    "frame": "borderless",
-    "tags": [
-      "borderless"
-    ]
   },
   {
     "id": "ecl-87",
