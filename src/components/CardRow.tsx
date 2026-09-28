@@ -15,18 +15,33 @@ interface Props {
 export function CardRow({ card, onClick }: Props) {
   return (
     <li className="card-row-item">
-      <button type="button" className="card-row" onClick={onClick}>
-        <span className="card-row-name">
-          {card.name}
-          {card.quantity > 1 && <span className="muted"> ×{card.quantity}</span>}
-        </span>
-        <span className="card-row-meta">
-          <ManaCost cost={card.manaCost ?? ''} />
-          <span className="card-row-type muted">{card.typeLine}</span>
+      {/* A div, not a button, so the copy button can sit inline next to the name. */}
+      <div
+        className="card-row"
+        role="button"
+        tabIndex={0}
+        onClick={onClick}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            onClick?.()
+          }
+        }}
+      >
+        <span className="card-row-head">
+          <span className="card-row-name">
+            {card.name}
+            {card.quantity > 1 && <span className="muted"> ×{card.quantity}</span>}
+          </span>
           <span className="card-row-set muted">
             {card.set}
             {card.collectorNumber && ` #${card.collectorNumber}`}
           </span>
+          <CopyButton text={card.name} label="Copy card name" className="copy-row" />
+        </span>
+        <span className="card-row-meta">
+          <ManaCost cost={card.manaCost ?? ''} />
+          <span className="card-row-type muted">{card.typeLine}</span>
           <FinishBadge finish={card.finish} size="sm" />
           <StatusBadge status={card.status} size="sm" />
           <ShopEye shops={card.shops} size="sm" />
@@ -35,8 +50,7 @@ export function CardRow({ card, onClick }: Props) {
           <span className="price">{formatCardPrice(card) ?? ''}</span>
           <MarketPrice card={card} />
         </span>
-      </button>
-      <CopyButton text={card.name} label="Copy card name" className="copy-row" />
+      </div>
     </li>
   )
 }
