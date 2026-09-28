@@ -938,9 +938,33 @@ main {
 
 .pickup-top {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 0.6rem;
+}
+
+.pickup-summary {
+  flex: 1;
+  min-width: 0;
+}
+
+.pickup-toggle {
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  margin-top: 0.1rem;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+
+.pickup.collapsed .pickup-toggle {
+  transform: rotate(-90deg);
+}
+
+.pickup.collapsed .pickup-note {
+  display: none;
 }
 
 .pickup h3 {
