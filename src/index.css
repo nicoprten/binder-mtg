@@ -972,9 +972,31 @@ main {
   cursor: pointer;
 }
 
-.pickup.paid .pickup-paid {
-  border-color: #7fd0a0;
-  color: #7fd0a0;
+.pickup-paid.is-paid {
+  border-color: transparent;
+  color: #0b2a18;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+  background-image: linear-gradient(100deg, #34d399, #a7f3d0, #6ee7b7, #10b981, #d9f99d, #34d399);
+  background-size: 200% 100%;
+  animation:
+    foil-shimmer 3s linear infinite,
+    foil-glint 3s ease-in-out infinite;
+  box-shadow:
+    0 0 6px rgba(52, 211, 153, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+.pickup-paid.is-paid input {
+  accent-color: #0b2a18;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pickup-paid.is-paid {
+    animation: none;
+  }
 }
 
 .pickup-address {

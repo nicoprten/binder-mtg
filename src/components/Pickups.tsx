@@ -55,9 +55,9 @@ export function Pickups() {
                 </p>
                 {r.note && <p className="pickup-note">{r.note}</p>}
               </div>
-              <label className="pickup-paid">
+              <label className={`pickup-paid${r.paid ? ' is-paid' : ''}`}>
                 <input type="checkbox" checked={r.paid} onChange={(e) => update(r.id, { paid: e.target.checked })} />
-                Paid
+                {r.paid ? 'Paid' : 'Unpaid'}
               </label>
             </div>
             <label className="pickup-address">

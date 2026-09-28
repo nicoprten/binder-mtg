@@ -49,7 +49,7 @@
     "store": "Morgana Store",
     "url": "https://morganastore.com.ar/",
     "address": "Cabildo 2280",
-    "paid": false,
+    "paid": true,
     "totalArs": 3780,
     "cardIds": [
       "ecl-0320"
@@ -62,8 +62,8 @@
     "order": "#4121",
     "address": "Moldes 2168, Planta baja F (entrada al fondo)",
     "paid": false,
-    "totalArs": null,
-    "note": "Priced in USD by the store.",
+    "totalArs": 30375,
+    "note": "Priced in USD by the store, charged at 1,500 ARS per USD.",
     "cardIds": [
       "moc-skullclamp",
       "ecl-0331",
@@ -77,8 +77,9 @@
     "id": "albattle-2",
     "store": "Albattle Singles",
     "url": "https://singles.albattletcg.com/",
+    "order": "#0947",
     "address": "",
-    "paid": false,
+    "paid": true,
     "totalArs": 4200,
     "cardIds": [
       "hob-stir-up-trouble",
