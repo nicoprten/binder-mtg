@@ -189,12 +189,13 @@ main {
 .card-tile-wrap {
   position: relative;
   width: 100%;
+  transition: transform 0.12s ease;
 }
 
 .card-copy {
   position: absolute;
   top: 6px;
-  left: 6px;
+  right: 6px;
   opacity: 0;
   transition: opacity 0.12s ease;
 }
@@ -277,7 +278,7 @@ main {
   object-fit: cover;
 }
 
-.card-tile:hover {
+.card-tile-wrap:hover {
   transform: translateY(-3px);
 }
 
@@ -815,7 +816,7 @@ main {
 
 .card-shop {
   position: absolute;
-  top: 6px;
+  top: 40px;
   right: 6px;
 }
 
