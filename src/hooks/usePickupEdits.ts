@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
 export interface PickupEdit {
-  address?: string
   paid?: boolean
 }
 
@@ -16,7 +15,7 @@ function load(): Record<string, PickupEdit> {
   }
 }
 
-/** Address and paid state entered on the page, kept in this browser on top of the data file. */
+/** Paid state toggled on the page, kept in this browser on top of the data file. */
 export function usePickupEdits() {
   const [edits, setEdits] = useState<Record<string, PickupEdit>>(load)
   useEffect(() => {

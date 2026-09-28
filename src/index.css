@@ -1001,16 +1001,16 @@ main {
 
 .pickup-address {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 0.6rem;
   margin: 0.7rem 0;
   font-size: 0.9rem;
   color: var(--muted);
 }
 
-.pickup-address input {
-  flex: 1;
-  min-width: 0;
+.pickup-address strong {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .pickup-cards {

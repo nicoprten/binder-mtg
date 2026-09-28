@@ -7,6 +7,12 @@ import { resolveCard } from '../scryfall'
 
 const ARS_PER_USD = 1600
 const ars = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 })
+const dateFmt = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+
+function formatDate(iso: string) {
+  const [y, m, d] = iso.split('-').map(Number)
+  return dateFmt.format(new Date(y, m - 1, d))
+}
 
 /** Purchases waiting to be collected, with totals in ARS and USD. */
 export function Pickups() {
@@ -18,7 +24,7 @@ export function Pickups() {
     const items = o.cardIds.map((id) => byId.get(id)).filter((c) => c !== undefined)
     const usd = items.reduce((n, c) => n + (c.priceUsd ?? 0) * c.quantity, 0)
     const edit = edits[o.id] ?? {}
-    return { ...o, items, usd, address: edit.address ?? o.address, paid: edit.paid ?? o.paid }
+    return { ...o, items, usd, paid: edit.paid ?? o.paid }
   })
   const totalUsd = rows.reduce((n, r) => n + r.usd, 0)
   const totalArs = rows.reduce((n, r) => n + (r.totalArs ?? r.usd * ARS_PER_USD), 0)
@@ -50,7 +56,7 @@ export function Pickups() {
                   {r.order && <span className="pickup-order">{r.order}</span>}
                 </h3>
                 <p className="muted">
-                  {r.items.length} cards · {r.totalArs !== null ? ars.format(r.totalArs) : `≈ ${ars.format(r.usd * ARS_PER_USD)}`} ·{' '}
+                  {formatDate(r.date)} · {r.items.length} cards · {r.totalArs !== null ? ars.format(r.totalArs) : `≈ ${ars.format(r.usd * ARS_PER_USD)}`} ·{' '}
                   <span className="price">{formatUsd(r.usd)}</span>
                 </p>
                 {r.note && <p className="pickup-note">{r.note}</p>}
@@ -60,15 +66,10 @@ export function Pickups() {
                 {r.paid ? 'Paid' : 'Unpaid'}
               </label>
             </div>
-            <label className="pickup-address">
+            <p className="pickup-address">
               <span>Address</span>
-              <input
-                type="text"
-                placeholder="Where to pick it up…"
-                value={r.address}
-                onChange={(e) => update(r.id, { address: e.target.value })}
-              />
-            </label>
+              {r.address ? <strong>{r.address}</strong> : <em className="muted">unknown</em>}
+            </p>
             <ul className="pickup-cards">
               {r.items.map((c) => (
                 <li key={c.id}>

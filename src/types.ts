@@ -88,7 +88,9 @@ export interface Pickup {
   url?: string
   /** The store's order number, e.g. "#111272". */
   order?: string
-  /** Where to collect it; editable from the page. */
+  /** Day the order was placed, ISO date. */
+  date: string
+  /** Where to collect it. */
   address: string
   /** Whether it has been paid; editable from the page. */
   paid: boolean
