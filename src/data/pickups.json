@@ -47,18 +47,6 @@
     ]
   },
   {
-    "id": "morgana-1",
-    "store": "Morgana Store",
-    "url": "https://morganastore.com.ar/",
-    "date": "2026-09-28",
-    "address": "Cabildo 2280",
-    "paid": true,
-    "totalArs": 3780,
-    "cardIds": [
-      "ecl-0320"
-    ]
-  },
-  {
     "id": "workshop-1",
     "store": "La Workshop",
     "url": "https://laworkshoptcg.com/singles",
