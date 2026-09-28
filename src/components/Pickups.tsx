@@ -1,13 +1,28 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { cards, pickups } from '../data'
 import { formatUsd } from '../format'
 import { usePickupEdits } from '../hooks/usePickupEdits'
 import { useScryfallMany } from '../hooks/useScryfallMany'
 import { resolveCard } from '../scryfall'
+import type { Card } from '../types'
+import { CardTile } from './CardTile'
+import { CardRow } from './CardRow'
+import { CardModal } from './CardModal'
+import type { ViewMode } from '../urlState'
 
 const ARS_PER_USD = 1600
 const ars = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 })
 const dateFmt = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+
+const VIEW_KEY = 'binder-mtg:pickups-view'
+
+function loadView(): ViewMode {
+  try {
+    return localStorage.getItem(VIEW_KEY) === 'grid' ? 'grid' : 'list'
+  } catch {
+    return 'list'
+  }
+}
 
 function formatDate(iso: string) {
   const [y, m, d] = iso.split('-').map(Number)
@@ -17,6 +32,17 @@ function formatDate(iso: string) {
 /** Purchases waiting to be collected, with totals in ARS and USD. */
 export function Pickups() {
   const { edits, update } = usePickupEdits()
+  const [view, setView] = useState<ViewMode>(loadView)
+  const [selected, setSelected] = useState<Card | null>(null)
+
+  function changeView(next: ViewMode) {
+    setView(next)
+    try {
+      localStorage.setItem(VIEW_KEY, next)
+    } catch {
+      // Storage unavailable: the choice lasts for this page load only.
+    }
+  }
   const infos = useScryfallMany(cards)
   const byId = useMemo(() => new Map(cards.map((c) => [c.id, resolveCard(c, infos[c.id])])), [infos])
 
@@ -33,12 +59,22 @@ export function Pickups() {
   return (
     <section className="pickups">
       <header className="pickups-header">
-        <h2>Purchases to pick up</h2>
-        <p className="muted">
+        <div>
+          <h2>Purchases to pick up</h2>
+          <p className="muted">
           {rows.length} orders · {rows.reduce((n, r) => n + r.items.length, 0)} cards · {ars.format(totalArs)} ·{' '}
           <span className="price">{formatUsd(totalUsd)}</span>
           {pending.length > 0 && ` · ${pending.length} unpaid`}
-        </p>
+          </p>
+        </div>
+        <div className="view-toggle" role="group" aria-label="View">
+          <button type="button" className={view === 'grid' ? 'active' : ''} onClick={() => changeView('grid')}>
+            Grid
+          </button>
+          <button type="button" className={view === 'list' ? 'active' : ''} onClick={() => changeView('list')}>
+            List
+          </button>
+        </div>
       </header>
       <ul className="pickup-list">
         {rows.map((r) => (
@@ -70,18 +106,28 @@ export function Pickups() {
               <span>Address</span>
               {r.address ? <strong>{r.address}</strong> : <em className="muted">unknown</em>}
             </p>
-            <ul className="pickup-cards">
-              {r.items.map((c) => (
-                <li key={c.id}>
-                  <a href={`#/binder?card=${c.id}`}>{c.name}</a>
-                  {c.quantity > 1 && <span className="muted"> ×{c.quantity}</span>}
-                  <span className="price">{c.priceUsd !== undefined ? formatUsd(c.priceUsd * c.quantity) : '—'}</span>
-                </li>
-              ))}
-            </ul>
+            {view === 'grid' ? (
+              <div className="card-grid small">
+                {r.items.map((c) => (
+                  <CardTile
+                    key={c.id}
+                    card={c}
+                    badge={c.quantity > 1 ? `×${c.quantity}` : undefined}
+                    onClick={() => setSelected(c)}
+                  />
+                ))}
+              </div>
+            ) : (
+              <ul className="card-list">
+                {r.items.map((c) => (
+                  <CardRow key={c.id} card={c} onClick={() => setSelected(c)} />
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>
+      {selected && <CardModal card={selected} onClose={() => setSelected(null)} />}
     </section>
   )
 }

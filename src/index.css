@@ -1,10 +1,10 @@
 :root {
-  --bg: #15161a;
-  --panel: #1f2127;
-  --panel-2: #272a32;
-  --border: #363a45;
+  --bg: #0b0b0c;
+  --panel: #151516;
+  --panel-2: #1e1e20;
+  --border: #2c2c2f;
   --text: #ecebe6;
-  --muted: #9a9da8;
+  --muted: #9a9a9a;
   --accent: #d9a441;
   --danger: #d04f4f;
   color-scheme: dark;
@@ -895,7 +895,15 @@ main {
 
 /* Pickups */
 .pickups {
-  max-width: 760px;
+  max-width: 1100px;
+}
+
+.pickups-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .pickups-header h2 {
@@ -1011,33 +1019,6 @@ main {
 .pickup-address strong {
   color: var(--text);
   font-weight: 600;
-}
-
-.pickup-cards {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 0.2rem 1rem;
-  font-size: 0.9rem;
-}
-
-.pickup-cards li {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding: 0.15rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.pickup-cards a {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.pickup-cards a:hover {
-  text-decoration: underline;
 }
 
 /* Decks */
