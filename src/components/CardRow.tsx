@@ -5,6 +5,7 @@ import { ManaCost } from './ManaCost'
 import { StatusBadge } from './StatusBadge'
 import { MarketPrice } from './MarketPrice'
 import { ShopEye } from './ShopEye'
+import { CopyButton } from './CopyButton'
 
 interface Props {
   card: Card
@@ -13,7 +14,7 @@ interface Props {
 
 export function CardRow({ card, onClick }: Props) {
   return (
-    <li>
+    <li className="card-row-item">
       <button type="button" className="card-row" onClick={onClick}>
         <span className="card-row-name">
           {card.name}
@@ -35,6 +36,7 @@ export function CardRow({ card, onClick }: Props) {
           <MarketPrice card={card} />
         </span>
       </button>
+      <CopyButton text={card.name} label="Copy card name" className="copy-row" />
     </li>
   )
 }

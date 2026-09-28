@@ -1,7 +1,15 @@
 import { useEffect, useState } from 'react'
 
 /** Copies `text` to the clipboard and shows a brief check mark. Falls back to selecting nothing on failure. */
-export function CopyButton({ text, label = 'Copy' }: { text: string; label?: string }) {
+export function CopyButton({
+  text,
+  label = 'Copy',
+  className,
+}: {
+  text: string
+  label?: string
+  className?: string
+}) {
   const [copied, setCopied] = useState(false)
 
   useEffect(() => {
@@ -10,7 +18,8 @@ export function CopyButton({ text, label = 'Copy' }: { text: string; label?: str
     return () => clearTimeout(t)
   }, [copied])
 
-  async function copy() {
+  async function copy(e: React.MouseEvent) {
+    e.stopPropagation()
     try {
       await navigator.clipboard.writeText(text)
       setCopied(true)
@@ -29,7 +38,7 @@ export function CopyButton({ text, label = 'Copy' }: { text: string; label?: str
   return (
     <button
       type="button"
-      className={`copy-button${copied ? ' copied' : ''}`}
+      className={`copy-button${copied ? ' copied' : ''}${className ? ` ${className}` : ''}`}
       onClick={copy}
       title={copied ? 'Copied' : label}
       aria-label={copied ? 'Copied' : label}
