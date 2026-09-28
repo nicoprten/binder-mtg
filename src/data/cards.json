@@ -2582,17 +2582,11 @@
     "artist": "Matthew Forsythe",
     "image": "cards/ecl-0320-scuzzback-scrounger.jpg",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "foil",
     "frame": "borderless",
-    "shops": [
-      {
-        "store": "Morgana Store",
-        "url": "https://morganastore.com.ar/products/scuzzback-scrounger-ecl-320-borderless-foil-en",
-        "priceUsd": 3.0
-      }
-    ],
+    "priceUsd": 2.5,
     "tags": [
       "goblins",
       "borderless"
