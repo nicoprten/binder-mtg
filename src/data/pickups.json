@@ -1,0 +1,78 @@
+[
+  {
+    "id": "albattle-1",
+    "store": "Albattle Singles",
+    "url": "https://singles.albattletcg.com/",
+    "address": "",
+    "paid": false,
+    "totalArs": 163650,
+    "note": "Includes a Goblin Army // Treasure token (600 ARS) not tracked in the binder.",
+    "cardIds": [
+      "ltr-0086",
+      "ltr-0429",
+      "ltr-0134",
+      "ltr-0408",
+      "ltr-0445",
+      "ltr-0094",
+      "ltr-0214",
+      "ltr-0096",
+      "ltr-0104",
+      "ltr-0414",
+      "ltr-0431",
+      "ltr-0419",
+      "ltr-0228",
+      "ltr-0443",
+      "ltr-0235",
+      "ltr-0422",
+      "hob-0156",
+      "hob-0223",
+      "hob-0105",
+      "hoc-0019",
+      "mkm-0135",
+      "clu-0139"
+    ]
+  },
+  {
+    "id": "morgana-1",
+    "store": "Morgana Store",
+    "url": "https://morganastore.com.ar/",
+    "address": "",
+    "paid": false,
+    "totalArs": 3780,
+    "cardIds": [
+      "ecl-0320"
+    ]
+  },
+  {
+    "id": "workshop-1",
+    "store": "La Workshop",
+    "url": "https://laworkshoptcg.com/singles",
+    "address": "",
+    "paid": false,
+    "totalArs": null,
+    "note": "Priced in USD by the store.",
+    "cardIds": [
+      "moc-skullclamp",
+      "ecl-0331",
+      "khc-arcane-signet",
+      "m21-conspicuous-snoop",
+      "gk2-68",
+      "dom-130"
+    ]
+  },
+  {
+    "id": "albattle-2",
+    "store": "Albattle Singles",
+    "url": "https://singles.albattletcg.com/",
+    "address": "",
+    "paid": false,
+    "totalArs": 4200,
+    "cardIds": [
+      "hob-stir-up-trouble",
+      "ecl-87",
+      "hob-183",
+      "ecl-149",
+      "clb-chaos-warp"
+    ]
+  }
+]

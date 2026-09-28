@@ -80,3 +80,19 @@ export interface Deck {
   createdAt: string
   updatedAt: string
 }
+
+/** A purchase waiting to be collected from a store. */
+export interface Pickup {
+  id: string
+  store: string
+  url?: string
+  /** Where to collect it; editable from the page. */
+  address: string
+  /** Whether it has been paid; editable from the page. */
+  paid: boolean
+  /** Total charged in Argentine pesos, when known. */
+  totalArs: number | null
+  note?: string
+  /** Ids of the binder cards in this order. */
+  cardIds: string[]
+}

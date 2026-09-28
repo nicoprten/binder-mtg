@@ -2749,21 +2749,10 @@
     "set": "HOB",
     "collectorNumber": "0183",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "shops": [
-      {
-        "store": "Albattle Singles",
-        "url": "https://singles.albattletcg.com/",
-        "priceUsd": 0.5
-      },
-      {
-        "store": "La Workshop",
-        "url": "https://laworkshoptcg.com/singles",
-        "priceUsd": 0.5
-      }
-    ]
+    "priceUsd": 0.5
   },
   {
     "id": "sch-36",
@@ -2874,16 +2863,10 @@
     "set": "ECL",
     "collectorNumber": "0149",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "shops": [
-      {
-        "store": "Albattle Singles",
-        "url": "https://singles.albattletcg.com/",
-        "priceUsd": 0.5
-      }
-    ]
+    "priceUsd": 0.5
   },
   {
     "id": "m15-96",
@@ -2935,25 +2918,14 @@
     "priceUsd": 1
   },
   {
-    "id": "2x2-359",
+    "id": "clb-chaos-warp",
     "name": "Chaos Warp",
-    "set": "2X2",
-    "collectorNumber": "359",
+    "set": "CLB",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "frame": "borderless",
-    "shops": [
-      {
-        "store": "Albattle Singles",
-        "url": "https://singles.albattletcg.com/",
-        "priceUsd": 1.0
-      }
-    ],
-    "tags": [
-      "borderless"
-    ]
+    "priceUsd": 1
   },
   {
     "id": "sld-2560",
@@ -2975,21 +2947,10 @@
     "set": "ECL",
     "collectorNumber": "0087",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "shops": [
-      {
-        "store": "Albattle Singles",
-        "url": "https://singles.albattletcg.com/",
-        "priceUsd": 0.5
-      },
-      {
-        "store": "La Workshop",
-        "url": "https://laworkshoptcg.com/singles",
-        "priceUsd": 0.5
-      }
-    ]
+    "priceUsd": 0.5
   },
   {
     "id": "hob-222",
@@ -3034,15 +2995,9 @@
     "name": "Stir Up Trouble",
     "set": "HOB",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil",
-    "shops": [
-      {
-        "store": "Albattle Singles",
-        "url": "https://singles.albattletcg.com/",
-        "priceUsd": 0.5
-      }
-    ]
+    "priceUsd": 0.5
   }
 ]

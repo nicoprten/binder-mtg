@@ -893,6 +893,124 @@ main {
   margin: 0 0.05em;
 }
 
+/* Pickups */
+.pickups {
+  max-width: 760px;
+}
+
+.pickups-header h2 {
+  margin: 0 0 0.2rem;
+  font-size: 1.2rem;
+}
+
+.pickups-header p {
+  margin: 0 0 1rem;
+}
+
+.pickup-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.pickup {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 4px solid #ff6a3d;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.pickup.paid {
+  border-left-color: #7fd0a0;
+}
+
+.pickup-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.pickup h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.pickup h3 a {
+  color: var(--text);
+}
+
+.pickup-top p {
+  margin: 0.15rem 0 0;
+  font-size: 0.9rem;
+}
+
+.pickup-note {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.pickup-paid {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.pickup.paid .pickup-paid {
+  border-color: #7fd0a0;
+  color: #7fd0a0;
+}
+
+.pickup-address {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.7rem 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.pickup-address input {
+  flex: 1;
+  min-width: 0;
+}
+
+.pickup-cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.2rem 1rem;
+  font-size: 0.9rem;
+}
+
+.pickup-cards li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.15rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.pickup-cards a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.pickup-cards a:hover {
+  text-decoration: underline;
+}
+
 /* Decks */
 .decks {
   display: grid;

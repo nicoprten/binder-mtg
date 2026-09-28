@@ -47,8 +47,6 @@ function saveView(view: ViewMode) {
   }
 }
 
-const initial = readBinderParams()
-
 const FINISHES: { key: Finish; label: string }[] = [
   { key: 'nonfoil', label: 'Nonfoil' },
   { key: 'foil', label: 'Foil' },
@@ -56,6 +54,8 @@ const FINISHES: { key: Finish; label: string }[] = [
 ]
 
 export function Binder() {
+  // Read the URL once per mount, so a link into the binder from another tab applies.
+  const [initial] = useState(readBinderParams)
   const [query, setQuery] = useState(initial.query)
   const [colors, setColors] = useState<Set<ColorKey>>(() => new Set(initial.colors))
 
