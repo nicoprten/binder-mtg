@@ -2565,14 +2565,38 @@
     "priceUsd": 0.5
   },
   {
-    "id": "ecl-153",
+    "id": "ecl-0320",
     "name": "Scuzzback Scrounger",
     "set": "ECL",
-    "collectorNumber": "0153",
+    "collectorNumber": "0320",
+    "manaCost": "{1}{R}",
+    "cmc": 2,
+    "colors": [
+      "R"
+    ],
+    "typeLine": "Creature — Goblin Warrior",
+    "oracleText": "At the beginning of your first main phase, you may blight 1. If you do, create a Treasure token.",
+    "power": "3",
+    "toughness": "2",
+    "rarity": "rare",
+    "artist": "Matthew Forsythe",
+    "image": "cards/ecl-0320-scuzzback-scrounger.jpg",
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
-    "finish": "nonfoil"
+    "finish": "foil",
+    "frame": "borderless",
+    "shops": [
+      {
+        "store": "Morgana Store",
+        "url": "https://morganastore.com.ar/products/scuzzback-scrounger-ecl-320-borderless-foil-en",
+        "priceUsd": 3.0
+      }
+    ],
+    "tags": [
+      "goblins",
+      "borderless"
+    ]
   },
   {
     "id": "znc-43",
