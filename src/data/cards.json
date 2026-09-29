@@ -102,7 +102,7 @@
     "shops": [
       {
         "store": "Magic Couple",
-        "url": "https://www.mmagiccouple.com/",
+        "url": "https://mmagiccouple.com/cards/krenko-tin-street-kingpin-dominaria-united-commander-nm-cmpytapsm001nky043a2d7rq3",
         "priceUsd": 5.0
       }
     ],
@@ -187,7 +187,7 @@
     "shops": [
       {
         "store": "Magic Couple",
-        "url": "https://www.mmagiccouple.com/",
+        "url": "https://mmagiccouple.com/cards/krenko-mob-boss-ravnica-remastered-nm-cmq2w9bjl009rlb04i6jaqbpr",
         "priceUsd": 3.0
       }
     ],
@@ -2596,7 +2596,7 @@
     "shops": [
       {
         "store": "Magic Couple",
-        "url": "https://www.mmagiccouple.com/",
+        "url": "https://mmagiccouple.com/cards/deadly-dispute-commander-legends-battle-for-baldur-s-gate-nm-cmuagwj3c00npjv04nnk40liw",
         "priceUsd": 1.0
       }
     ]
@@ -2723,24 +2723,20 @@
     "priceUsd": 0.5
   },
   {
-    "id": "sch-36",
+    "id": "one-137",
     "name": "Gleeful Demolition",
-    "set": "SCH",
-    "collectorNumber": "0036",
+    "set": "ONE",
+    "collectorNumber": "137",
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
     "finish": "nonfoil",
-    "frame": "promo",
     "shops": [
       {
         "store": "Magic Couple",
-        "url": "https://www.mmagiccouple.com/",
-        "priceUsd": 1.0
+        "url": "https://mmagiccouple.com/cards/gleeful-demolition-phyrexia-all-will-be-one-nm-cmpytkhsm00pakw04gj5h1q89",
+        "priceUsd": 0.5
       }
-    ],
-    "tags": [
-      "promo"
     ]
   },
   {
@@ -2755,7 +2751,7 @@
     "shops": [
       {
         "store": "Magic Couple",
-        "url": "https://www.mmagiccouple.com/",
+        "url": "https://mmagiccouple.com/cards/victimize-march-of-the-machine-commander-nm-cmuagw26s00b0jv04n008ubgu",
         "priceUsd": 1.5
       }
     ]
