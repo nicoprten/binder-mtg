@@ -2955,5 +2955,20 @@
     "status": "wishlist",
     "language": "en",
     "finish": "nonfoil"
+  },
+  {
+    "id": "2x2-goblin-banneret",
+    "name": "Goblin Banneret",
+    "set": "2X2",
+    "quantity": 1,
+    "status": "wishlist",
+    "language": "en",
+    "finish": "foil",
+    "shops": [
+      {
+        "store": "Magic Dealers",
+        "url": "https://www.magicdealersstore.com/catalog/magic_the_gathering_singles-double_masters_2022/goblin_banneret__foil/2078370"
+      }
+    ]
   }
 ]
