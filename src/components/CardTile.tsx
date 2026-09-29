@@ -5,7 +5,7 @@ import { StatusBadge } from './StatusBadge'
 import { CardImage } from './CardImage'
 import { MarketPrice } from './MarketPrice'
 import { ShopEye } from './ShopEye'
-import { CopyButton } from './CopyButton'
+import { CardMenu } from './CardMenu'
 
 interface Props {
   card: Card
@@ -34,7 +34,7 @@ export function CardTile({ card, badge, selected, onClick }: Props) {
           <ShopEye shops={card.shops} />
         </span>
         <span className="card-copy">
-          <CopyButton text={card.name} label="Copy card name" className="copy-overlay" />
+          <CardMenu card={card} />
         </span>
       </div>
       <div className="card-slot-meta">

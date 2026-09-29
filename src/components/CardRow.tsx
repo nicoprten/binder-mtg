@@ -5,7 +5,7 @@ import { ManaCost } from './ManaCost'
 import { StatusBadge } from './StatusBadge'
 import { MarketPrice } from './MarketPrice'
 import { ShopEye } from './ShopEye'
-import { CopyButton } from './CopyButton'
+import { CardMenu } from './CardMenu'
 
 interface Props {
   card: Card
@@ -37,7 +37,7 @@ export function CardRow({ card, onClick }: Props) {
             {card.set}
             {card.collectorNumber && ` #${card.collectorNumber}`}
           </span>
-          <CopyButton text={card.name} label="Copy card name" className="copy-row" />
+          <CardMenu card={card} className="card-menu-inline" />
         </span>
         <span className="card-row-meta">
           <ManaCost cost={card.manaCost ?? ''} />
