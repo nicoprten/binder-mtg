@@ -2,7 +2,8 @@ import type { Card, Rarity } from '../types'
 import { FinishBadge } from './FinishBadge'
 import { CardImage } from './CardImage'
 import { MarketPrice } from './MarketPrice'
-import { CardMenu } from './CardMenu'
+import { CopyChip } from './CopyChip'
+import { fullCardName } from '../cardName'
 import { ManaCost, OracleLine } from './ManaCost'
 import { formatUsd } from '../format'
 import { StatusBadge } from './StatusBadge'
@@ -24,11 +25,12 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
       <div className="card-detail-body">
         <header>
           <h2>{card.name}</h2>
-          <div className="card-detail-actions">
-            <CardMenu card={card} />
-            <ManaCost cost={card.manaCost ?? ''} />
-          </div>
+          <ManaCost cost={card.manaCost ?? ''} />
         </header>
+        <div className="card-detail-actions">
+          <CopyChip text={card.name} label="Copy name" />
+          <CopyChip text={fullCardName(card)} label="Copy full name" />
+        </div>
         <p className="type-line">{card.typeLine}</p>
         <p className="oracle">
           {(card.oracleText ?? '').split('\n').map((line, i) => (
