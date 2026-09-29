@@ -99,6 +99,66 @@ select {
   border-color: var(--border);
 }
 
+/* Three-dot button that replaces the tabs on narrow screens. */
+.tabs-menu-button {
+  display: none;
+  margin-left: auto;
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--panel-2);
+  color: var(--text);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.tabs-menu-button[aria-expanded='true'] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    position: relative;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .tabs-menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tabs {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 1rem;
+    z-index: 20;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 10rem;
+    padding: 0.35rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--panel-2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  }
+
+  .topbar.menu-open .tabs {
+    display: flex;
+  }
+
+  .tabs a.active {
+    background: var(--panel);
+  }
+}
+
 main {
   flex: 1;
   padding: 1rem 1.25rem;

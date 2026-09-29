@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Binder } from './components/Binder'
 import { Decks } from './components/Decks'
 import { Pickups } from './components/Pickups'
@@ -17,18 +17,50 @@ function viewFromHash(): View {
 
 export default function App() {
   const [view, setView] = useState<View>(viewFromHash)
+  // On narrow screens the tabs collapse behind a three-dot button.
+  const [menuOpen, setMenuOpen] = useState(false)
+  const nav = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const onHashChange = () => setView(viewFromHash())
+    const onHashChange = () => {
+      setView(viewFromHash())
+      setMenuOpen(false)
+    }
     window.addEventListener('hashchange', onHashChange)
     return () => window.removeEventListener('hashchange', onHashChange)
   }, [])
 
+  useEffect(() => {
+    if (!menuOpen) return
+    const onDown = (e: MouseEvent) => {
+      if (nav.current && !nav.current.contains(e.target as Node)) setMenuOpen(false)
+    }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    document.addEventListener('mousedown', onDown)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onDown)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [menuOpen])
+
   return (
     <div className="app">
-      <nav className="topbar">
+      <nav className={`topbar${menuOpen ? ' menu-open' : ''}`} ref={nav}>
         <h1>Binder MTG</h1>
-        <div className="tabs">
+        <button
+          type="button"
+          className="tabs-menu-button"
+          aria-label="Menu"
+          aria-expanded={menuOpen}
+          aria-controls="main-tabs"
+          onClick={() => setMenuOpen((o) => !o)}
+        >
+          ⋯
+        </button>
+        <div className="tabs" id="main-tabs" onClick={() => setMenuOpen(false)}>
           <a href={view === 'binder' ? '#/binder' : lastBinderHash()} className={view === 'binder' ? 'active' : ''}>
             Binder
           </a>
