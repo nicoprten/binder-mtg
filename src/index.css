@@ -195,26 +195,12 @@ main {
 .card-copy {
   position: absolute;
   top: 6px;
-  right: 6px;
-  opacity: 0;
-  transition: opacity 0.12s ease;
-}
-
-.card-slot:hover .card-copy,
-.card-tile-wrap:focus-within .card-copy,
-.card-copy .copied {
-  opacity: 1;
+  left: 6px;
 }
 
 .card-copy,
 .card-shop {
   z-index: 1;
-}
-
-@media (hover: none) {
-  .card-copy {
-    opacity: 1;
-  }
 }
 
 .copy-overlay {
@@ -828,7 +814,7 @@ main {
 
 .card-shop {
   position: absolute;
-  top: 40px;
+  top: 6px;
   right: 6px;
 }
 
