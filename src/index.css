@@ -1153,13 +1153,74 @@ main {
 .pickup {
   background: var(--panel);
   border: 1px solid var(--border);
-  border-left: 4px solid #ff6a3d;
   border-radius: 10px;
   padding: 0.9rem 1rem;
 }
 
-.pickup.paid {
-  border-left-color: #7fd0a0;
+.pickup.status-picked-up,
+.pickup.status-cancelled {
+  opacity: 0.75;
+}
+
+.pickup.status-cancelled h3 {
+  text-decoration: line-through;
+  text-decoration-color: var(--muted);
+}
+
+/* Order status: a colored select styled as a chip. */
+.pickup-status {
+  --st: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.pickup-status select {
+  padding: 0.35rem 1.6rem 0.35rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--st) 60%, transparent);
+  border-radius: 6px;
+  background-color: color-mix(in srgb, var(--st) 18%, transparent);
+  color: var(--st);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z' fill='%239a9a9a'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.3rem center;
+  background-size: 1em;
+}
+
+.pickup-status select option {
+  background: var(--panel-2);
+  color: var(--text);
+  font-weight: 400;
+}
+
+.pickup-status.is-preparing {
+  --st: #ff6a3d;
+}
+
+.pickup-status.is-ready {
+  --st: #5b9dff;
+}
+
+.pickup-status.is-picked-up {
+  --st: #7fd0a0;
+}
+
+.pickup-status.is-cancelled {
+  --st: #9a9a9a;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .pickup-top {

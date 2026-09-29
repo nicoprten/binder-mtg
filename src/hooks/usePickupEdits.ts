@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from 'react'
+import type { PickupStatus } from '../types'
 
 export interface PickupEdit {
   paid?: boolean
+  status?: PickupStatus
 }
 
 const KEY = 'binder-mtg:pickup-edits'
@@ -15,7 +17,7 @@ function load(): Record<string, PickupEdit> {
   }
 }
 
-/** Paid state toggled on the page, kept in this browser on top of the data file. */
+/** Paid state and status changed on the page, kept in this browser on top of the data file. */
 export function usePickupEdits() {
   const [edits, setEdits] = useState<Record<string, PickupEdit>>(load)
   useEffect(() => {

@@ -82,6 +82,8 @@ export interface Deck {
 }
 
 /** A purchase waiting to be collected from a store. */
+export type PickupStatus = 'cancelled' | 'preparing' | 'ready' | 'picked-up'
+
 export interface Pickup {
   id: string
   store: string
@@ -94,6 +96,8 @@ export interface Pickup {
   address: string
   /** Whether it has been paid; editable from the page. */
   paid: boolean
+  /** Where the order stands; editable from the page. */
+  status: PickupStatus
   /** Total charged in Argentine pesos, when known. */
   totalArs: number | null
   note?: string

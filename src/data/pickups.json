@@ -6,6 +6,7 @@
     "date": "2026-09-27",
     "address": "Zapiola 2041",
     "paid": false,
+    "status": "preparing",
     "totalArs": 163650,
     "note": "10% off paying cash. Includes a Goblin Army // Treasure token (600 ARS) not tracked in the binder.",
     "cardIds": [
@@ -41,6 +42,7 @@
     "date": "2026-09-28",
     "address": "Sánchez de Bustamante 466",
     "paid": false,
+    "status": "preparing",
     "totalArs": null,
     "cardIds": [
       "slc-0019"
@@ -54,6 +56,7 @@
     "date": "2026-09-28",
     "address": "Moldes 2168, Planta baja F (entrada al fondo)",
     "paid": false,
+    "status": "preparing",
     "totalArs": 30375,
     "note": "Priced in USD by the store, charged at 1,500 ARS per USD.",
     "cardIds": [
@@ -73,6 +76,7 @@
     "date": "2026-09-28",
     "address": "",
     "paid": true,
+    "status": "preparing",
     "totalArs": 4200,
     "cardIds": [
       "hob-stir-up-trouble",

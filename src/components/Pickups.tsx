@@ -4,7 +4,8 @@ import { formatUsd } from "../format";
 import { usePickupEdits } from "../hooks/usePickupEdits";
 import { useScryfallMany } from "../hooks/useScryfallMany";
 import { resolveCard } from "../scryfall";
-import type { Card } from "../types";
+import type { Card, PickupStatus } from "../types";
+import { PICKUP_STATUSES, PICKUP_STATUS_LABEL } from "../pickupStatus";
 import { CardTile } from "./CardTile";
 import { CardRow } from "./CardRow";
 import { CardModal } from "./CardModal";
@@ -89,14 +90,23 @@ export function Pickups() {
       .filter((c) => c !== undefined);
     const usd = items.reduce((n, c) => n + (c.priceUsd ?? 0) * c.quantity, 0);
     const edit = edits[o.id] ?? {};
-    return { ...o, items, usd, paid: edit.paid ?? o.paid };
+    return {
+      ...o,
+      items,
+      usd,
+      paid: edit.paid ?? o.paid,
+      status: edit.status ?? o.status,
+    };
   });
-  const totalUsd = rows.reduce((n, r) => n + r.usd, 0);
-  const totalArs = rows.reduce(
+  // Cancelled orders stay listed but do not count towards the totals.
+  const active = rows.filter((r) => r.status !== "cancelled");
+  const totalUsd = active.reduce((n, r) => n + r.usd, 0);
+  const totalArs = active.reduce(
     (n, r) => n + (r.totalArs ?? r.usd * ARS_PER_USD),
     0,
   );
-  const pending = rows.filter((r) => !r.paid);
+  const pending = active.filter((r) => !r.paid);
+  const cancelled = rows.length - active.length;
 
   return (
     <section className="pickups">
@@ -104,11 +114,12 @@ export function Pickups() {
         <div>
           <h2>Purchases to pick up</h2>
           <p className="muted">
-            {rows.length} orders ·{" "}
-            {rows.reduce((n, r) => n + r.items.length, 0)} cards ·{" "}
+            {active.length} orders ·{" "}
+            {active.reduce((n, r) => n + r.items.length, 0)} cards ·{" "}
             {ars.format(totalArs)} ·{" "}
             <span className="price">{formatUsd(totalUsd)}</span>
             {pending.length > 0 && ` · ${pending.length} unpaid`}
+            {cancelled > 0 && ` · ${cancelled} cancelled`}
           </p>
         </div>
         <ViewToggle view={view} onChange={changeView} />
@@ -117,7 +128,7 @@ export function Pickups() {
         {rows.map((r) => (
           <li
             key={r.id}
-            className={`pickup${r.paid ? " paid" : ""}${collapsed.has(r.id) ? " collapsed" : ""}`}
+            className={`pickup status-${r.status}${r.paid ? " paid" : ""}${collapsed.has(r.id) ? " collapsed" : ""}`}
           >
             <div className="pickup-top">
               <button
@@ -158,6 +169,21 @@ export function Pickups() {
                 </p>
                 {r.note && <p className="pickup-note">{r.note}</p>}
               </div>
+              <label className={`pickup-status is-${r.status}`}>
+                <span className="visually-hidden">Status</span>
+                <select
+                  value={r.status}
+                  onChange={(e) =>
+                    update(r.id, { status: e.target.value as PickupStatus })
+                  }
+                >
+                  {PICKUP_STATUSES.map((st) => (
+                    <option key={st} value={st}>
+                      {PICKUP_STATUS_LABEL[st]}
+                    </option>
+                  ))}
+                </select>
+              </label>
               <label className={`pickup-paid${r.paid ? " is-paid" : ""}`}>
                 <input
                   type="checkbox"
