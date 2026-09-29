@@ -836,7 +836,7 @@ main {
 .card-status .status-badge {
   border: none;
   border-radius: 4px 4px 0 0;
-  background: var(--status);
+  background: color-mix(in srgb, var(--status) 25%, transparent);
   color: #111;
   padding: 0.15rem 0.7rem;
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.5);
