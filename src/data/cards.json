@@ -2970,5 +2970,30 @@
         "url": "https://www.magicdealersstore.com/catalog/magic_the_gathering_singles-double_masters_2022/goblin_banneret__foil/2078370"
       }
     ]
+  },
+  {
+    "id": "lrw-120",
+    "name": "Knucklebone Witch",
+    "set": "LRW",
+    "collectorNumber": "120",
+    "manaCost": "{B}",
+    "cmc": 1,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Creature — Goblin Shaman",
+    "oracleText": "Whenever a Goblin you control dies, you may put a +1/+1 counter on Knucklebone Witch.",
+    "power": "1",
+    "toughness": "1",
+    "rarity": "uncommon",
+    "artist": "Jim Pavelec",
+    "image": "cards/lrw-120-knucklebone-witch.webp",
+    "quantity": 1,
+    "status": "wishlist",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins"
+    ]
   }
 ]
