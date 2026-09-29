@@ -206,7 +206,7 @@ main {
 .copy-button.copy-overlay {
   width: 1.7rem;
   height: 1.7rem;
-  border-radius: 50%;
+  border-radius: 4px;
   background: #000;
   color: #fff;
   box-shadow:
