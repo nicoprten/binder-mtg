@@ -203,21 +203,23 @@ main {
   z-index: 1;
 }
 
-.copy-overlay {
-  width: 1.6rem;
-  height: 1.6rem;
+.copy-button.copy-overlay {
+  width: 1.7rem;
+  height: 1.7rem;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.8);
-  color: #ddd;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  background: #000;
+  color: #fff;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.35),
+    0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
-.copy-overlay:hover {
-  background: rgba(0, 0, 0, 0.95);
+.copy-button.copy-overlay:hover {
+  background: #2a2a2a;
   color: #fff;
 }
 
-.copy-overlay.copied {
+.copy-button.copy-overlay.copied {
   color: #7fd0a0;
 }
 
