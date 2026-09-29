@@ -6,6 +6,7 @@ import { CardRow } from './CardRow'
 import { SearchInput } from './SearchInput'
 import { CardModal } from './CardModal'
 import { CollectionSummary } from './CollectionSummary'
+import { Pagination } from './Pagination'
 import { useScryfallMany } from '../hooks/useScryfallMany'
 import { resolveCard } from '../scryfall'
 import { readBinderParams, writeBinderParams, type ColorKey, type ViewMode } from '../urlState'
@@ -30,6 +31,7 @@ const MANA_CLASS: Record<ColorKey, string> = {
 }
 
 const VIEW_KEY = 'binder-mtg:binder-view'
+const PAGE_SIZE = 28
 
 function loadView(): ViewMode {
   try {
@@ -76,6 +78,15 @@ export function Binder() {
   }
   const [finish, setFinish] = useState<Finish | ''>(initial.finish)
   const [status, setStatus] = useState<CardStatus | ''>(initial.status)
+  const [page, setPage] = useState(initial.page)
+
+  // Changing a filter starts again from the first page.
+  const filterKey = `${query}|${[...colors].join('')}|${status}|${finish}`
+  const [lastFilterKey, setLastFilterKey] = useState(filterKey)
+  if (filterKey !== lastFilterKey) {
+    setLastFilterKey(filterKey)
+    setPage(1)
+  }
   const [selectedId, setSelectedId] = useState<string | null>(initial.card || null)
   const [view, setView] = useState<ViewMode>(() => initial.view || loadView())
 
@@ -88,8 +99,9 @@ export function Binder() {
       finish,
       view: view === 'grid' ? '' : view,
       card: selectedId ?? '',
+      page,
     })
-  }, [query, colors, status, finish, view, selectedId])
+  }, [query, colors, status, finish, view, selectedId, page])
 
   function changeView(next: ViewMode) {
     setView(next)
@@ -118,6 +130,19 @@ export function Binder() {
       )
     })
   }, [resolved, query, colors, finish, status])
+
+  // A page past the end (after filtering, or from a stale link) clamps to the last one.
+  const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))
+  const currentPage = Math.min(page, pageCount)
+  const pageCards = useMemo(
+    () => filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
+    [filtered, currentPage],
+  )
+
+  function changePage(next: number) {
+    setPage(next)
+    window.scrollTo({ top: 0 })
+  }
 
   const selected: Card | undefined = resolved.find((c) => c.id === selectedId)
 
@@ -163,6 +188,7 @@ export function Binder() {
           </select>
           <span className="count">
             {filtered.length} of {cards.length} cards
+            {pageCount > 1 ? ` · page ${currentPage} of ${pageCount}` : ''}
           </span>
           <div className="view-toggle" role="group" aria-label="View">
             <button
@@ -188,7 +214,7 @@ export function Binder() {
           <p className="empty">No cards match.</p>
         ) : view === 'grid' ? (
           <div className="card-grid">
-            {filtered.map((c) => (
+            {pageCards.map((c) => (
               <CardTile
                 key={c.id}
                 card={c}
@@ -200,11 +226,12 @@ export function Binder() {
           </div>
         ) : (
           <ul className="card-list">
-            {filtered.map((c) => (
+            {pageCards.map((c) => (
               <CardRow key={c.id} card={c} onClick={() => setSelectedId(c.id)} />
             ))}
           </ul>
         )}
+        <Pagination page={currentPage} pageCount={pageCount} onChange={changePage} />
       </div>
       {selected && <CardModal card={selected} onClose={() => setSelectedId(null)} />}
     </section>

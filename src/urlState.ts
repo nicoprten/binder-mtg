@@ -3,7 +3,7 @@ import type { CardStatus, Finish } from './types'
 export type ColorKey = 'W' | 'U' | 'B' | 'R' | 'G' | 'C'
 export type ViewMode = 'grid' | 'list'
 
-/** Binder state that lives in the URL hash, e.g. `#/binder?q=krenko&c=BR&status=owned&view=list`. */
+/** Binder state that lives in the URL hash, e.g. `#/binder?q=krenko&c=BR&status=owned&view=list&page=2`. */
 export interface BinderParams {
   query: string
   colors: ColorKey[]
@@ -11,6 +11,8 @@ export interface BinderParams {
   finish: Finish | ''
   view: ViewMode | ''
   card: string
+  /** 1-based page of results; 1 is omitted from the URL. */
+  page: number
 }
 
 const BINDER_HASH_KEY = 'binder-mtg:binder-hash'
@@ -40,6 +42,7 @@ export function readBinderParams(): BinderParams {
     finish: FINISHES.includes(finish as Finish) ? (finish as Finish) : '',
     view: view === 'grid' || view === 'list' ? view : '',
     card: p.get('card') ?? '',
+    page: Math.max(1, Math.floor(Number(p.get('page')) || 1)),
   }
 }
 
@@ -51,6 +54,7 @@ export function binderHash(params: BinderParams): string {
   if (params.finish) p.set('finish', params.finish)
   if (params.view) p.set('view', params.view)
   if (params.card) p.set('card', params.card)
+  if (params.page > 1) p.set('page', String(params.page))
   const qs = p.toString()
   return `#/binder${qs ? `?${qs}` : ''}`
 }
