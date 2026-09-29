@@ -9,6 +9,7 @@ import { CardTile } from "./CardTile";
 import { CardRow } from "./CardRow";
 import { CardModal } from "./CardModal";
 import type { ViewMode } from "../urlState";
+import { ViewToggle } from "./ViewToggle";
 
 const ARS_PER_USD = 1600;
 const ars = new Intl.NumberFormat("es-AR", {
@@ -110,22 +111,7 @@ export function Pickups() {
             {pending.length > 0 && ` · ${pending.length} unpaid`}
           </p>
         </div>
-        <div className="view-toggle" role="group" aria-label="View">
-          <button
-            type="button"
-            className={view === "grid" ? "active" : ""}
-            onClick={() => changeView("grid")}
-          >
-            Grid
-          </button>
-          <button
-            type="button"
-            className={view === "list" ? "active" : ""}
-            onClick={() => changeView("list")}
-          >
-            List
-          </button>
-        </div>
+        <ViewToggle view={view} onChange={changeView} />
       </header>
       <ul className="pickup-list">
         {rows.map((r) => (

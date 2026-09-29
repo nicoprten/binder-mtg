@@ -5,7 +5,8 @@ import { ManaCost } from './ManaCost'
 import { StatusBadge } from './StatusBadge'
 import { MarketPrice } from './MarketPrice'
 import { ShopEye } from './ShopEye'
-import { CardMenu } from './CardMenu'
+import { CopyChip } from './CopyChip'
+import { fullCardName } from '../cardName'
 
 interface Props {
   card: Card
@@ -15,7 +16,7 @@ interface Props {
 export function CardRow({ card, onClick }: Props) {
   return (
     <li className="card-row-item">
-      {/* A div, not a button, so the copy button can sit inline next to the name. */}
+      {/* A div, not a button, so the copy buttons can sit inside the row. */}
       <div
         className="card-row"
         role="button"
@@ -29,15 +30,20 @@ export function CardRow({ card, onClick }: Props) {
         }}
       >
         <span className="card-row-head">
-          <span className="card-row-name">
-            {card.name}
-            {card.quantity > 1 && <span className="muted"> ×{card.quantity}</span>}
+          <span className="card-row-title">
+            <span className="card-row-name">
+              {card.name}
+              {card.quantity > 1 && <span className="muted"> ×{card.quantity}</span>}
+            </span>
+            <span className="card-row-set muted">
+              {card.set}
+              {card.collectorNumber && ` #${card.collectorNumber}`}
+            </span>
           </span>
-          <span className="card-row-set muted">
-            {card.set}
-            {card.collectorNumber && ` #${card.collectorNumber}`}
+          <span className="card-row-actions">
+            <CopyChip text={card.name} label="Copy name" />
+            <CopyChip text={fullCardName(card)} label="Copy name and set" />
           </span>
-          <CardMenu card={card} className="card-menu-inline" />
         </span>
         <span className="card-row-meta">
           <ManaCost cost={card.manaCost ?? ''} />

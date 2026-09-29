@@ -2,14 +2,16 @@ import { useEffect, useState } from 'react'
 import { Binder } from './components/Binder'
 import { Decks } from './components/Decks'
 import { Pickups } from './components/Pickups'
+import { Stats } from './components/Stats'
 import { hashRoute, lastBinderHash } from './urlState'
 
-type View = 'binder' | 'decks' | 'pickups'
+type View = 'binder' | 'decks' | 'pickups' | 'stats'
 
 function viewFromHash(): View {
   const route = hashRoute()
   if (route === '/decks') return 'decks'
   if (route === '/pickups') return 'pickups'
+  if (route === '/stats') return 'stats'
   return 'binder'
 }
 
@@ -36,9 +38,14 @@ export default function App() {
           <a href="#/pickups" className={view === 'pickups' ? 'active' : ''}>
             Pickups
           </a>
+          <a href="#/stats" className={view === 'stats' ? 'active' : ''}>
+            Stats
+          </a>
         </div>
       </nav>
-      <main>{view === 'binder' ? <Binder /> : view === 'decks' ? <Decks /> : <Pickups />}</main>
+      <main>
+        {view === 'binder' ? <Binder /> : view === 'decks' ? <Decks /> : view === 'pickups' ? <Pickups /> : <Stats />}
+      </main>
     </div>
   )
 }

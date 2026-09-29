@@ -305,12 +305,6 @@ main {
   color: #5b9dff;
 }
 
-.card-menu-inline .card-menu-button {
-  width: 1.5rem;
-  height: 1.5rem;
-  font-size: 0.85rem;
-}
-
 .card-slot-meta {
   display: flex;
   align-items: center;
@@ -594,6 +588,19 @@ main {
   color: var(--muted);
 }
 
+/* Stats */
+.stats-header {
+  margin-bottom: 1rem;
+}
+
+.stats-header h2 {
+  margin: 0 0 0.25rem;
+}
+
+.stats-header p {
+  margin: 0;
+}
+
 /* Collection summary */
 .summary {
   display: grid;
@@ -707,6 +714,11 @@ main {
 
 .view-toggle button {
   border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.6rem;
+  line-height: 1;
 }
 
 .view-toggle button:first-child {
@@ -761,9 +773,27 @@ main {
 
 .card-row-head {
   display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.card-row-title {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
   min-width: 0;
+}
+
+.card-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.card-row-actions .copy-chip {
+  padding: 0.15rem 0.45rem;
+  font-size: 0.72rem;
 }
 
 .card-row-meta {
@@ -815,7 +845,7 @@ main {
     white-space: normal;
   }
 
-  .card-row-head {
+  .card-row-title {
     flex-wrap: wrap;
   }
 

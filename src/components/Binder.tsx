@@ -5,7 +5,7 @@ import { CardTile } from './CardTile'
 import { CardRow } from './CardRow'
 import { SearchInput } from './SearchInput'
 import { CardModal } from './CardModal'
-import { CollectionSummary } from './CollectionSummary'
+import { ViewToggle } from './ViewToggle'
 import { Pagination } from './Pagination'
 import { useScryfallMany } from '../hooks/useScryfallMany'
 import { resolveCard } from '../scryfall'
@@ -190,26 +190,8 @@ export function Binder() {
             {filtered.length} of {cards.length} cards
             {pageCount > 1 ? ` · page ${currentPage} of ${pageCount}` : ''}
           </span>
-          <div className="view-toggle" role="group" aria-label="View">
-            <button
-              type="button"
-              className={view === 'grid' ? 'active' : ''}
-              onClick={() => changeView('grid')}
-              title="Grid view"
-            >
-              Grid
-            </button>
-            <button
-              type="button"
-              className={view === 'list' ? 'active' : ''}
-              onClick={() => changeView('list')}
-              title="List view"
-            >
-              List
-            </button>
-          </div>
+          <ViewToggle view={view} onChange={changeView} />
         </div>
-        <CollectionSummary cards={resolved} />
         {filtered.length === 0 ? (
           <p className="empty">No cards match.</p>
         ) : view === 'grid' ? (
