@@ -6,6 +6,7 @@ import { CardImage } from './CardImage'
 import { MarketPrice } from './MarketPrice'
 import { ShopEye } from './ShopEye'
 import { CardMenu } from './CardMenu'
+import { AskingPrice } from './AskingPrice'
 
 interface Props {
   card: Card
@@ -39,7 +40,11 @@ export function CardTile({ card, badge, selected, onClick }: Props) {
       </div>
       <div className="card-slot-meta">
         <FinishBadge finish={card.finish} />
-        {formatCardPrice(card) && <span className="price">{formatCardPrice(card)}</span>}
+        {card.status === 'to-trade' ? (
+          <AskingPrice card={card} />
+        ) : (
+          formatCardPrice(card) && <span className="price">{formatCardPrice(card)}</span>
+        )}
         <MarketPrice card={card} />
       </div>
     </div>

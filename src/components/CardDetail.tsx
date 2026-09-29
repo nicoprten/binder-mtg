@@ -8,6 +8,8 @@ import { ManaCost, OracleLine } from './ManaCost'
 import { formatUsd } from '../format'
 import { StatusBadge } from './StatusBadge'
 import { LANGUAGE_LABEL } from '../language'
+import { AskingPrice } from './AskingPrice'
+import { ASKING_PRICE_NOTE } from '../pricing'
 
 const RARITY_LABEL: Record<Rarity, string> = {
   common: 'Common',
@@ -67,7 +69,16 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
           <dd>{card.finish && card.finish !== 'nonfoil' ? <FinishBadge finish={card.finish} size="sm" /> : 'Nonfoil'}</dd>
           <dt>Artist</dt>
           <dd>{card.artist ?? '—'}</dd>
-          <dt>Price</dt>
+          {card.status === 'to-trade' && (
+            <>
+              <dt>Asking</dt>
+              <dd>
+                <AskingPrice card={card} label="" />
+                <p className="meta-note">{ASKING_PRICE_NOTE}</p>
+              </dd>
+            </>
+          )}
+          <dt>Paid</dt>
           <dd className="price">{card.priceUsd !== undefined ? formatUsd(card.priceUsd) : '—'}</dd>
           {card.shops && card.shops.length > 0 && (
             <>

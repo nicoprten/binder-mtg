@@ -6,6 +6,7 @@ import { StatusBadge } from './StatusBadge'
 import { MarketPrice } from './MarketPrice'
 import { ShopEye } from './ShopEye'
 import { CopyChip } from './CopyChip'
+import { AskingPrice } from './AskingPrice'
 import { fullCardName } from '../cardName'
 
 interface Props {
@@ -53,7 +54,11 @@ export function CardRow({ card, onClick }: Props) {
           <ShopEye shops={card.shops} size="sm" />
         </span>
         <span className="card-row-price">
-          <span className="price">{formatCardPrice(card) ?? ''}</span>
+          {card.status === 'to-trade' ? (
+            <AskingPrice card={card} />
+          ) : (
+            <span className="price">{formatCardPrice(card) ?? ''}</span>
+          )}
           <MarketPrice card={card} />
         </span>
       </div>

@@ -11,6 +11,7 @@ import { useScryfallMany } from '../hooks/useScryfallMany'
 import { resolveCard } from '../scryfall'
 import { readBinderParams, writeBinderParams, type ColorKey, type ViewMode } from '../urlState'
 import { STATUSES, STATUS_LABEL } from '../status'
+import { ASKING_PRICE_NOTE } from '../pricing'
 
 const COLORS: { key: ColorKey; label: string }[] = [
   { key: 'W', label: 'White' },
@@ -192,6 +193,7 @@ export function Binder() {
           </span>
           <ViewToggle view={view} onChange={changeView} />
         </div>
+        {pageCards.some((c) => c.status === 'to-trade') && <p className="binder-note">{ASKING_PRICE_NOTE}</p>}
         {filtered.length === 0 ? (
           <p className="empty">No cards match.</p>
         ) : view === 'grid' ? (

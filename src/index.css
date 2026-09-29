@@ -317,6 +317,36 @@ main {
   font-variant-numeric: tabular-nums;
 }
 
+/* Asking price of a card to trade: gold like its status, so it is not mistaken for what was paid. */
+.price.asking {
+  color: #d9a441;
+  cursor: help;
+  white-space: nowrap;
+}
+
+.asking-label {
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+.asking-label:empty {
+  display: none;
+}
+
+.binder-note {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.meta-note {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
 .muted {
   color: var(--muted);
 }
@@ -896,7 +926,7 @@ main {
 }
 
 .status-to-trade {
-  --status: #3fd4c4;
+  --status: #d9a441;
 }
 
 .card-status {
