@@ -2935,5 +2935,25 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 0.5
+  },
+  {
+    "id": "msc-203",
+    "name": "Metallic Mimic",
+    "set": "MSC",
+    "collectorNumber": "0203",
+    "manaCost": "{2}",
+    "cmc": 2,
+    "colors": [],
+    "typeLine": "Artifact Creature — Shapeshifter",
+    "oracleText": "As this creature enters, choose a creature type.\nThis creature is the chosen type in addition to its other types.\nEach other creature you control of the chosen type enters with an additional +1/+1 counter on it.",
+    "power": "2",
+    "toughness": "1",
+    "rarity": "rare",
+    "artist": "Greg Smallwood",
+    "image": "cards/msc-203-metallic-mimic.webp",
+    "quantity": 1,
+    "status": "wishlist",
+    "language": "en",
+    "finish": "nonfoil"
   }
 ]
