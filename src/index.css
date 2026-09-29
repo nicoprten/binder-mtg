@@ -259,6 +259,10 @@ main {
   background: var(--border);
 }
 
+.copied-text {
+  color: #5b9dff;
+}
+
 .card-menu-inline .card-menu-button {
   width: 1.5rem;
   height: 1.5rem;
@@ -482,7 +486,7 @@ main {
 }
 
 .copy-chip.copied {
-  color: #7fd0a0;
+  color: #5b9dff;
 }
 
 
@@ -808,7 +812,7 @@ main {
 }
 
 .status-owned {
-  --status: #e3b64a;
+  --status: #5b9dff;
 }
 
 .status-to-pick-up {

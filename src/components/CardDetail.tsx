@@ -29,7 +29,7 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
         </header>
         <div className="card-detail-actions">
           <CopyChip text={card.name} label="Copy name" />
-          <CopyChip text={fullCardName(card)} label="Copy full name" />
+          <CopyChip text={fullCardName(card)} label="Copy name and set" />
         </div>
         <p className="type-line">{card.typeLine}</p>
         <p className="oracle">

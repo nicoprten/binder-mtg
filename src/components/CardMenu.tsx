@@ -54,7 +54,7 @@ export function CardMenu({ card, className }: Props) {
 
   const items = [
     { key: 'name', label: 'Copy name', text: card.name },
-    { key: 'full', label: 'Copy full name', text: fullCardName(card) },
+    { key: 'full', label: 'Copy name and set', text: fullCardName(card) },
   ]
 
   return (
@@ -82,7 +82,7 @@ export function CardMenu({ card, className }: Props) {
           {items.map((it) => (
             <li key={it.key} role="none">
               <button type="button" role="menuitem" onClick={(e) => copy(e, it.key, it.text)}>
-                {copied === it.key ? 'Copied ✓' : it.label}
+                {copied === it.key ? <span className="copied-text">Copied ✓</span> : it.label}
               </button>
             </li>
           ))}
