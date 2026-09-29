@@ -169,29 +169,31 @@ export function Pickups() {
                 </p>
                 {r.note && <p className="pickup-note">{r.note}</p>}
               </div>
-              <label className={`pickup-status is-${r.status}`}>
-                <span className="visually-hidden">Status</span>
-                <select
-                  value={r.status}
-                  onChange={(e) =>
-                    update(r.id, { status: e.target.value as PickupStatus })
-                  }
-                >
-                  {PICKUP_STATUSES.map((st) => (
-                    <option key={st} value={st}>
-                      {PICKUP_STATUS_LABEL[st]}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label className={`pickup-paid${r.paid ? " is-paid" : ""}`}>
-                <input
-                  type="checkbox"
-                  checked={r.paid}
-                  onChange={(e) => update(r.id, { paid: e.target.checked })}
-                />
-                {r.paid ? "Paid" : "Unpaid"}
-              </label>
+              <div className="pickup-controls">
+                <label className={`pickup-status is-${r.status}`}>
+                  <span className="visually-hidden">Status</span>
+                  <select
+                    value={r.status}
+                    onChange={(e) =>
+                      update(r.id, { status: e.target.value as PickupStatus })
+                    }
+                  >
+                    {PICKUP_STATUSES.map((st) => (
+                      <option key={st} value={st}>
+                        {PICKUP_STATUS_LABEL[st]}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className={`pickup-paid${r.paid ? " is-paid" : ""}`}>
+                  <input
+                    type="checkbox"
+                    checked={r.paid}
+                    onChange={(e) => update(r.id, { paid: e.target.checked })}
+                  />
+                  {r.paid ? "Paid" : "Unpaid"}
+                </label>
+              </div>
             </div>
             {!collapsed.has(r.id) && (
               <>

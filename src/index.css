@@ -1289,6 +1289,43 @@ main {
   gap: 0.6rem;
 }
 
+.pickup-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: none;
+}
+
+@media (max-width: 640px) {
+  .pickup {
+    padding: 0.75rem 0.75rem;
+  }
+
+  .pickup-top {
+    flex-wrap: wrap;
+  }
+
+  .pickup-summary {
+    flex: 1 1 0;
+  }
+
+  /* The status and paid controls drop to their own row under the summary. */
+  .pickup-controls {
+    flex: 1 0 100%;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+    padding-left: 2.35rem;
+  }
+
+  .pickup-controls .pickup-status select {
+    max-width: 100%;
+  }
+
+  .pickup-address {
+    flex-wrap: wrap;
+  }
+}
+
 .pickup-summary {
   flex: 1;
   min-width: 0;
