@@ -2688,7 +2688,14 @@
     "quantity": 1,
     "status": "wishlist",
     "language": "en",
-    "finish": "nonfoil"
+    "finish": "nonfoil",
+    "shops": [
+      {
+        "store": "Magic Dealers",
+        "url": "https://www.magicdealersstore.com/catalog/magic_the_gathering_singles-phyrexia_all_will_be_one/exuberant_fuseling/2087363",
+        "priceUsd": 0.5
+      }
+    ]
   },
   {
     "id": "ltr-425",
