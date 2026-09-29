@@ -2995,5 +2995,31 @@
     "tags": [
       "goblins"
     ]
+  },
+  {
+    "id": "ltc-63",
+    "name": "Moria Scavenger",
+    "set": "LTC",
+    "collectorNumber": "0063",
+    "manaCost": "{1}{B}{R}",
+    "cmc": 3,
+    "colors": [
+      "B",
+      "R"
+    ],
+    "typeLine": "Creature — Orc Rogue",
+    "oracleText": "Deathtouch, haste\n{T}, Discard a card: Draw a card. If the discarded card was a creature card, amass Orcs 1. (Put a +1/+1 counter on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)",
+    "power": "1",
+    "toughness": "4",
+    "rarity": "rare",
+    "artist": "Igor Krstic",
+    "image": "cards/ltc-0063-moria-scavenger.png",
+    "quantity": 1,
+    "status": "wishlist",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "orcs"
+    ]
   }
 ]
