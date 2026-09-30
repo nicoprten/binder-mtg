@@ -2954,7 +2954,8 @@
     "quantity": 1,
     "status": "to-pick-up",
     "language": "en",
-    "finish": "nonfoil"
+    "finish": "nonfoil",
+    "priceUsd": 2.5
   },
   {
     "id": "2x2-goblin-banneret",
@@ -3042,7 +3043,8 @@
     "frame": "showcase",
     "tags": [
       "showcase"
-    ]
+    ],
+    "priceUsd": 4.0
   },
   {
     "id": "ecl-105",
@@ -3065,6 +3067,7 @@
     "finish": "nonfoil",
     "tags": [
       "goblins"
-    ]
+    ],
+    "priceUsd": 1.0
   }
 ]
