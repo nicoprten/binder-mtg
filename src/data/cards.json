@@ -2952,7 +2952,7 @@
     "artist": "Greg Smallwood",
     "image": "cards/msc-203-metallic-mimic.webp",
     "quantity": 1,
-    "status": "wishlist",
+    "status": "to-pick-up",
     "language": "en",
     "finish": "nonfoil"
   },
@@ -3020,6 +3020,51 @@
     "finish": "nonfoil",
     "tags": [
       "orcs"
+    ]
+  },
+  {
+    "id": "mar-37",
+    "name": "Mechanized Production",
+    "set": "MAR",
+    "collectorNumber": "0037",
+    "manaCost": "{2}{U}{U}",
+    "cmc": 4,
+    "colors": [
+      "U"
+    ],
+    "typeLine": "Enchantment — Aura",
+    "oracleText": "Enchant artifact you control\nAt the beginning of your upkeep, create a token that's a copy of enchanted artifact. Then if you control eight or more artifacts with the same name as one another, you win the game.",
+    "rarity": "mythic",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "frame": "showcase",
+    "tags": [
+      "showcase"
+    ]
+  },
+  {
+    "id": "ecl-105",
+    "name": "Grub, Storied Matriarch // Grub, Notorious Auntie",
+    "set": "ECL",
+    "collectorNumber": "0105",
+    "manaCost": "{2}{B}",
+    "cmc": 3,
+    "colors": [
+      "B"
+    ],
+    "typeLine": "Legendary Creature — Goblin Warlock",
+    "oracleText": "Menace\nWhenever this creature enters or transforms into Grub, Storied Matriarch, return up to one target Goblin card from your graveyard to your hand.\nAt the beginning of your first main phase, you may pay {B}. If you do, transform Grub.",
+    "power": "2",
+    "toughness": "1",
+    "rarity": "rare",
+    "quantity": 1,
+    "status": "to-pick-up",
+    "language": "en",
+    "finish": "nonfoil",
+    "tags": [
+      "goblins"
     ]
   }
 ]
