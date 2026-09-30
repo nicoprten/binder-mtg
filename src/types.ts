@@ -104,3 +104,14 @@ export interface Pickup {
   /** Ids of the binder cards in this order. */
   cardIds: string[]
 }
+
+/** A shop selling MTG singles or sealed product. */
+export interface Store {
+  id: string
+  name: string
+  url?: string
+  /** Street address; empty when unknown. */
+  address: string
+  /** Opening hours, one line per range; empty when unknown. */
+  hours: string[]
+}

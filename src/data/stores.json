@@ -1,0 +1,30 @@
+[
+  {
+    "id": "magic-dealers",
+    "name": "Magic Dealers",
+    "url": "https://www.magicdealersstore.com/",
+    "address": "Zapiola 2041",
+    "hours": []
+  },
+  {
+    "id": "magic-palace",
+    "name": "Magic Palace",
+    "url": "https://magicpalacetcg.com.ar/",
+    "address": "Sánchez de Bustamante 466",
+    "hours": []
+  },
+  {
+    "id": "la-workshop",
+    "name": "La Workshop",
+    "url": "https://laworkshoptcg.com/",
+    "address": "Moldes 2168, Planta baja F (entrada al fondo)",
+    "hours": ["Tuesday to Friday: 17:00 - 20:00", "Saturday: 10:00 - 14:00"]
+  },
+  {
+    "id": "albattle",
+    "name": "Albattle Singles",
+    "url": "https://singles.albattletcg.com/",
+    "address": "",
+    "hours": []
+  }
+]

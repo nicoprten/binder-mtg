@@ -3,15 +3,17 @@ import { Binder } from './components/Binder'
 import { Decks } from './components/Decks'
 import { Pickups } from './components/Pickups'
 import { Stats } from './components/Stats'
+import { Stores } from './components/Stores'
 import { hashRoute, lastBinderHash } from './urlState'
 
-type View = 'binder' | 'decks' | 'pickups' | 'stats'
+type View = 'binder' | 'decks' | 'pickups' | 'stats' | 'stores'
 
 function viewFromHash(): View {
   const route = hashRoute()
   if (route === '/decks') return 'decks'
   if (route === '/pickups') return 'pickups'
   if (route === '/stats') return 'stats'
+  if (route === '/stores') return 'stores'
   return 'binder'
 }
 
@@ -73,10 +75,23 @@ export default function App() {
           <a href="#/stats" className={view === 'stats' ? 'active' : ''}>
             Stats
           </a>
+          <a href="#/stores" className={view === 'stores' ? 'active' : ''}>
+            Stores
+          </a>
         </div>
       </nav>
       <main>
-        {view === 'binder' ? <Binder /> : view === 'decks' ? <Decks /> : view === 'pickups' ? <Pickups /> : <Stats />}
+        {view === 'binder' ? (
+          <Binder />
+        ) : view === 'decks' ? (
+          <Decks />
+        ) : view === 'pickups' ? (
+          <Pickups />
+        ) : view === 'stores' ? (
+          <Stores />
+        ) : (
+          <Stats />
+        )}
       </main>
     </div>
   )
