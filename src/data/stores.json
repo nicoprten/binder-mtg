@@ -11,14 +11,21 @@
     "name": "Magic Palace",
     "url": "https://magicpalacetcg.com.ar/",
     "address": "Sánchez de Bustamante 466",
-    "hours": []
+    "hours": [
+      "Tuesday and Wednesday: 14:00 - 20:30",
+      "Thursday and Friday: 16:00 - 20:30",
+      "Saturday: 12:00 - 19:00"
+    ]
   },
   {
     "id": "la-workshop",
     "name": "La Workshop",
     "url": "https://laworkshoptcg.com/",
     "address": "Moldes 2168, Planta baja F (entrada al fondo)",
-    "hours": ["Tuesday to Friday: 17:00 - 20:00", "Saturday: 10:00 - 14:00"]
+    "hours": [
+      "Tuesday to Friday: 17:00 - 20:00",
+      "Saturday: 10:00 - 14:00"
+    ]
   },
   {
     "id": "albattle",
