@@ -90,6 +90,7 @@
     "id": "workshop-2",
     "store": "La Workshop",
     "url": "https://laworkshoptcg.com/singles",
+    "order": "#4166",
     "date": "2026-09-30",
     "address": "Moldes 2168, Planta baja F (entrada al fondo)",
     "paid": false,
