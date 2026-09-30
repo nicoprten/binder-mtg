@@ -2889,20 +2889,6 @@
     "priceUsd": 0.5
   },
   {
-    "id": "hob-222",
-    "name": "Azog, Moria's Ruin",
-    "set": "HOB",
-    "collectorNumber": "0222",
-    "quantity": 1,
-    "status": "wishlist",
-    "language": "en",
-    "finish": "nonfoil",
-    "frame": "borderless",
-    "tags": [
-      "borderless"
-    ]
-  },
-  {
     "id": "khc-arcane-signet",
     "name": "Arcane Signet",
     "set": "KHC",
@@ -2956,21 +2942,6 @@
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 2.5
-  },
-  {
-    "id": "2x2-goblin-banneret",
-    "name": "Goblin Banneret",
-    "set": "2X2",
-    "quantity": 1,
-    "status": "wishlist",
-    "language": "en",
-    "finish": "foil",
-    "shops": [
-      {
-        "store": "Magic Dealers",
-        "url": "https://www.magicdealersstore.com/catalog/magic_the_gathering_singles-double_masters_2022/goblin_banneret__foil/2078370"
-      }
-    ]
   },
   {
     "id": "lrw-120",
