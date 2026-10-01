@@ -56,7 +56,6 @@ export function DataProvider({ children }: { children: ReactNode }) {
 
   const [user, setUser] = useState<User | null>(null)
   const [authReady, setAuthReady] = useState(!enabled)
-  const [authError, setAuthError] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -69,17 +68,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
       onSnapshot(collection(db, 'decks'), (snap) => setRemoteDecks(snap.docs.map((d) => d.data() as Deck))),
     ]
     const unsubAuth = onAuthStateChanged(getFirebaseAuth(), (u) => {
-      const email = u?.email?.toLowerCase() ?? null
-      if (u && EDITOR_EMAILS.length > 0 && (email === null || !EDITOR_EMAILS.includes(email))) {
-        // Only the listed accounts may enter: anyone else is signed straight back out.
-        setAuthError(`${u.email ?? 'This account'} has no access to this binder.`)
-        void fbSignOut(getFirebaseAuth())
-        setUser(null)
-        setAuthReady(true)
-        return
-      }
       setUser(u ? { uid: u.uid, email: u.email, displayName: u.displayName, photoURL: u.photoURL } : null)
-      if (u) setAuthError(null)
       setAuthReady(true)
     })
     return () => {
@@ -101,8 +90,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
   }, [useRemote, remotePickups, pickupEdits])
   const decks = useRemote ? (remoteDecks ?? []) : localDecks
 
-  const isEditor =
-    !!user && (EDITOR_EMAILS.length === 0 || (user.email !== null && EDITOR_EMAILS.includes(user.email.toLowerCase())))
+  // Only the accounts listed in VITE_EDITOR_EMAILS get the full binder; an empty list lets nobody in.
+  const isEditor = !!user && user.email !== null && EDITOR_EMAILS.includes(user.email.toLowerCase())
 
   const run = useCallback(async (op: () => Promise<void>) => {
     try {
@@ -222,7 +211,6 @@ export function DataProvider({ children }: { children: ReactNode }) {
     needsSeed: enabled && remoteCards !== null && remoteCards.length === 0,
     user,
     authReady,
-    authError,
     isEditor,
     error,
     clearError: () => setError(null),

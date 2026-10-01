@@ -22,9 +22,7 @@ export interface DataContextValue {
   user: User | null
   /** False until Firebase has reported whether someone is signed in (true at once without Firebase). */
   authReady: boolean
-  /** Why the last sign-in was rejected (an account outside the allowed list), for the landing screen. */
-  authError: string | null
-  /** Signed in with an account that gets the edit UI. Firestore rules have the final say. */
+  /** Signed in with one of the listed accounts: sees every section and the edit UI. Firestore rules have the final say. */
   isEditor: boolean
   /** Last failed write, for a banner; null when the last write succeeded. */
   error: string | null

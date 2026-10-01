@@ -29,7 +29,7 @@ export const firebaseEnabled: boolean =
   Boolean(config.apiKey && config.projectId && config.appId) &&
   !(typeof window !== 'undefined' && window.BINDER_STATIC_DATA === true)
 
-/** Google accounts allowed in. Empty lets any Google account sign in; Firestore rules still decide who can write. */
+/** Google accounts that see the whole binder and can edit. Anyone else only gets the cards to trade. */
 export const EDITOR_EMAILS: string[] = (env.VITE_EDITOR_EMAILS ?? '')
   .split(',')
   .map((s) => s.trim().toLowerCase())

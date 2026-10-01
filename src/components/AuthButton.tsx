@@ -17,7 +17,7 @@ export function AuthButton() {
       {user.photoURL && <img src={user.photoURL} alt="" referrerPolicy="no-referrer" />}
       <span className="auth-name">
         {user.displayName ?? user.email}
-        {!isEditor && <span className="muted"> · read only</span>}
+        {!isEditor && <span className="muted"> · trade only</span>}
       </span>
       <button type="button" className="auth-button" onClick={() => void signOut()}>
         Sign out

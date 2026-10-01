@@ -30,7 +30,8 @@ export default function App() {
   const nav = useRef<HTMLElement>(null)
   const { needsSeed, isEditor, seed, error, clearError, source, user, authReady } = useData()
   // Without Firebase there is no sign-in, so the whole binder is open (static builds).
-  const signedIn = !firebaseEnabled || user !== null
+  // With it, only the listed accounts get every section; other visitors just see the cards to trade.
+  const fullAccess = !firebaseEnabled || isEditor
 
   useEffect(() => {
     const onHashChange = () => {
@@ -60,9 +61,9 @@ export default function App() {
   // Wait for Firebase to say whether someone is signed in, so the login screen does not flash.
   if (!authReady) return <div className="app" />
 
-  if (!signedIn) {
-    // Visitors only get the cards to trade; everything else asks them to sign in.
-    if (view !== 'trade') return <Landing />
+  if (!fullAccess) {
+    // Anonymous visitors see the sign-in screen; other Google accounts land on the trade list.
+    if (view !== 'trade' && user === null) return <Landing />
     return (
       <div className="app">
         <nav className="topbar">
@@ -79,6 +80,9 @@ export default function App() {
           </div>
         </nav>
         <main>
+          {user !== null && (
+            <p className="binder-note">This account can only browse the cards to trade.</p>
+          )}
           <TradeList />
         </main>
       </div>
