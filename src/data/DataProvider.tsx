@@ -132,7 +132,10 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const updatePickup = useCallback(
     async (id: string, patch: Partial<Pickup>) => {
       if (useRemote) {
-        await run(() => setDoc(doc(getDb(), 'pickups', id), stripUndefined(patch), { merge: true }))
+        // Write the whole order, so one that is not in Firestore yet is created complete, not as a fragment.
+        const current = pickups.find((p) => p.id === id)
+        if (!current) return
+        await run(() => setDoc(doc(getDb(), 'pickups', id), stripUndefined({ ...current, ...patch })))
         return
       }
       setPickupEdits((prev) => {
@@ -141,7 +144,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         return next
       })
     },
-    [useRemote, run],
+    [useRemote, pickups, run],
   )
 
   const saveStore = useCallback(
