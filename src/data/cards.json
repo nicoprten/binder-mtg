@@ -69,7 +69,7 @@
     "artist": "Souther Salazar",
     "image": "cards/slc-0019-sol-ring.webp",
     "quantity": 1,
-    "status": "to-pick-up",
+    "status": "owned",
     "language": "en",
     "finish": "nonfoil",
     "priceUsd": 16,

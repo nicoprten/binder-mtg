@@ -41,8 +41,8 @@
     "order": "#6908",
     "date": "2026-09-28",
     "address": "Sánchez de Bustamante 466",
-    "paid": false,
-    "status": "preparing",
+    "paid": true,
+    "status": "picked-up",
     "totalArs": null,
     "cardIds": [
       "slc-0019"
