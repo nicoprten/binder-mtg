@@ -14,6 +14,7 @@ import { readBinderParams, writeBinderParams, type ColorKey, type ViewMode } fro
 import { STATUSES, STATUS_LABEL } from '../status'
 import { ASKING_PRICE_NOTE } from '../pricing'
 import { FINISH_OPTIONS } from '../options'
+import { compareBySetAndNumber } from '../sortCards'
 
 const COLORS: { key: ColorKey; label: string }[] = [
   { key: 'W', label: 'White' },
@@ -107,7 +108,10 @@ export function Binder() {
   }
 
   const infos = useScryfallMany(cards)
-  const resolved = useMemo(() => cards.map((c) => resolveCard(c, infos[c.id])), [cards, infos])
+  const resolved = useMemo(
+    () => cards.map((c) => resolveCard(c, infos[c.id])).sort(compareBySetAndNumber),
+    [cards, infos],
+  )
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()

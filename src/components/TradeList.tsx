@@ -10,6 +10,7 @@ import { useScryfallMany } from '../hooks/useScryfallMany'
 import { resolveCard } from '../scryfall'
 import { ASKING_PRICE_NOTE } from '../pricing'
 import type { ViewMode } from '../urlState'
+import { compareBySetAndNumber } from '../sortCards'
 
 const VIEW_KEY = 'binder-mtg:trade-view'
 
@@ -26,7 +27,10 @@ export function TradeList() {
   const { cards } = useData()
   const tradeCards = useMemo(() => cards.filter((c) => c.status === 'to-trade'), [cards])
   const infos = useScryfallMany(tradeCards)
-  const resolved = useMemo(() => tradeCards.map((c) => resolveCard(c, infos[c.id])), [tradeCards, infos])
+  const resolved = useMemo(
+    () => tradeCards.map((c) => resolveCard(c, infos[c.id])).sort(compareBySetAndNumber),
+    [tradeCards, infos],
+  )
   const [query, setQuery] = useState('')
   const [view, setView] = useState<ViewMode>(loadView)
   const [selected, setSelected] = useState<Card | null>(null)
