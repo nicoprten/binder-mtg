@@ -22,6 +22,7 @@ export function Landing() {
   return (
     <div className="landing">
       <div className="landing-card">
+        <img className="landing-art" src="/card-back.png" alt="" width={409} height={585} />
         <h1>Binder MTG</h1>
         <p className="muted">A personal Magic: The Gathering collection. Sign in to open the binder.</p>
         <button type="button" className="google-button" onClick={() => void handleSignIn()} disabled={busy}>

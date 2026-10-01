@@ -79,7 +79,9 @@ select {
 
 .tabs {
   display: flex;
+  align-items: center;
   gap: 0.25rem;
+  flex: 1;
 }
 
 .tabs a {
@@ -693,9 +695,10 @@ main {
   font-size: 0.9rem;
 }
 
+/* The account sits at the far right of the bar. */
 .tabs .auth-button,
 .tabs .auth-user {
-  margin-left: 0.75rem;
+  margin-left: auto;
 }
 
 .auth-user {
@@ -705,17 +708,22 @@ main {
   font-size: 0.9rem;
 }
 
-.auth-user img {
-  width: 1.6rem;
-  height: 1.6rem;
+.auth-user img,
+.auth-initial {
+  width: 1.8rem;
+  height: 1.8rem;
   border-radius: 50%;
+  border: 1px solid var(--border);
+  cursor: default;
 }
 
-.auth-name {
-  max-width: 12rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.auth-initial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel-2);
+  font-weight: 600;
+  font-size: 0.85rem;
 }
 
 /* Banners under the top bar */
@@ -812,10 +820,6 @@ main {
     padding-top: 0.5rem;
     border-top: 1px solid var(--border);
   }
-
-  .tabs .auth-user {
-    flex-wrap: wrap;
-  }
 }
 
 /* Landing (sign-in) */
@@ -835,6 +839,15 @@ main {
   border-radius: 12px;
   background: var(--panel);
   text-align: center;
+}
+
+.landing-art {
+  display: block;
+  width: 150px;
+  height: auto;
+  margin: 0 auto 1rem;
+  border-radius: 4.5% / 3.2%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
 .landing-card h1 {

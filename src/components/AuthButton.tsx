@@ -12,13 +12,17 @@ export function AuthButton() {
       </button>
     )
   }
+  // The name only shows on hover over the picture, to keep the bar short.
+  const label = `${user.displayName ?? user.email ?? 'Signed in'}${isEditor ? '' : ' · trade only'}`
   return (
-    <span className="auth-user" title={user.email ?? undefined}>
-      {user.photoURL && <img src={user.photoURL} alt="" referrerPolicy="no-referrer" />}
-      <span className="auth-name">
-        {user.displayName ?? user.email}
-        {!isEditor && <span className="muted"> · trade only</span>}
-      </span>
+    <span className="auth-user">
+      {user.photoURL ? (
+        <img src={user.photoURL} alt={label} title={label} referrerPolicy="no-referrer" />
+      ) : (
+        <span className="auth-initial" title={label} aria-label={label}>
+          {(user.displayName ?? user.email ?? '?').charAt(0).toUpperCase()}
+        </span>
+      )}
       <button type="button" className="auth-button" onClick={() => void signOut()}>
         Sign out
       </button>
