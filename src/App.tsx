@@ -5,10 +5,13 @@ import { Pickups } from './components/Pickups'
 import { Stats } from './components/Stats'
 import { Stores } from './components/Stores'
 import { AuthButton } from './components/AuthButton'
+import { TradeList } from './components/TradeList'
+import { Landing } from './components/Landing'
+import { firebaseEnabled } from './firebase'
 import { useData } from './data'
 import { hashRoute, lastBinderHash } from './urlState'
 
-type View = 'binder' | 'decks' | 'pickups' | 'stats' | 'stores'
+type View = 'binder' | 'decks' | 'pickups' | 'stats' | 'stores' | 'trade'
 
 function viewFromHash(): View {
   const route = hashRoute()
@@ -16,6 +19,7 @@ function viewFromHash(): View {
   if (route === '/pickups') return 'pickups'
   if (route === '/stats') return 'stats'
   if (route === '/stores') return 'stores'
+  if (route === '/trade') return 'trade'
   return 'binder'
 }
 
@@ -24,7 +28,9 @@ export default function App() {
   // On narrow screens the tabs collapse behind a three-dot button.
   const [menuOpen, setMenuOpen] = useState(false)
   const nav = useRef<HTMLElement>(null)
-  const { needsSeed, isEditor, seed, error, clearError, source } = useData()
+  const { needsSeed, isEditor, seed, error, clearError, source, user, authReady } = useData()
+  // Without Firebase there is no sign-in, so the whole binder is open (static builds).
+  const signedIn = !firebaseEnabled || user !== null
 
   useEffect(() => {
     const onHashChange = () => {
@@ -50,6 +56,34 @@ export default function App() {
       document.removeEventListener('keydown', onKey)
     }
   }, [menuOpen])
+
+  // Wait for Firebase to say whether someone is signed in, so the login screen does not flash.
+  if (!authReady) return <div className="app" />
+
+  if (!signedIn) {
+    // Visitors only get the cards to trade; everything else asks them to sign in.
+    if (view !== 'trade') return <Landing />
+    return (
+      <div className="app">
+        <nav className="topbar">
+          <h1>
+            <a href="#/" className="brand-link">
+              Binder MTG
+            </a>
+          </h1>
+          <div className="tabs">
+            <a href="#/trade" className="active">
+              Cards to trade
+            </a>
+            <AuthButton />
+          </div>
+        </nav>
+        <main>
+          <TradeList />
+        </main>
+      </div>
+    )
+  }
 
   return (
     <div className="app">
@@ -80,6 +114,9 @@ export default function App() {
           </a>
           <a href="#/stores" className={view === 'stores' ? 'active' : ''}>
             Stores
+          </a>
+          <a href="#/trade" className={view === 'trade' ? 'active' : ''}>
+            Trade
           </a>
           <AuthButton />
         </div>
@@ -112,6 +149,8 @@ export default function App() {
           <Pickups />
         ) : view === 'stores' ? (
           <Stores />
+        ) : view === 'trade' ? (
+          <TradeList />
         ) : (
           <Stats />
         )}

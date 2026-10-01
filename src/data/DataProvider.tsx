@@ -55,6 +55,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const [pickupEdits, setPickupEdits] = useState<PickupEdits>(() => loadJson<PickupEdits>(PICKUP_EDITS_KEY, {}))
 
   const [user, setUser] = useState<User | null>(null)
+  const [authReady, setAuthReady] = useState(!enabled)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -66,9 +67,10 @@ export function DataProvider({ children }: { children: ReactNode }) {
       onSnapshot(collection(db, 'stores'), (snap) => setRemoteStores(snap.docs.map((d) => d.data() as Store))),
       onSnapshot(collection(db, 'decks'), (snap) => setRemoteDecks(snap.docs.map((d) => d.data() as Deck))),
     ]
-    const unsubAuth = onAuthStateChanged(getFirebaseAuth(), (u) =>
-      setUser(u ? { uid: u.uid, email: u.email, displayName: u.displayName, photoURL: u.photoURL } : null),
-    )
+    const unsubAuth = onAuthStateChanged(getFirebaseAuth(), (u) => {
+      setUser(u ? { uid: u.uid, email: u.email, displayName: u.displayName, photoURL: u.photoURL } : null)
+      setAuthReady(true)
+    })
     return () => {
       subs.forEach((unsub) => unsub())
       unsubAuth()
@@ -208,6 +210,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
     ready: !enabled || remoteCards !== null,
     needsSeed: enabled && remoteCards !== null && remoteCards.length === 0,
     user,
+    authReady,
     isEditor,
     error,
     clearError: () => setError(null),

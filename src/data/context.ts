@@ -20,6 +20,8 @@ export interface DataContextValue {
   /** Firestore is reachable but holds no cards yet: offer to import the bundled data. */
   needsSeed: boolean
   user: User | null
+  /** False until Firebase has reported whether someone is signed in (true at once without Firebase). */
+  authReady: boolean
   /** Signed in with an account that gets the edit UI. Firestore rules have the final say. */
   isEditor: boolean
   /** Last failed write, for a banner; null when the last write succeeded. */
