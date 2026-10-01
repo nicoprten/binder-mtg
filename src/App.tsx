@@ -4,6 +4,8 @@ import { Decks } from './components/Decks'
 import { Pickups } from './components/Pickups'
 import { Stats } from './components/Stats'
 import { Stores } from './components/Stores'
+import { AuthButton } from './components/AuthButton'
+import { useData } from './data'
 import { hashRoute, lastBinderHash } from './urlState'
 
 type View = 'binder' | 'decks' | 'pickups' | 'stats' | 'stores'
@@ -22,6 +24,7 @@ export default function App() {
   // On narrow screens the tabs collapse behind a three-dot button.
   const [menuOpen, setMenuOpen] = useState(false)
   const nav = useRef<HTMLElement>(null)
+  const { needsSeed, isEditor, seed, error, clearError, source } = useData()
 
   useEffect(() => {
     const onHashChange = () => {
@@ -78,8 +81,28 @@ export default function App() {
           <a href="#/stores" className={view === 'stores' ? 'active' : ''}>
             Stores
           </a>
+          <AuthButton />
         </div>
       </nav>
+      {needsSeed && isEditor && (
+        <div className="banner">
+          <span>Firestore is empty. Import the data bundled with the app to get started.</span>
+          <button type="button" onClick={() => void seed().catch(() => {})}>
+            Import bundled data
+          </button>
+        </div>
+      )}
+      {needsSeed && !isEditor && source === 'local' && (
+        <div className="banner muted-banner">Showing the bundled data: sign in as an editor to import it into Firestore.</div>
+      )}
+      {error && (
+        <div className="banner error-banner">
+          <span>{error}</span>
+          <button type="button" onClick={clearError}>
+            Dismiss
+          </button>
+        </div>
+      )}
       <main>
         {view === 'binder' ? (
           <Binder />

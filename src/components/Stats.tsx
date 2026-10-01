@@ -1,8 +1,9 @@
-import { cards } from '../data'
+import { useData } from '../data'
 import { CollectionSummary } from './CollectionSummary'
 
 /** Paid vs. market value of the collection, by status group. */
 export function Stats() {
+  const { cards } = useData()
   return (
     <section className="stats">
       <header className="stats-header">

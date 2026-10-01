@@ -678,6 +678,137 @@ main {
   color: var(--muted);
 }
 
+/* Auth */
+.auth-button {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.9rem;
+}
+
+.tabs .auth-button,
+.tabs .auth-user {
+  margin-left: 0.75rem;
+}
+
+.auth-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.auth-user img {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+}
+
+.auth-name {
+  max-width: 12rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Banners under the top bar */
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.6rem 1.25rem;
+  background: color-mix(in srgb, var(--accent) 18%, var(--panel));
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  font-size: 0.9rem;
+}
+
+.banner.muted-banner {
+  background: var(--panel);
+  border-bottom-color: var(--border);
+  color: var(--muted);
+}
+
+.banner.error-banner {
+  background: color-mix(in srgb, var(--danger) 20%, var(--panel));
+  border-bottom-color: color-mix(in srgb, var(--danger) 60%, transparent);
+}
+
+/* Card form (add / edit) */
+.card-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem 0.75rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-2);
+}
+
+.card-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  min-width: 0;
+}
+
+.card-form input,
+.card-form select {
+  width: 100%;
+  min-width: 0;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.card-form .span-2 {
+  grid-column: 1 / -1;
+}
+
+.card-form-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.card-editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.add-card-button {
+  margin: 0 0 0.75rem;
+}
+
+.add-card-panel {
+  margin: 0 0 1rem;
+  max-width: 640px;
+}
+
+.add-card-panel h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+  .tabs .auth-button,
+  .tabs .auth-user {
+    margin: 0.35rem 0 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .tabs .auth-user {
+    flex-wrap: wrap;
+  }
+}
+
 /* Stats */
 .stats-header {
   margin-bottom: 1rem;

@@ -33,7 +33,7 @@ export function CardModal({ card, onClose }: Props) {
         <button type="button" className="modal-close" onClick={onClose} aria-label="Close">
           ×
         </button>
-        <CardDetail card={card} />
+        <CardDetail card={card} onDeleted={onClose} />
       </div>
     </div>
   )

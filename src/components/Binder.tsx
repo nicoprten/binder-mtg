@@ -1,17 +1,19 @@
 import { useEffect, useMemo, useState } from 'react'
-import { cards } from '../data'
+import { useData } from '../data'
 import type { Card, CardStatus, Finish } from '../types'
 import { CardTile } from './CardTile'
 import { CardRow } from './CardRow'
 import { SearchInput } from './SearchInput'
 import { CardModal } from './CardModal'
 import { ViewToggle } from './ViewToggle'
+import { AddCard } from './AddCard'
 import { Pagination } from './Pagination'
 import { useScryfallMany } from '../hooks/useScryfallMany'
 import { resolveCard } from '../scryfall'
 import { readBinderParams, writeBinderParams, type ColorKey, type ViewMode } from '../urlState'
 import { STATUSES, STATUS_LABEL } from '../status'
 import { ASKING_PRICE_NOTE } from '../pricing'
+import { FINISH_OPTIONS } from '../options'
 
 const COLORS: { key: ColorKey; label: string }[] = [
   { key: 'W', label: 'White' },
@@ -50,13 +52,8 @@ function saveView(view: ViewMode) {
   }
 }
 
-const FINISHES: { key: Finish; label: string }[] = [
-  { key: 'nonfoil', label: 'Nonfoil' },
-  { key: 'foil', label: 'Foil' },
-  { key: 'surge-foil', label: 'Surge Foil' },
-]
-
 export function Binder() {
+  const { cards, isEditor } = useData()
   // Read the URL once per mount, so a link into the binder from another tab applies.
   const [initial] = useState(readBinderParams)
   const [query, setQuery] = useState(initial.query)
@@ -110,7 +107,7 @@ export function Binder() {
   }
 
   const infos = useScryfallMany(cards)
-  const resolved = useMemo(() => cards.map((c) => resolveCard(c, infos[c.id])), [infos])
+  const resolved = useMemo(() => cards.map((c) => resolveCard(c, infos[c.id])), [cards, infos])
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -181,7 +178,7 @@ export function Binder() {
           </select>
           <select value={finish} onChange={(e) => setFinish(e.target.value as Finish | '')}>
             <option value="">All finishes</option>
-            {FINISHES.map((f) => (
+            {FINISH_OPTIONS.map((f) => (
               <option key={f.key} value={f.key}>
                 {f.label}
               </option>
@@ -193,6 +190,7 @@ export function Binder() {
           </span>
           <ViewToggle view={view} onChange={changeView} />
         </div>
+        {isEditor && <AddCard />}
         {pageCards.some((c) => c.status === 'to-trade') && <p className="binder-note">{ASKING_PRICE_NOTE}</p>}
         {filtered.length === 0 ? (
           <p className="empty">No cards match.</p>

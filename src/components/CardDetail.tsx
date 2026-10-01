@@ -10,6 +10,8 @@ import { StatusBadge } from './StatusBadge'
 import { LANGUAGE_LABEL } from '../language'
 import { AskingPrice } from './AskingPrice'
 import { ASKING_PRICE_NOTE } from '../pricing'
+import { useData } from '../data'
+import { CardEditor } from './CardEditor'
 
 const RARITY_LABEL: Record<Rarity, string> = {
   common: 'Common',
@@ -18,7 +20,15 @@ const RARITY_LABEL: Record<Rarity, string> = {
   mythic: 'Mythic',
 }
 
-export function CardDetail({ card, children }: { card: Card; children?: React.ReactNode }) {
+interface Props {
+  card: Card
+  children?: React.ReactNode
+  /** Called after an editor removes the card, so the view holding it can close. */
+  onDeleted?: () => void
+}
+
+export function CardDetail({ card, children, onDeleted }: Props) {
+  const { isEditor } = useData()
   return (
     <aside className="card-detail">
       <div className="card-detail-art">
@@ -120,6 +130,7 @@ export function CardDetail({ card, children }: { card: Card; children?: React.Re
             ))}
           </ul>
         )}
+        {isEditor && <CardEditor card={card} onDeleted={onDeleted} />}
         {children}
       </div>
     </aside>

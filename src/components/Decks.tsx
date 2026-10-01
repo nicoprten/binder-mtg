@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { cards } from '../data'
+import { useData } from '../data'
 import type { Card, Deck } from '../types'
 import { useDecks } from '../hooks/useDecks'
 import { CardTile } from './CardTile'
@@ -13,9 +13,10 @@ import { useScryfallMany } from '../hooks/useScryfallMany'
 import { resolveCard } from '../scryfall'
 
 export function Decks() {
+  const { cards } = useData()
   const { decks, createDeck, updateDeck, deleteDeck, setCardQuantity } = useDecks()
   const infos = useScryfallMany(cards)
-  const resolved = useMemo(() => cards.map((c) => resolveCard(c, infos[c.id])), [infos])
+  const resolved = useMemo(() => cards.map((c) => resolveCard(c, infos[c.id])), [cards, infos])
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [newName, setNewName] = useState('')
 

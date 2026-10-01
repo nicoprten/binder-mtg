@@ -1,7 +1,8 @@
-import { cards, pickups, stores } from '../data'
+import { useData } from '../data'
 
 /** Shops selling MTG singles or sealed product, with address and opening hours. */
 export function Stores() {
+  const { cards, pickups, stores } = useData()
   return (
     <section className="stores">
       <header className="stats-header">

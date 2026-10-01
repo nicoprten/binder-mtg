@@ -12,6 +12,18 @@ Foil and surge foil cards get a shimmering label under the card.
 
 Each card is looked up on Scryfall by set code and collector number (one request per card, spaced 100 ms apart, cached in the browser for a day). From that lookup the app shows the high-resolution picture, swapping it in over the local image from `public/cards/`, and the market price in USD for the card's finish (`usd` or `usd_foil`), displayed with a `~` next to your own price. Cards without a collector number keep the local image and show no market price. Set `window.BINDER_LOCAL_IMAGES = true` before the app script to use only the local images.
 
+
+## Backend (Firebase)
+
+The app can run from the JSON files in `src/data` alone, or from Cloud Firestore when a Firebase web config is present:
+
+1. Copy `.env.example` to `.env.local` and fill in the `VITE_FIREBASE_*` values from Firebase Console → Project settings → Your apps → Web app. On Vercel, add the same variables under Settings → Environment Variables and redeploy. They identify the project and are not secrets.
+2. In Firebase Console enable Firestore (production mode) and Authentication → Google, and add the Vercel domain under Authentication → Settings → Authorized domains.
+3. Paste `firestore.rules` into Firestore → Rules, replacing the email with the Google account that may edit. Anyone can read; only that account can write.
+4. Open the site, sign in with that account and press **Import bundled data**: the JSON files are copied into the `cards`, `pickups` and `stores` collections once.
+
+Signed in as an editor you can add cards from the Binder toolbar, edit or remove a card from its detail, and change an order's status and paid flag. Decks are stored in Firestore too. Without a Firebase config, decks and order flags stay in the browser's `localStorage` as before. `VITE_EDITOR_EMAILS` (optional, comma-separated) limits which signed-in accounts see the edit controls; the rules still decide what is written.
+
 ## Running it
 
 ```bash

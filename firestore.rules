@@ -1,0 +1,18 @@
+rules_version = '2';
+
+// Anyone can read the binder; only the listed Google accounts can write.
+// Replace the email below with the Google account you sign in with, then
+// paste these rules in Firebase Console → Firestore Database → Rules.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isEditor() {
+      return request.auth != null
+        && request.auth.token.email in ['YOUR_GOOGLE_EMAIL@gmail.com'];
+    }
+
+    match /{document=**} {
+      allow read: if true;
+      allow write: if isEditor();
+    }
+  }
+}

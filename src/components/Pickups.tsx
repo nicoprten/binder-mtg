@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
-import { cards, pickups } from "../data";
+import { useData } from "../data";
 import { formatUsd } from "../format";
-import { usePickupEdits } from "../hooks/usePickupEdits";
 import { useScryfallMany } from "../hooks/useScryfallMany";
 import { resolveCard } from "../scryfall";
 import type { Card, PickupStatus } from "../types";
@@ -51,7 +50,9 @@ function formatDate(iso: string) {
 
 /** Purchases waiting to be collected, with totals in ARS and USD. */
 export function Pickups() {
-  const { edits, update } = usePickupEdits();
+  const { cards, pickups, updatePickup, source, isEditor } = useData();
+  // In local mode anyone can flip the flags (they stay in this browser); on Firestore only editors can.
+  const canEdit = source === "local" || isEditor;
   const [view, setView] = useState<ViewMode>(loadView);
   const [selected, setSelected] = useState<Card | null>(null);
   const [collapsed, setCollapsed] = useState<Set<string>>(loadCollapsed);
@@ -81,7 +82,7 @@ export function Pickups() {
   const infos = useScryfallMany(cards);
   const byId = useMemo(
     () => new Map(cards.map((c) => [c.id, resolveCard(c, infos[c.id])])),
-    [infos],
+    [cards, infos],
   );
 
   const rows = pickups.map((o) => {
@@ -89,14 +90,7 @@ export function Pickups() {
       .map((id) => byId.get(id))
       .filter((c) => c !== undefined);
     const usd = items.reduce((n, c) => n + (c.priceUsd ?? 0) * c.quantity, 0);
-    const edit = edits[o.id] ?? {};
-    return {
-      ...o,
-      items,
-      usd,
-      paid: edit.paid ?? o.paid,
-      status: edit.status ?? o.status,
-    };
+    return { ...o, items, usd };
   });
   // Cancelled orders stay listed but do not count towards the totals.
   const active = rows.filter((r) => r.status !== "cancelled");
@@ -174,8 +168,9 @@ export function Pickups() {
                   <span className="visually-hidden">Status</span>
                   <select
                     value={r.status}
+                    disabled={!canEdit}
                     onChange={(e) =>
-                      update(r.id, { status: e.target.value as PickupStatus })
+                      void updatePickup(r.id, { status: e.target.value as PickupStatus })
                     }
                   >
                     {PICKUP_STATUSES.map((st) => (
@@ -189,7 +184,8 @@ export function Pickups() {
                   <input
                     type="checkbox"
                     checked={r.paid}
-                    onChange={(e) => update(r.id, { paid: e.target.checked })}
+                    disabled={!canEdit}
+                    onChange={(e) => void updatePickup(r.id, { paid: e.target.checked })}
                   />
                   {r.paid ? "Paid" : "Unpaid"}
                 </label>
