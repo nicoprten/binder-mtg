@@ -1,13 +1,22 @@
 import { useState } from 'react'
 import type { Card } from '../types'
 import { useData } from '../data'
+import { printingFrame, type Printing } from '../scryfall'
 import { CardForm } from './CardForm'
 import { applyValues } from '../cardForm'
 
+interface Props {
+  card: Card
+  editing: boolean
+  onEditingChange: (editing: boolean) => void
+  /** Printing picked in the strip while editing; null keeps the card's own. */
+  printing: Printing | null
+  onDeleted?: () => void
+}
+
 /** Edit and delete controls for one card, shown to editors inside the detail view. */
-export function CardEditor({ card, onDeleted }: { card: Card; onDeleted?: () => void }) {
+export function CardEditor({ card, editing, onEditingChange, printing, onDeleted }: Props) {
   const { cards, saveCard, deleteCard } = useData()
-  const [editing, setEditing] = useState(false)
   const [confirming, setConfirming] = useState(false)
 
   // The detail shows the card merged with Scryfall data; edits go on top of the stored document.
@@ -17,11 +26,20 @@ export function CardEditor({ card, onDeleted }: { card: Card; onDeleted?: () => 
     return (
       <CardForm
         initial={stored}
+        printingFields={false}
         submitLabel="Save"
-        onCancel={() => setEditing(false)}
+        onCancel={() => onEditingChange(false)}
         onSubmit={async (values) => {
-          await saveCard({ ...applyValues(stored, values), id: stored.id })
-          setEditing(false)
+          const next = applyValues(stored, values, { printing: false })
+          if (printing) {
+            // Switching printing: set, number and frame follow it; the bundled picture no longer applies.
+            next.set = printing.set
+            next.collectorNumber = printing.collectorNumber
+            next.frame = printingFrame(printing)
+            next.image = undefined
+          }
+          await saveCard({ ...next, id: stored.id })
+          onEditingChange(false)
         }}
       />
     )
@@ -29,7 +47,7 @@ export function CardEditor({ card, onDeleted }: { card: Card; onDeleted?: () => 
 
   return (
     <div className="card-editor-actions">
-      <button type="button" onClick={() => setEditing(true)}>
+      <button type="button" onClick={() => onEditingChange(true)}>
         Edit
       </button>
       {confirming ? (

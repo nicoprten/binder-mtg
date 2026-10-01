@@ -262,6 +262,24 @@ export function fetchPrintings(card: Card, info: ScryfallInfo | null | undefined
   return promise
 }
 
+/** Whether a printing is the one the owner's card records (set and collector number). */
+export function isOwnPrinting(card: Card, p: Printing): boolean {
+  if (!card.set || !card.collectorNumber) return false
+  return (
+    p.set.toLowerCase() === card.set.toLowerCase() &&
+    p.collectorNumber.replace(/^0+/, '') === card.collectorNumber.replace(/^0+/, '')
+  )
+}
+
+/** The app's frame value for a printing, when it is a special version. */
+export function printingFrame(p: Printing): Frame | undefined {
+  if (p.borderColor === 'borderless') return 'borderless'
+  if (p.frameEffects.includes('showcase')) return 'showcase'
+  if (p.frameEffects.includes('extendedart')) return 'extended-art'
+  if (p.promo) return 'promo'
+  return undefined
+}
+
 /** Short label for how a printing differs from the regular version. */
 export function printingVersion(p: Printing): string | undefined {
   const parts: string[] = []

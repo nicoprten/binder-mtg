@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { Card, Rarity } from '../types'
-import type { Printing } from '../scryfall'
+import { isOwnPrinting, type Printing } from '../scryfall'
 import { Printings } from './Printings'
 import { FinishBadge } from './FinishBadge'
 import { CardImage } from './CardImage'
@@ -32,8 +32,16 @@ interface Props {
 
 export function CardDetail({ card, children, onDeleted }: Props) {
   const { isEditor } = useData()
-  // Another printing picked from the strip, shown in place of the owner's copy.
+  // Another printing picked from the strip: previewed in the big art, or, while editing, the version to save as.
   const [preview, setPreview] = useState<Printing | null>(null)
+  const [editing, setEditing] = useState(false)
+  // A pick of the card's own printing while editing means "keep it".
+  const chosen = editing && preview && !isOwnPrinting(card, preview) ? preview : null
+
+  function changeEditing(next: boolean) {
+    setEditing(next)
+    setPreview(null)
+  }
   return (
     <aside className="card-detail">
       <div className="card-detail-art">
@@ -144,8 +152,10 @@ export function CardDetail({ card, children, onDeleted }: Props) {
             ))}
           </ul>
         )}
-        <Printings card={card} previewId={preview?.id ?? null} onPreview={setPreview} />
-        {isEditor && <CardEditor card={card} onDeleted={onDeleted} />}
+        <Printings card={card} mode={editing ? 'select' : 'preview'} previewId={preview?.id ?? null} onPreview={setPreview} />
+        {isEditor && (
+          <CardEditor card={card} editing={editing} onEditingChange={changeEditing} printing={chosen} onDeleted={onDeleted} />
+        )}
         {children}
       </div>
     </aside>

@@ -6,13 +6,15 @@ import { FINISH_OPTIONS, FRAME_OPTIONS, LANGUAGE_OPTIONS } from '../options'
 
 interface Props {
   initial?: Card
+  /** Show the set, collector number and frame inputs (off when the printing is picked elsewhere). */
+  printingFields?: boolean
   submitLabel: string
   onSubmit: (values: CardFormValues) => Promise<void>
   onCancel: () => void
 }
 
 /** Fields of a card the owner maintains by hand; Scryfall fills in the rest. */
-export function CardForm({ initial, submitLabel, onSubmit, onCancel }: Props) {
+export function CardForm({ initial, printingFields = true, submitLabel, onSubmit, onCancel }: Props) {
   const [v, setV] = useState<CardFormValues>(() => valuesFromCard(initial))
   const [busy, setBusy] = useState(false)
   const set = <K extends keyof CardFormValues>(key: K, value: CardFormValues[K]) =>
@@ -35,14 +37,18 @@ export function CardForm({ initial, submitLabel, onSubmit, onCancel }: Props) {
         Name
         <input value={v.name} onChange={(e) => set('name', e.target.value)} required autoFocus={!initial} />
       </label>
-      <label>
-        Set
-        <input value={v.set} onChange={(e) => set('set', e.target.value)} placeholder="e.g. LTR" />
-      </label>
-      <label>
-        Number
-        <input value={v.collectorNumber} onChange={(e) => set('collectorNumber', e.target.value)} placeholder="e.g. 0086" />
-      </label>
+      {printingFields && (
+        <>
+          <label>
+            Set
+            <input value={v.set} onChange={(e) => set('set', e.target.value)} placeholder="e.g. LTR" />
+          </label>
+          <label>
+            Number
+            <input value={v.collectorNumber} onChange={(e) => set('collectorNumber', e.target.value)} placeholder="e.g. 0086" />
+          </label>
+        </>
+      )}
       <label>
         Status
         <select value={v.status} onChange={(e) => set('status', e.target.value as CardStatus)}>
@@ -73,17 +79,19 @@ export function CardForm({ initial, submitLabel, onSubmit, onCancel }: Props) {
           ))}
         </select>
       </label>
-      <label>
-        Frame
-        <select value={v.frame} onChange={(e) => set('frame', e.target.value as Frame | '')}>
-          <option value="">Regular</option>
-          {FRAME_OPTIONS.map((f) => (
-            <option key={f.key} value={f.key}>
-              {f.label}
-            </option>
-          ))}
-        </select>
-      </label>
+      {printingFields && (
+        <label>
+          Frame
+          <select value={v.frame} onChange={(e) => set('frame', e.target.value as Frame | '')}>
+            <option value="">Regular</option>
+            {FRAME_OPTIONS.map((f) => (
+              <option key={f.key} value={f.key}>
+                {f.label}
+              </option>
+            ))}
+          </select>
+        </label>
+      )}
       <label>
         Copies
         <input type="number" min={1} step={1} value={v.quantity} onChange={(e) => set('quantity', Number(e.target.value))} />
