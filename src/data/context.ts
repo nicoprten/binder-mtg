@@ -26,6 +26,8 @@ export interface DataContextValue {
   isEditor: boolean
   /** Last failed write, for a banner; null when the last write succeeded. */
   error: string | null
+  /** Why Firestore could not be read (usually rules not published), for a banner. */
+  loadError: string | null
   clearError: () => void
   signIn: () => Promise<void>
   signOut: () => Promise<void>

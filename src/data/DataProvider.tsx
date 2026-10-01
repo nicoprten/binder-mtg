@@ -57,15 +57,25 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [authReady, setAuthReady] = useState(!enabled)
   const [error, setError] = useState<string | null>(null)
+  const [loadError, setLoadError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!enabled) return
     const db = getDb()
+    // A read that fails (rules not published, no permission) is reported instead of leaving the app waiting.
+    const onError = (name: string) => (e: unknown) => {
+      const code = e && typeof e === 'object' && 'code' in e ? String(e.code) : 'unknown'
+      setLoadError(
+        code === 'permission-denied'
+          ? `Firestore refused to read "${name}" (permission denied): publish the rules from firestore.rules and sign in with the editor account.`
+          : `Firestore could not read "${name}" (${code}).`,
+      )
+    }
     const subs = [
-      onSnapshot(collection(db, 'cards'), (snap) => setRemoteCards(snap.docs.map((d) => d.data() as Card))),
-      onSnapshot(collection(db, 'pickups'), (snap) => setRemotePickups(snap.docs.map((d) => d.data() as Pickup))),
-      onSnapshot(collection(db, 'stores'), (snap) => setRemoteStores(snap.docs.map((d) => d.data() as Store))),
-      onSnapshot(collection(db, 'decks'), (snap) => setRemoteDecks(snap.docs.map((d) => d.data() as Deck))),
+      onSnapshot(collection(db, 'cards'), (snap) => setRemoteCards(snap.docs.map((d) => d.data() as Card)), onError('cards')),
+      onSnapshot(collection(db, 'pickups'), (snap) => setRemotePickups(snap.docs.map((d) => d.data() as Pickup)), onError('pickups')),
+      onSnapshot(collection(db, 'stores'), (snap) => setRemoteStores(snap.docs.map((d) => d.data() as Store)), onError('stores')),
+      onSnapshot(collection(db, 'decks'), (snap) => setRemoteDecks(snap.docs.map((d) => d.data() as Deck)), onError('decks')),
     ]
     const unsubAuth = onAuthStateChanged(getFirebaseAuth(), (u) => {
       setUser(u ? { uid: u.uid, email: u.email, displayName: u.displayName, photoURL: u.photoURL } : null)
@@ -216,6 +226,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
     authReady,
     isEditor,
     error,
+    loadError,
     clearError: () => setError(null),
     signIn,
     signOut,

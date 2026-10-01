@@ -28,7 +28,7 @@ export default function App() {
   // On narrow screens the tabs collapse behind a three-dot button.
   const [menuOpen, setMenuOpen] = useState(false)
   const nav = useRef<HTMLElement>(null)
-  const { needsSeed, isEditor, seed, error, clearError, source, user, authReady } = useData()
+  const { needsSeed, isEditor, seed, error, loadError, clearError, source, user, authReady } = useData()
   // Without Firebase there is no sign-in, so the whole binder is open (static builds).
   // With it, only the listed accounts get every section; other visitors just see the cards to trade.
   const fullAccess = !firebaseEnabled || isEditor
@@ -132,6 +132,10 @@ export default function App() {
             Import bundled data
           </button>
         </div>
+      )}
+      {loadError && <div className="banner error-banner">{loadError}</div>}
+      {!loadError && isEditor && !needsSeed && source === 'local' && (
+        <div className="banner muted-banner">Waiting for Firestore… if this stays, check the rules and the network.</div>
       )}
       {needsSeed && !isEditor && source === 'local' && (
         <div className="banner muted-banner">Showing the bundled data: sign in as an editor to import it into Firestore.</div>
