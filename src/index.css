@@ -829,6 +829,21 @@ main {
   align-items: center;
   justify-content: center;
   padding: 1.5rem 1rem;
+  /* Branding gradient in the top-right corner only; the rest stays black. */
+  background-color: #000;
+  background-image: radial-gradient(
+    ellipse 75vw 85vh at 100% 0%,
+    #d9c3ab 0%,
+    #f16001 14%,
+    #c10801 38%,
+    rgba(193, 8, 1, 0) 72%
+  );
+  background-repeat: no-repeat;
+}
+
+.landing-card {
+  background: rgba(21, 21, 22, 0.92);
+  backdrop-filter: blur(6px);
 }
 
 .landing-card {
