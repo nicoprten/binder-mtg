@@ -4,7 +4,11 @@
     "name": "Magic Dealers",
     "url": "https://www.magicdealersstore.com/",
     "address": "Zapiola 2041",
-    "hours": []
+    "hours": [
+      "Monday: 17:00 - 23:00",
+      "Tuesday to Friday: 15:00 - 23:00",
+      "Saturday: 14:30 - 20:00"
+    ]
   },
   {
     "id": "magic-palace",
