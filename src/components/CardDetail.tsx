@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import type { Card, Rarity } from '../types'
+import type { Printing } from '../scryfall'
+import { Printings } from './Printings'
 import { FinishBadge } from './FinishBadge'
 import { CardImage } from './CardImage'
 import { MarketPrice } from './MarketPrice'
@@ -29,10 +32,21 @@ interface Props {
 
 export function CardDetail({ card, children, onDeleted }: Props) {
   const { isEditor } = useData()
+  // Another printing picked from the strip, shown in place of the owner's copy.
+  const [preview, setPreview] = useState<Printing | null>(null)
   return (
     <aside className="card-detail">
       <div className="card-detail-art">
-        <CardImage card={card} />
+        {preview?.imageLarge ? (
+          <>
+            <img src={preview.imageLarge} alt={`${card.name}, ${preview.setName}`} />
+            <button type="button" className="preview-chip" onClick={() => setPreview(null)}>
+              {preview.set} #{preview.collectorNumber} · back to yours
+            </button>
+          </>
+        ) : (
+          <CardImage card={card} />
+        )}
       </div>
       <div className="card-detail-body">
         <header>
@@ -130,6 +144,7 @@ export function CardDetail({ card, children, onDeleted }: Props) {
             ))}
           </ul>
         )}
+        <Printings card={card} previewId={preview?.id ?? null} onPreview={setPreview} />
         {isEditor && <CardEditor card={card} onDeleted={onDeleted} />}
         {children}
       </div>

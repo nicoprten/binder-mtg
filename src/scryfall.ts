@@ -18,8 +18,29 @@ export interface ScryfallInfo {
   toughness?: string
   rarity?: Rarity
   artist?: string
+  /** Scryfall search URL listing every printing of this card. */
+  printsSearchUri?: string
   /** When this entry was fetched, in ms since epoch. */
   fetchedAt: number
+}
+
+/** One printing of a card, from the prints search. */
+export interface Printing {
+  id: string
+  set: string
+  setName: string
+  collectorNumber: string
+  /** `image_uris.small`, or the front face's. */
+  image?: string
+  /** `image_uris.normal`, for previewing the printing at full size. */
+  imageLarge?: string
+  usd?: number
+  usdFoil?: number
+  /** Scryfall frame effects (showcase, extendedart…) and border, to describe the version. */
+  frameEffects: string[]
+  borderColor?: string
+  promo: boolean
+  releasedAt?: string
 }
 
 declare global {
@@ -102,7 +123,7 @@ function writeCache(path: string, info: ScryfallInfo) {
 }
 
 interface ScryfallFace {
-  image_uris?: { normal?: string }
+  image_uris?: { normal?: string; small?: string }
   mana_cost?: string
   oracle_text?: string
   power?: string
@@ -110,7 +131,15 @@ interface ScryfallFace {
 }
 
 interface ScryfallCardJson extends ScryfallFace {
+  id?: string
   name?: string
+  set?: string
+  set_name?: string
+  prints_search_uri?: string
+  frame_effects?: string[]
+  border_color?: string
+  promo?: boolean
+  released_at?: string
   card_faces?: ScryfallFace[]
   prices?: { usd?: string | null; usd_foil?: string | null }
   collector_number?: string
@@ -148,8 +177,100 @@ function parse(json: ScryfallCardJson): ScryfallInfo {
     toughness: json.toughness ?? front?.toughness,
     rarity,
     artist: json.artist,
+    printsSearchUri: json.prints_search_uri,
     fetchedAt: Date.now(),
   }
+}
+
+function parsePrinting(json: ScryfallCardJson): Printing | null {
+  if (!json.id || !json.set || !json.collector_number) return null
+  const front = json.card_faces?.[0]
+  const toNumber = (v: string | null | undefined) => (v ? Number(v) : undefined)
+  return {
+    id: json.id,
+    set: json.set.toUpperCase(),
+    setName: json.set_name ?? json.set.toUpperCase(),
+    collectorNumber: json.collector_number,
+    image: json.image_uris?.small ?? front?.image_uris?.small,
+    imageLarge: json.image_uris?.normal ?? front?.image_uris?.normal,
+    usd: toNumber(json.prices?.usd),
+    usdFoil: toNumber(json.prices?.usd_foil),
+    frameEffects: json.frame_effects ?? [],
+    borderColor: json.border_color,
+    promo: json.promo ?? false,
+    releasedAt: json.released_at,
+  }
+}
+
+interface PrintingsCache {
+  printings: Printing[]
+  fetchedAt: number
+}
+
+const printingsMemory = new Map<string, Promise<Printing[]>>()
+
+/** The search listing every printing: Scryfall's own URL when known, else an exact-name search. */
+function printsUri(card: Card, info: ScryfallInfo | null | undefined): string {
+  if (info?.printsSearchUri) return info.printsSearchUri
+  const front = card.name.split(' // ')[0].trim()
+  const q = encodeURIComponent(`!"${front}"`)
+  return `https://api.scryfall.com/cards/search?q=${q}&unique=prints&order=released`
+}
+
+/** Every printing of the card (up to two pages, 350 printings), newest first. Empty when unavailable. */
+export function fetchPrintings(card: Card, info: ScryfallInfo | null | undefined): Promise<Printing[]> {
+  if (isOffline()) return Promise.resolve([])
+  const uri = printsUri(card, info)
+  const key = `binder-mtg:scryfall-prints:${uri}`
+  try {
+    const raw = localStorage.getItem(key)
+    if (raw) {
+      const cached = JSON.parse(raw) as PrintingsCache
+      if (Date.now() - cached.fetchedAt < TTL_MS) return Promise.resolve(cached.printings)
+    }
+  } catch {
+    // No cache: fetch below.
+  }
+  const pending = printingsMemory.get(uri)
+  if (pending) return pending
+  const promise = enqueue(async () => {
+    const printings: Printing[] = []
+    let next: string | undefined = uri
+    for (let page = 0; next && page < 2; page++) {
+      try {
+        const res = await fetch(next, { headers: { Accept: 'application/json' } })
+        if (!res.ok) break
+        const json = (await res.json()) as { data?: ScryfallCardJson[]; has_more?: boolean; next_page?: string }
+        for (const item of json.data ?? []) {
+          const p = parsePrinting(item)
+          if (p) printings.push(p)
+        }
+        next = json.has_more ? json.next_page : undefined
+        if (next) await new Promise((r) => setTimeout(r, GAP_MS))
+      } catch {
+        break
+      }
+    }
+    try {
+      localStorage.setItem(key, JSON.stringify({ printings, fetchedAt: Date.now() } satisfies PrintingsCache))
+    } catch {
+      // No storage: the in-memory cache still covers this page load.
+    }
+    return printings
+  })
+  printingsMemory.set(uri, promise)
+  return promise
+}
+
+/** Short label for how a printing differs from the regular version. */
+export function printingVersion(p: Printing): string | undefined {
+  const parts: string[] = []
+  if (p.borderColor === 'borderless') parts.push('Borderless')
+  if (p.frameEffects.includes('showcase')) parts.push('Showcase')
+  if (p.frameEffects.includes('extendedart')) parts.push('Extended art')
+  if (p.frameEffects.includes('etched')) parts.push('Etched')
+  if (p.promo) parts.push('Promo')
+  return parts.length > 0 ? parts.join(' · ') : undefined
 }
 
 /** The card with every field it lacks filled in from Scryfall, when that data is available. */
