@@ -22,7 +22,7 @@ The app can run from the JSON files in `src/data` alone, or from Cloud Firestore
 3. Paste `firestore.rules` into Firestore → Rules, replacing the email with the Google account that may edit. Anyone can read; only that account can write.
 4. Open the site, sign in with that account and press **Import bundled data**: the JSON files are copied into the `cards`, `pickups` and `stores` collections once.
 
-With Firebase configured the site opens on a Google sign-in screen; visitors who do not sign in can only browse **Cards to trade** (`#/trade`). Signed in as an editor you can add cards from the Binder toolbar, edit or remove a card from its detail, and change an order's status and paid flag. Decks are stored in Firestore too. Without a Firebase config, decks and order flags stay in the browser's `localStorage` as before. `VITE_EDITOR_EMAILS` (optional, comma-separated) limits which signed-in accounts see the edit controls; the rules still decide what is written.
+With Firebase configured the site opens on a Google sign-in screen; visitors who do not sign in can only browse **Cards to trade** (`#/trade`). Signed in as an editor you can add cards from the Binder toolbar, edit or remove a card from its detail, and change an order's status and paid flag. Decks are stored in Firestore too. Without a Firebase config, decks and order flags stay in the browser's `localStorage` as before. `VITE_EDITOR_EMAILS` (comma-separated) is the list of Google accounts allowed to sign in: any other account is signed back out and can only browse the cards to trade. Leave it empty to let any Google account in. The rules still decide who can write.
 
 ## Running it
 

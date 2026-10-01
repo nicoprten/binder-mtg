@@ -3,7 +3,7 @@ import { useData } from '../data'
 
 /** First screen for visitors: sign in with Google, or browse the cards to trade. */
 export function Landing() {
-  const { signIn } = useData()
+  const { signIn, authError } = useData()
   const [busy, setBusy] = useState(false)
   const [failed, setFailed] = useState(false)
 
@@ -33,7 +33,8 @@ export function Landing() {
           </svg>
           {busy ? 'Signing in…' : 'Sign in with Google'}
         </button>
-        {failed && <p className="landing-error">Sign-in did not complete. Try again.</p>}
+        {authError && <p className="landing-error">{authError}</p>}
+        {failed && !authError && <p className="landing-error">Sign-in did not complete. Try again.</p>}
         <p className="landing-alt">
           Not you? <a href="#/trade">Browse the cards to trade</a>
         </p>
