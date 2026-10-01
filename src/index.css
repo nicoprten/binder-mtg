@@ -506,6 +506,8 @@ main {
 .card-detail-body {
   overflow-y: auto;
   min-width: 0;
+  /* Capped on its own, so a long body (the edit form) scrolls instead of stretching the modal. */
+  max-height: calc(100vh - 2rem);
 }
 
 .card-placeholder {
@@ -1998,6 +2000,7 @@ main {
 
   .card-detail-body {
     overflow: visible;
+    max-height: none;
   }
 
   .decks,
