@@ -31,7 +31,7 @@ export function valuesFromCard(card?: Card): CardFormValues {
 
 /**
  * Turns form values into the fields they control on a card; `base` keeps everything else.
- * With `printing: false` the set, collector number and frame are left as they are on `base`
+ * With `printing: false` the name, set, collector number and frame are left as they are on `base`
  * (the edit form picks the printing from the Scryfall strip instead).
  */
 export function applyValues(base: Partial<Card>, v: CardFormValues, opts: { printing?: boolean } = {}): Omit<Card, 'id'> {
@@ -40,14 +40,18 @@ export function applyValues(base: Partial<Card>, v: CardFormValues, opts: { prin
     .split(',')
     .map((t) => t.trim())
     .filter(Boolean)
-  const printing =
+  const identity =
     opts.printing === false
-      ? { set: base.set ?? '', collectorNumber: base.collectorNumber, frame: base.frame }
-      : { set: v.set.trim().toUpperCase(), collectorNumber: v.collectorNumber.trim() || undefined, frame: v.frame || undefined }
+      ? { name: base.name ?? v.name.trim(), set: base.set ?? '', collectorNumber: base.collectorNumber, frame: base.frame }
+      : {
+          name: v.name.trim(),
+          set: v.set.trim().toUpperCase(),
+          collectorNumber: v.collectorNumber.trim() || undefined,
+          frame: v.frame || undefined,
+        }
   return {
     ...base,
-    name: v.name.trim(),
-    ...printing,
+    ...identity,
     status: v.status,
     finish: v.finish,
     language: v.language,

@@ -6,7 +6,7 @@ import { FINISH_OPTIONS, FRAME_OPTIONS, LANGUAGE_OPTIONS } from '../options'
 
 interface Props {
   initial?: Card
-  /** Show the set, collector number and frame inputs (off when the printing is picked elsewhere). */
+  /** Show the name, set, collector number and frame inputs (off when editing: the printing is picked from the strip). */
   printingFields?: boolean
   submitLabel: string
   onSubmit: (values: CardFormValues) => Promise<void>
@@ -33,10 +33,12 @@ export function CardForm({ initial, printingFields = true, submitLabel, onSubmit
 
   return (
     <form className="card-form" onSubmit={submit}>
-      <label className="span-2">
-        Name
-        <input value={v.name} onChange={(e) => set('name', e.target.value)} required autoFocus={!initial} />
-      </label>
+      {printingFields && (
+        <label className="span-2">
+          Name
+          <input value={v.name} onChange={(e) => set('name', e.target.value)} required autoFocus={!initial} />
+        </label>
+      )}
       {printingFields && (
         <>
           <label>
