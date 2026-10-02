@@ -10,6 +10,7 @@ import { CardRow } from "./CardRow";
 import { CardModal } from "./CardModal";
 import type { ViewMode } from "../urlState";
 import { ViewToggle } from "./ViewToggle";
+import { PickupForm } from "./PickupForm";
 
 const ARS_PER_USD = 1600;
 const ars = new Intl.NumberFormat("es-AR", {
@@ -50,7 +51,10 @@ function formatDate(iso: string) {
 
 /** Purchases waiting to be collected, with totals in ARS and USD. */
 export function Pickups() {
-  const { cards, pickups, updatePickup, source, isEditor } = useData();
+  const { cards, pickups, updatePickup, savePickup, deletePickup, source, isEditor } = useData();
+  const [adding, setAdding] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
   // In local mode anyone can flip the flags (they stay in this browser); on Firestore only editors can.
   const canEdit = source === "local" || isEditor;
   const [view, setView] = useState<ViewMode>(loadView);
@@ -89,7 +93,8 @@ export function Pickups() {
     const items = o.cardIds
       .map((id) => byId.get(id))
       .filter((c) => c !== undefined);
-    const usd = items.reduce((n, c) => n + (c.priceUsd ?? 0) * c.quantity, 0);
+    // A total in USD from the store wins over the sum of the cards' prices.
+    const usd = o.totalUsd ?? items.reduce((n, c) => n + (c.priceUsd ?? 0) * c.quantity, 0);
     return { ...o, items, usd };
   });
   // Cancelled orders stay listed but do not count towards the totals.
@@ -118,8 +123,41 @@ export function Pickups() {
         </div>
         <ViewToggle view={view} onChange={changeView} />
       </header>
+      {isEditor &&
+        (adding ? (
+          <div className="add-card-panel pickup-new">
+            <h3>New order</h3>
+            <PickupForm
+              submitLabel="Add order"
+              onCancel={() => setAdding(false)}
+              onSubmit={async (fields) => {
+                const id = `order-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
+                await savePickup({ ...fields, id });
+                setAdding(false);
+              }}
+            />
+          </div>
+        ) : (
+          <button type="button" className="add-card-button" onClick={() => setAdding(true)}>
+            + New order
+          </button>
+        ))}
       <ul className="pickup-list">
-        {rows.map((r) => (
+        {rows.map((r) =>
+          editingId === r.id ? (
+            <li key={r.id} className="pickup">
+              <h3 className="pickup-edit-title">Edit order</h3>
+              <PickupForm
+                initial={r}
+                submitLabel="Save"
+                onCancel={() => setEditingId(null)}
+                onSubmit={async (fields) => {
+                  await savePickup({ ...fields, id: r.id });
+                  setEditingId(null);
+                }}
+              />
+            </li>
+          ) : (
           <li
             key={r.id}
             className={`pickup status-${r.status}${r.paid ? " paid" : ""}${collapsed.has(r.id) ? " collapsed" : ""}`}
@@ -189,6 +227,34 @@ export function Pickups() {
                   />
                   {r.paid ? "Paid" : "Unpaid"}
                 </label>
+                {isEditor &&
+                  (deletingId === r.id ? (
+                    <span className="confirm-delete">
+                      <span>Delete order?</span>
+                      <button
+                        type="button"
+                        className="danger"
+                        onClick={async () => {
+                          await deletePickup(r.id);
+                          setDeletingId(null);
+                        }}
+                      >
+                        Yes, delete
+                      </button>
+                      <button type="button" onClick={() => setDeletingId(null)}>
+                        Cancel
+                      </button>
+                    </span>
+                  ) : (
+                    <>
+                      <button type="button" className="pickup-edit" onClick={() => setEditingId(r.id)}>
+                        Edit
+                      </button>
+                      <button type="button" className="pickup-edit danger" onClick={() => setDeletingId(r.id)}>
+                        Delete
+                      </button>
+                    </>
+                  ))}
               </div>
             </div>
             {!collapsed.has(r.id) && (
@@ -226,7 +292,8 @@ export function Pickups() {
               </>
             )}
           </li>
-        ))}
+          ),
+        )}
       </ul>
       {selected && (
         <CardModal card={selected} onClose={() => setSelected(null)} />

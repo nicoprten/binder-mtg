@@ -100,6 +100,8 @@ export interface Pickup {
   status: PickupStatus
   /** Total charged in Argentine pesos, when known. */
   totalArs: number | null
+  /** Total charged in US dollars, when the store priced it that way; otherwise the cards' prices are summed. */
+  totalUsd?: number | null
   note?: string
   /** Ids of the binder cards in this order. */
   cardIds: string[]
