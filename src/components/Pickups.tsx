@@ -246,14 +246,14 @@ export function Pickups() {
                       </button>
                     </span>
                   ) : (
-                    <>
+                    <span className="pickup-actions">
                       <button type="button" className="pickup-edit" onClick={() => setEditingId(r.id)}>
                         Edit
                       </button>
                       <button type="button" className="pickup-edit danger" onClick={() => setDeletingId(r.id)}>
                         Delete
                       </button>
-                    </>
+                    </span>
                   ))}
               </div>
             </div>

@@ -1045,6 +1045,11 @@ main {
   font-size: 0.85rem;
 }
 
+.pickup-actions {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
 .pickup-form-paid {
   flex-direction: row !important;
   align-items: center;
@@ -1834,12 +1839,34 @@ main {
     flex: 1 1 0;
   }
 
-  /* The status and paid controls drop to their own row under the summary. */
+  /* The status and paid controls drop to their own row under the summary, wrapping as needed. */
   .pickup-controls {
     flex: 1 0 100%;
+    flex-wrap: wrap;
     justify-content: flex-start;
     margin-top: 0.5rem;
-    padding-left: 2.35rem;
+    padding-left: 0;
+  }
+
+  .pickup-controls .pickup-status {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .pickup-controls .pickup-status select {
+    width: 100%;
+  }
+
+  .pickup-controls .pickup-actions,
+  .pickup-controls .confirm-delete {
+    flex: 1 0 100%;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .pickups-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
   .pickup-controls .pickup-status select {
