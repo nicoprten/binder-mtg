@@ -133,9 +133,38 @@ export function DataProvider({ children }: { children: ReactNode }) {
   )
   const deleteCard = useCallback((id: string) => run(() => deleteDoc(doc(getDb(), 'cards', id))), [run])
 
+  /**
+   * Writes an order and keeps its cards in step with the status: collecting the order
+   * turns its "to pick up" cards into owned ones, and undoing that sends them back.
+   */
+  const writePickup = useCallback(
+    (next: Pickup, previous: Pickup | undefined) =>
+      run(async () => {
+        const db = getDb()
+        const batch = writeBatch(db)
+        batch.set(doc(db, 'pickups', next.id), stripUndefined(next))
+        const wasPicked = previous?.status === 'picked-up'
+        const isPicked = next.status === 'picked-up'
+        if (wasPicked !== isPicked) {
+          const from = isPicked ? 'to-pick-up' : 'owned'
+          const to = isPicked ? 'owned' : 'to-pick-up'
+          for (const id of next.cardIds) {
+            const card = cards.find((c) => c.id === id)
+            if (card && card.status === from) batch.set(doc(db, 'cards', id), stripUndefined({ ...card, status: to }))
+          }
+        }
+        await batch.commit()
+      }),
+    [run, cards],
+  )
+
   const savePickup = useCallback(
-    (pickup: Pickup) => run(() => setDoc(doc(getDb(), 'pickups', pickup.id), stripUndefined(pickup))),
-    [run],
+    (pickup: Pickup) =>
+      writePickup(
+        pickup,
+        pickups.find((p) => p.id === pickup.id),
+      ),
+    [writePickup, pickups],
   )
   const deletePickup = useCallback((id: string) => run(() => deleteDoc(doc(getDb(), 'pickups', id))), [run])
 
@@ -145,7 +174,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         // Write the whole order, so one that is not in Firestore yet is created complete, not as a fragment.
         const current = pickups.find((p) => p.id === id)
         if (!current) return
-        await run(() => setDoc(doc(getDb(), 'pickups', id), stripUndefined({ ...current, ...patch })))
+        await writePickup({ ...current, ...patch }, current)
         return
       }
       setPickupEdits((prev) => {
@@ -154,7 +183,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         return next
       })
     },
-    [useRemote, pickups, run],
+    [useRemote, pickups, writePickup],
   )
 
   const saveStore = useCallback(
